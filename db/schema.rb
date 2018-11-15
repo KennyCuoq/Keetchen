@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2018_11_15_052912) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "meal_id"
+    t.bigint "meal_date_id"
     t.bigint "user_id"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_reviews_on_meal_id"
+    t.index ["meal_date_id"], name: "index_reviews_on_meal_date_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -93,6 +93,6 @@ ActiveRecord::Schema.define(version: 2018_11_15_052912) do
   add_foreign_key "meal_dates", "meals"
   add_foreign_key "orders", "meal_dates"
   add_foreign_key "orders", "users"
-  add_foreign_key "reviews", "meals"
+  add_foreign_key "reviews", "meal_dates"
   add_foreign_key "reviews", "users"
 end
