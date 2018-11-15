@@ -2,6 +2,7 @@
   "name": "Keetchen",
   "private": true,
   "dependencies": {
+    "@material/card": "^0.41.1",
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
     "jquery": "^3.3.1"

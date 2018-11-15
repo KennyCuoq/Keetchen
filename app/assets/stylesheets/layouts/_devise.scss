@@ -1,0 +1,48 @@
+.login-form{
+  margin-bottom: 200px;
+}
+
+
+.login-form h2 {
+    text-align: center;
+}
+
+.links{
+ text-align: center;
+ text-decoration: none;
+}
+
+
+.form-actions{
+ text-align: center;
+ margin-bottom: 30px;
+}
+
+
+
+.btn-red{
+  background-color:$red;
+  &:hover{
+    color:white;
+    opacity: 0.8;
+  }
+}
+
+.form-check-label{
+margin-left: 10px;
+}
+
+.form-text{
+  color:#5E5E5F;
+}
+
+
+.form-actions .btn{
+    background-color:$red;
+  color:white;
+  &:hover{
+    color:white;
+    opacity: 0.8;
+  }
+
+}
