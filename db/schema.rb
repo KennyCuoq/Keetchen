@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_031130) do
+ActiveRecord::Schema.define(version: 2018_11_15_052912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
     t.string "name"
     t.text "description"
     t.string "photo"
-    t.integer "day_price", default: 5
-    t.integer "pre_order_price", default: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pre_order_price_cents", default: 0, null: false
+    t.integer "day_price_cents", default: 0, null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
     t.integer "quantity", default: 1
     t.string "qr_code"
     t.boolean "pre_order", default: false
-    t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_price_cents", default: 0, null: false
     t.index ["meal_date_id"], name: "index_orders_on_meal_date_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

@@ -8,4 +8,6 @@ class Meal < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :photo, presence: true
+  monetize :day_price_cents
+  monetize :pre_order_price_cents
 end
