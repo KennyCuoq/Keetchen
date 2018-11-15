@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_one :customer, dependent: :destroy
   has_one :employee, dependent: :destroy
   validates :first_name, :last_name, :email, presence: true
+
 end
