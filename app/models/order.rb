@@ -3,5 +3,5 @@ class Order < ApplicationRecord
   belongs_to :user
   validates :user_id, :meal_date_id, :pre_order, presence: true
   validates :qr_code, uniqueness: true
-  monetize :price_cents
+  monetize :order_price_cents
 end
