@@ -4,8 +4,8 @@ class CreateMeals < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.string :photo
-      t.integer :day_price
-      t.integer :pre_order_price
+      t.integer :day_price, :default => 5
+      t.integer :pre_order_price, :default => 4.5
 
       t.timestamps
     end
