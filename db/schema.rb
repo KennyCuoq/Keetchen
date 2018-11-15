@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_052912) do
     t.string "name"
     t.text "description"
     t.string "photo"
+    t.integer "day_price", default: 5
+    t.integer "pre_order_price", default: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "pre_order_price_cents", default: 0, null: false
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_052912) do
     t.integer "quantity", default: 1
     t.string "qr_code"
     t.boolean "pre_order", default: false
+    t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_price_cents", default: 0, null: false
