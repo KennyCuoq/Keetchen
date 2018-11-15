@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :customers, except: [ :new, :index ]do
     collection do
     # Route to show customer's order history (where they can review)
-      get 'my_orders' to: "customers#my_orders"
+      get 'my_orders', to: "customers#my_orders"
     end
   end
   resources :employees, except: [ :new, :edit ]
