@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_031130) do
+ActiveRecord::Schema.define(version: 2018_11_15_045005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
 
   create_table "employees", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.integer "inventory"
     t.string "location"
     t.datetime "created_at", null: false
@@ -44,19 +44,19 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
     t.string "name"
     t.text "description"
     t.string "photo"
-    t.integer "day_price"
-    t.integer "pre_order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pre_order_price_cents", default: 0, null: false
+    t.integer "day_price_cents", default: 0, null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "meal_date_id"
     t.bigint "user_id"
-    t.string "status"
-    t.integer "quantity"
+    t.string "status", default: "Pending"
+    t.integer "quantity", default: 1
     t.string "qr_code"
-    t.boolean "pre_order"
+    t.boolean "pre_order", default: false
     t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
