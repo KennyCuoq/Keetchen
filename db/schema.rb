@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_095059) do
+ActiveRecord::Schema.define(version: 2018_11_15_023927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_095059) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
-  create_table "days", force: :cascade do |t|
-    t.date "date"
-    t.bigint "meal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_days_on_meal_id"
-  end
-
   create_table "employees", force: :cascade do |t|
     t.bigint "user_id"
     t.boolean "admin"
@@ -38,6 +30,14 @@ ActiveRecord::Schema.define(version: 2018_11_14_095059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "meal_dates", force: :cascade do |t|
+    t.date "date"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_dates_on_meal_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_095059) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "day_id"
+    t.bigint "meal_date_id"
     t.bigint "user_id"
     t.string "status"
     t.integer "quantity"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_095059) do
     t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["day_id"], name: "index_orders_on_day_id"
+    t.index ["meal_date_id"], name: "index_orders_on_meal_date_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(version: 2018_11_14_095059) do
   end
 
   add_foreign_key "customers", "users"
-  add_foreign_key "days", "meals"
   add_foreign_key "employees", "users"
-  add_foreign_key "orders", "days"
+  add_foreign_key "meal_dates", "meals"
+  add_foreign_key "orders", "meal_dates"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "meals"
   add_foreign_key "reviews", "users"
