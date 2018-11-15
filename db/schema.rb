@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
 
   create_table "employees", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.integer "inventory"
     t.string "location"
     t.datetime "created_at", null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
     t.string "name"
     t.text "description"
     t.string "photo"
-    t.integer "day_price"
-    t.integer "pre_order_price"
+    t.integer "day_price", default: 5
+    t.integer "pre_order_price", default: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
   create_table "orders", force: :cascade do |t|
     t.bigint "meal_date_id"
     t.bigint "user_id"
-    t.string "status"
-    t.integer "quantity"
+    t.string "status", default: "Pending"
+    t.integer "quantity", default: 1
     t.string "qr_code"
-    t.boolean "pre_order"
+    t.boolean "pre_order", default: false
     t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "meal_id"
+    t.bigint "meal_date_id"
     t.bigint "user_id"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_reviews_on_meal_id"
+    t.index ["meal_date_id"], name: "index_reviews_on_meal_date_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -93,6 +93,6 @@ ActiveRecord::Schema.define(version: 2018_11_15_031130) do
   add_foreign_key "meal_dates", "meals"
   add_foreign_key "orders", "meal_dates"
   add_foreign_key "orders", "users"
-  add_foreign_key "reviews", "meals"
+  add_foreign_key "reviews", "meal_dates"
   add_foreign_key "reviews", "users"
 end
