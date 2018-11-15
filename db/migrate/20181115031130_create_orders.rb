@@ -7,7 +7,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer :quantity, default: 1
       t.string :qr_code
       t.boolean :pre_order, default: false
-      t.integer :order_price
 
       t.timestamps
     end
