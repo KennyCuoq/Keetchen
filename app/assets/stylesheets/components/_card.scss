@@ -7,9 +7,30 @@
   position: relative;
   border-radius: 5px;
   box-shadow: 5px 5px 8px #888888;
-  margin-top: 30px;
   margin-left: 10px;
 }
+
+#meal-cards{
+  display:flex;
+  align-items: center;
+}
+
+.card-today {
+  height: 220px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 5px 5px 8px #888888;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+
+
 .card-user {
   position: absolute;
   right: 10px;
