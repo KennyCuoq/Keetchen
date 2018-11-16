@@ -1,3 +1,48 @@
-// .meal-card {
-//   display: flex;
-// }
+.meal-card-photo-div-wrapper {
+  height: 50vh;
+  background: white;
+}
+
+.meal-card-photo-div {
+  height: 45vh;
+  position: relative;
+}
+
+.meal-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meal-card-btn {
+  position: absolute;
+  bottom: -27px;
+  right: 50%;
+  margin-right: -67px;
+}
+
+.meal-card-description {
+  margin-top: 12px;
+  padding: 3px 12px;
+  h3 {
+    margin: 0px 0px;
+    font-size: 5vw;
+  }
+  p {
+    text-align: justify;
+    margin-top: 12px;
+  }
+}
+
+.meal-name-price-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 500px) {
+  .meal-card-description {
+    h3 {
+     font-size: 25px;
+    }
+  }
+}

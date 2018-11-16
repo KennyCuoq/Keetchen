@@ -1,0 +1,21 @@
+.btn-red{
+  background-color:$red;
+  &:hover{
+    color:white;
+    opacity: 0.8;
+  }
+}
+
+.btn-grab {
+  background: $red;
+  color:white;
+  // width: 136px;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background: $dark-red;
+  }
+}
