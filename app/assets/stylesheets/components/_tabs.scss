@@ -1,0 +1,40 @@
+.tabs {
+  // background: $light-gray;
+  display: flex;
+  // padding: 10px 10px 0 10px;
+  margin: 0px 0px;
+}
+
+.tab {
+  flex: 1 1 20%;
+  background: white;
+  text-align: center;
+  padding: 10px 0;
+}
+.tabs a {
+  text-decoration: none;
+}
+
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.tabs h3 {
+  font-size: 17px;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+
+.tab:first-child {
+  border-radius: 5px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 5px 0 0;
+}
