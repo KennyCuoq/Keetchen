@@ -1,0 +1,5 @@
+<h1>Order completion</h1>
+      <%= simple_form_for([@meal_date, @order]) do |f| %>
+        <%= f.input :quantity, label: false, placeholder: "quantity" %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
