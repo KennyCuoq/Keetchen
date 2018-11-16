@@ -6,6 +6,9 @@
   color: white;
   position: relative;
   border-radius: 5px;
+  box-shadow: 5px 5px 8px #888888;
+  margin-top: 30px;
+  margin-left: 10px;
 }
 .card-user {
   position: absolute;
@@ -25,6 +28,12 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+    & h2{
+      color:white;
+    }
+    & p{
+      color:white;
+    }
 }
 .card-description h2 {
   font-size: 24px;
@@ -43,7 +52,17 @@
   z-index: 2;
   background: black;
   opacity: 0;
+
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card-stars{
+position: absolute;
+bottom: 10px;
+right: 10px;
+  & .checked{
+    color:#FFCE44;
+  }
 }
