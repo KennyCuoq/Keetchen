@@ -1,10 +1,33 @@
-<h1>Confirm your order</h1>
-
-<%= @order.pre_order %>
-
 <div class="container">
-  <%= simple_form_for([@meal_date, @order]) do |f| %>
-    <%= f.input :quantity, label: false, placeholder: "quantity" %>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+  <div class="row">
+    <div class="col-sm-10 col-lg-offset-3 col-lg-6" id="order-new">
+
+      <h3>Confirm your order</h3>
+      <%= @meal.name %>
+        <div class='order-photo-container'>
+        <div id='order-photo' style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= image_path @meal.photo %>");'>
+        </div>
+        </div>
+
+       <%= @meal.description %>
+      <br>
+      <br>
+
+      <% if @order.pre_order %>
+      <p><%= "Price: 5$" %> </p>
+      <% else %>
+       <p><%= "(pre-order) Price: 4.5$"%></p>
+      <% end %>
+
+      <div class="col-sm-1 col-lg-offset-3 col-lg-6" id="order-input">
+        <%= simple_form_for([@meal_date, @order]) do |f| %>
+        <%= f.input :quantity, label: false, placeholder: "quantity" %>
+        <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
