@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :qr_codes, only: [:new, :create]
   devise_for :users
 
   resources :customers, except: [ :new, :index ]do
