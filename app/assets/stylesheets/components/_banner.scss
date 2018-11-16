@@ -24,12 +24,13 @@
 }
 
 .banner-bottom{
+  position: relative;
   color: white;
   text-align: center;
   height: 50vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: contain,cover !important;
-      background-repeat: no-repeat;
+  background-repeat: no-repeat;
 
   display: flex;
   align-items: center;
@@ -39,4 +40,15 @@
 
 #banner-btn{
   border-radius: 13px;
-box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)}
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+}
+
+#btn-bottom{
+  border-radius: 10px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  text-decoration:none;
+  &:hover{
+    cursor:pointer;
+  }
+}
+

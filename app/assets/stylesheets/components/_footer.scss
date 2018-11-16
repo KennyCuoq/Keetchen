@@ -9,10 +9,51 @@
   margin-top:20px;
 
 }
+
+.footer-transparent {
+  opacity: 1; // Leave this as 1
+  background-color: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  z-index:5;
+}
+
+
 .footer-links {
   display: flex;
   align-items: center;
 }
+
+.footer-links-index{
+  position: absolute;
+  left:15px;
+  bottom: 10px;
+  & a {
+     color: white;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+  }
+  & a:hover{
+    color:$light-red;
+  }
+}
+
+.footer-copyright-index {
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+  & p {
+    color:white;
+  }
+}
+
+
+
 .footer-links a {
   color: $light-red;
   opacity: 0.15;
