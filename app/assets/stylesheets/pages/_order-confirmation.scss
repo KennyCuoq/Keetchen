@@ -2,9 +2,20 @@
 text-align:center;
 padding-top: 20px;
 justify-content:space-around;
+  & p{
+    color:$gray;
+  }
+  & h3{
+    color:$red;
+  }
+}
+
+#price p {
+  color:$black;
 }
 
 .order-photo-container {
+
 }
 
 #order-photo{
@@ -13,7 +24,7 @@ justify-content:space-around;
   // max-width:90%;
   // height: 100%;
 
-  // width: auto;
+  width: auto;
   background-position: center;
   background-size: cover;
 
@@ -28,4 +39,8 @@ justify-content:space-around;
   text-align: center;
   justify-content:space-around;
 
+}
+
+#description{
+  padding: 10px 45px;
 }
