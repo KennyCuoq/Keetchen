@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
   before_action :determine_variables, only: [:new, :create]
 
@@ -6,6 +7,8 @@ class OrdersController < ApplicationController
    end
 
    def show
+
+
    end
 
    def new

@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'money-rails'
 gem 'stripe'
+gem 'rqrcode-with-patches', '~> 0.5.4'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
