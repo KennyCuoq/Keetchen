@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :determine_variables, only: [:new, :create]
+
    def index
 
    end
@@ -7,20 +9,20 @@ class OrdersController < ApplicationController
    end
 
    def new
-    @meal_date = MealDate.find(params[:meal_date_id])
     @order = Order.new()
+    @order.pre_order = set_pre_order(@meal_date)
+    @order.order_price_cents = set_order_price(@meal_date, @meal)
 
    end
 
    def create
-    @meal_date = MealDate.find(params[:meal_date_id])
     @order = Order.new(order_params)
     @order.user = current_user
-    @meal = @meal_date.meal
     @order.meal_date = @meal_date
     @order.pre_order = set_pre_order(@meal_date)
     @order.order_price_cents = set_order_price(@meal_date, @meal)
     @order.save
+    redirect_to meal_date_order_path(@meal_date, @order)
    end
 
    def update
@@ -38,6 +40,11 @@ class OrdersController < ApplicationController
 
   def set_order_price(meal_date, meal)
     set_pre_order(meal_date) ? meal.pre_order_price_cents : meal.day_price_cents
+  end
+
+  def determine_variables
+    @meal_date = MealDate.find(params[:meal_date_id])
+    @meal = @meal_date.meal
   end
 
 end
