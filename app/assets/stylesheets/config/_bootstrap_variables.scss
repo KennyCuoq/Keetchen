@@ -36,7 +36,7 @@ $border-radius-small: 2px;
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: #fA0033x;
+  border-color: red;
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
