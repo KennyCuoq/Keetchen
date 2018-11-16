@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
    def show
     @order = Order.find(params[:id])
     text = @order.qr_code
-    @qr = RQRCode::QRCode.new('this is text', size: 4)
+    @qr = RQRCode::QRCode.new(text, size: 4)
    end
 
    def new
@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @order.meal_date = @meal_date
     @order.pre_order = set_pre_order(@meal_date)
     @order.order_price_cents = set_order_price(@meal_date, @meal)
-    @order.qr_code = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    @order.qr_code = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
     @order.save
     redirect_to meal_date_order_path(@meal_date, @order)
    end
