@@ -1,0 +1,39 @@
+.container-personal-info{
+  background-color:white;
+  margin:20px;
+  margin-left: 0px;
+  border-radius: 5px;
+  padding:10px;
+  font-size: 18px;
+
+  & h3{
+    font-size: 25px;
+  }
+
+  & p {
+    font-size: 14px;
+  }
+}
+
+.container-personal-password{
+  background-color:white;
+  margin:20px;
+  margin-left: 0px;
+  border-radius: 5px;
+  padding:10px;
+  font-size: 18px;
+  & p {
+    font-size: 14px;
+  }
+  & h3{
+    font-size: 25px;
+  }
+}
+
+#customer-id{
+  color:$gray;
+}
+
+#customer-show-title{
+  color:$red;
+}
