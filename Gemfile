@@ -20,9 +20,7 @@ gem 'money-rails'
 gem 'stripe'
 gem 'rqrcode-with-patches', '~> 0.5.4'
 gem 'chunky_png'
-gem 'av_capture'
 gem 'qrio'
-gem 'av_capture'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

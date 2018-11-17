@@ -7,13 +7,13 @@ Rails.application.routes.draw do
       get 'my_orders', to: "customers#my_orders"
     end
   end
-  resources :employees, except: [ :new, :edit ]
-
+  resources :employees, except: [ :new, :edit, :show ]
   resources :reviews, only: [ :create ]
   resources :meals, except: [ :show, :delete ]
   resources :meal_dates, except: [ :show, :delete ] do
     resources :orders, only: [ :index, :show, :create, :update, :new]
   end
+
   root to: 'pages#home'
 end
 
