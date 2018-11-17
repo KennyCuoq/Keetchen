@@ -44,8 +44,8 @@ class OrdersController < ApplicationController
     @order.order_price_cents = set_order_price(@meal_date, @meal)
     @order.qr_code = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
     @order.save
-    # redirect_to meal_date_order_path(@meal_date, @order)
-    redirect_to meal_dates_path
+    redirect_to meal_date_order_path(@meal_date, @order)
+    # redirect_to meal_dates_path
    end
 
    def update
