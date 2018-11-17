@@ -62,18 +62,18 @@ end
 p users
 p meal_dates
 # creation of orders
-users.each do |user|
-  meal_dates.each do |meal_date|
-    if meal_date.date == Date.today
-      order_price = 500
-      pre = false
-    else
-      order_price = 450
-      pre = true
-    end
-    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre)
-  end
-end
+# users.each do |user|
+#   meal_dates.each do |meal_date|
+#     if meal_date.date == Date.today
+#       order_price = 500
+#       pre = false
+#     else
+#       order_price = 450
+#       pre = true
+#     end
+#     Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre)
+#   end
+# end
 
 #creation of customer profiles
 Customer.destroy_all

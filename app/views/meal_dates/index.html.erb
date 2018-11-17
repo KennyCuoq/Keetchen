@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="tabs-wrapper" style="background: white">
+  <div class="tabs-wrapper">
   <div class="tabs">
     <% count = 1 %>
     <% @meal_dates.each do |meal_date| %>
       <% date = meal_date.date %>
-      <a class="tab <%= 'active' if date == Date.today %>" data-target="day<%= count %>">
+      <a class="date-tab tab <%= 'active' if date == Date.today %>" data-target="day<%= count %>">
       <h3><%= date.strftime('%a') %></h3>
       <p><%= date.strftime('%e') %></p>
       <% count+=1 %>
@@ -15,9 +15,13 @@
   <% count = 1 %>
   <% @meal_dates.each do |meal_date| %>
     <% meal = meal_date.meal %>
-    <div class="meal-card tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
+    <div class="meal-card date-tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
       <% count+=1 %>
-      <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
+      <% if !current_user.orders.where("meal_date_id = ?", meal_date).to_a.empty? %>
+        <%= render 'meal_ordered', meal_date: meal_date, meal: meal %>
+      <% else %>
+        <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
+      <% end %>
     </div>
   <% end %>
   </div>

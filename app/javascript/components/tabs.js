@@ -8,15 +8,15 @@ function hideTabContents(contents) {
   })
 }
 
-const allContents = document.querySelectorAll('.tab-content');
+const allDateContents = document.querySelectorAll('.date-tab-content');
 
-function switchBookingTabsOnClick() {
-  const allTabs = document.querySelectorAll('.tab');
+function switchDateTabsOnClick() {
+  const allTabs = document.querySelectorAll('.date-tab');
 
   allTabs.forEach((tab) => {
    tab.addEventListener('click', (event)=> {
     deactivateTabs(allTabs)
-    hideTabContents(allContents)
+    hideTabContents(allDateContents)
     event.currentTarget.classList.add("active")
     const contentId = event.currentTarget.dataset.target.toString();
     const relevantContent = document.getElementById(contentId);
@@ -25,4 +25,24 @@ function switchBookingTabsOnClick() {
   })
 }
 
-export { switchBookingTabsOnClick };
+const allOrderContents = document.querySelectorAll('.order-tab-content');
+
+function switchOrderTabsOnClick() {
+  const allTabs = document.querySelectorAll('.order-tab');
+  allTabs.forEach((tab) => {
+   tab.addEventListener('click', (event)=> {
+    console.log("WHADDUP");
+    deactivateTabs(allTabs)
+    hideTabContents(allOrderContents)
+    event.currentTarget.classList.add("active")
+    const contentId = event.currentTarget.dataset.target.toString();
+    const relevantContent = document.getElementById(contentId);
+    relevantContent.hidden = false
+    });
+  })
+}
+
+
+
+export { switchDateTabsOnClick };
+export { switchOrderTabsOnClick };

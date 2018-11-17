@@ -19,3 +19,11 @@
     background: $dark-red;
   }
 }
+
+.btn-order-status {
+  color: $red;
+  border: 1px solid $red;
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-weight: lighter;
+}

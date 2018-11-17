@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="meal-card-photo-div">
+      <h1 class="order-tab-content" id="map">Im a map</h1>
+      <h1 class="order-tab-content" id="qr-code" hidden>Im a QR code</h1>
+      <img src="<%= meal.photo %>" class="meal-card-photo order-tab-content" id="meal" hidden>
+
+    </div>
+
+  <div class="tabs">
+    <a class="tab order-tab" data-target="map">Map</a>
+    <a class="tab order-tab" data-target="qr-code">QR code</a>
+    <a class="tab order-tab" data-target="meal">Your meal</a>
+  </div>
+
+
+
+
+
+  </div>
+  <div class="col-xs-12">
+    <div class="pick-up-instructions">
+      <p><strong>Find your closest Keetchen runner on the map and scan your QR code to collect your meal. Bon appétit!</strong></p>
+    </div>
+    <div class="meal-card-description">
+      <div class="meal-name-price-group">
+        <h3><%= meal.name %></h3>
+        <%= render 'order_confirmed' %>
+      </div>
+      <p><%= meal.description %></p>
+    </div>
+  </div>
+</div>
