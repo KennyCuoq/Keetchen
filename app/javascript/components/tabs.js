@@ -25,13 +25,13 @@ function switchDateTabsOnClick() {
   })
 }
 
-const allOrderContents = document.querySelectorAll('.order-tab-content');
 
 function switchOrderTabsOnClick() {
   const allTabs = document.querySelectorAll('.order-tab');
   allTabs.forEach((tab) => {
    tab.addEventListener('click', (event)=> {
-    console.log("WHADDUP");
+    let id = event.currentTarget.dataset.id
+    const allOrderContents = document.querySelectorAll(`.order-tab-content-${id}`);
     deactivateTabs(allTabs)
     hideTabContents(allOrderContents)
     event.currentTarget.classList.add("active")
@@ -42,7 +42,4 @@ function switchOrderTabsOnClick() {
   })
 }
 
-
-
-export { switchDateTabsOnClick };
-export { switchOrderTabsOnClick };
+export { switchDateTabsOnClick, switchOrderTabsOnClick };
