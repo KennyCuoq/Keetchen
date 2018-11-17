@@ -26,7 +26,7 @@
   padding: 3px 20px;
   min-height: 30vh;
   h3 {
-    margin: 0px 0px;
+    margin: auto 0px;
     font-size: 5vw;
   }
   p {
@@ -38,6 +38,13 @@
 .meal-name-price-group {
   display: flex;
   justify-content: space-between;
+}
+
+.pick-up-instructions {
+  line-height: 13pt;
+  padding: 3px 20px;
+  margin-bottom: -15px;
+
 }
 
 @media (min-width: 500px) {
