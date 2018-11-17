@@ -10,18 +10,18 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @text = @order.qr_code
     @qr = RQRCode::QRCode.new(@text, size: 4)
-    @png = @qr.as_png(
-          resize_gte_to: false,
-          resize_exactly_to: false,
-          fill: 'white',
-          color: 'black',
-          size: 120,
-          border_modules: 4,
-          module_px_size: 6,
-          file: 'mypicture.png'
+    # @png = @qr.as_png(
+    #       resize_gte_to: false,
+    #       resize_exactly_to: false,
+    #       fill: 'white',
+    #       color: 'black',
+    #       size: 120,
+    #       border_modules: 4,
+    #       module_px_size: 6,
+    #       file: 'mypicture.png'
           # file: '../assets/images/qrcodes/image.png'
-          )
-    @randomtext = Qrio::Qr.load('mypicture.png').qr.text
+          # )
+    # @randomtext = Qrio::Qr.load('mypicture.png').qr.text
    end
 
    def new
