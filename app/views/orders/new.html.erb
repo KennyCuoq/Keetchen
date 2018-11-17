@@ -5,7 +5,7 @@
       <h3>Confirm your order</h3>
       <h4><%= @meal.name %> </h4>
       <div class='order-photo-container'>
-        <div id='order-photo' style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= image_path @meal.photo %>");'>
+        <div id='order-photo' style='background-image: url("<%= image_path @meal.photo %>");'>
         </div>
       </div>
       <div id="description">

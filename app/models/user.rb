@@ -12,4 +12,12 @@ class User < ApplicationRecord
   has_one :employee, dependent: :destroy
   validates :first_name, :last_name, :email, presence: true
 
+  after_create :create_customer
+
+
+  def create_customer
+    @customer = Customer.new(user_id: self.id)
+    @customer.save
+  end
+
 end
