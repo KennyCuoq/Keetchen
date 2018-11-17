@@ -2,66 +2,66 @@
   <div class="banner-content">
     <h1>Keetchen</h1>
     <p>Enjoy affordable healthy lunch with friends</p>
-    <a class="btn btn-primary btn-lg btn-red" id="banner-btn">Grab Lunch</a>
+    <%= link_to("Grab Lunch", meal_dates_path , class: "btn btn-primary btn-lg btn-red", id: "banner-btn") %>
   </div>
 </div>
 
 <div class="card-container">
-<div class="container">
-  <div class="row" id="meal-cards">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/5916/food-salad-healthy-colorful.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-        <div class="card-category">Yesterday</div>
-        <div class="card-description">
-          <h2>Spinach Salad</h2>
-          <p>Spicy - Nut-free</p>
+  <div class="container">
+    <div class="row" id="meal-cards">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/5916/food-salad-healthy-colorful.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+          <div class="card-category">Yesterday</div>
+          <div class="card-description">
+            <h2>Spinach Salad</h2>
+            <p>Spicy - Nut-free</p>
+          </div>
+          <div class="card-stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <a class="card-link" href="#" ></a>
         </div>
-        <div class="card-stars">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-        </div>
-        <a class="card-link" href="#" ></a>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card-today" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-        <div class="card-category">Today</div>
-        <div class="card-description">
-          <h2>Tagliatelle al pesto</h2>
-          <p>Vegetarian - Vegan</p>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-today" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+          <div class="card-category">Today</div>
+          <div class="card-description">
+            <h2>Tagliatelle al pesto</h2>
+            <p>Vegetarian - Vegan</p>
+          </div>
+          <div class="card-stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <a class="card-link" href="#" ></a>
         </div>
-        <div class="card-stars">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-        </div>
-        <a class="card-link" href="#" ></a>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-        <div class="card-category">Tomorrow</div>
-        <div class="card-description">
-          <h2>Asian Prawn Noodle</h2>
-          <p>Spicy</p>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+          <div class="card-category">Tomorrow</div>
+          <div class="card-description">
+            <h2>Asian Prawn Noodle</h2>
+            <p>Spicy</p>
+          </div>
+          <div class="card-stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked "></span>
+          </div>
+          <a class="card-link" href="#" ></a>
         </div>
-        <div class="card-stars">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked "></span>
-        </div>
-        <a class="card-link" href="#" ></a>
       </div>
     </div>
   </div>
-</div>
 </div>
 <div id="intro-text">
   <h2>Why Keetchen?</h2>
@@ -84,15 +84,15 @@
        <p>Amet exercitation minim consectetur et eu cupidatat commodo ullamco ex amet cillum magna esse do dolore ullamco consequat nulla minim dolor nostrud ea irure ut esse incididunt fugiat quis nisi voluptate</p>
      </div>
      <div class="col-xs-12 col-sm-3">
-        <%= image_tag "variation.png",:size => "60x60" %>
-         <h3>variated</h3>
-         <p>Amet exercitation minim consectetur et eu cupidatat commodo ullamco ex amet cillum magna esse do dolore ullamco consequat nulla minim dolor nostrud ea irure ut esse incididunt fugiat quis nisi voluptate</p>
-     </div>
-   </div>
- </div>
+      <%= image_tag "variation.png",:size => "60x60" %>
+      <h3>variated</h3>
+      <p>Amet exercitation minim consectetur et eu cupidatat commodo ullamco ex amet cillum magna esse do dolore ullamco consequat nulla minim dolor nostrud ea irure ut esse incididunt fugiat quis nisi voluptate</p>
+    </div>
+  </div>
+</div>
 </div>
 <div class="banner-bottom" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.42) 50%), url('https://images.pexels.com/photos/5916/food-salad-healthy-colorful.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-    <a class="btn-primary btn-lg" id="btn-bottom">Grab Lunch</a>
+  <a class="btn-primary btn-lg" id="btn-bottom">Grab Lunch</a>
   <div class="footer-links-index">
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -102,7 +102,7 @@
   </div>
   <div class="footer-copyright-index">
    <p>Keetchen®</p>
-  </div>
+ </div>
 </div>
 </div>
 
