@@ -80,10 +80,10 @@ function launchRequest(data) {
   })
   .then((data) => {
     if (data.msg == "No record found") {
-      console.log(data.qr_code)
+      // console.log(data.qr_code)
       document.querySelector(".qr-content").innerHTML = "This QR code is not valid"
     } else {
-      console.log(data.qr_code)
+      // console.log(data.qr_code)
       document.querySelector(".qr-content").hidden = true;
       swal({
         title: "Valid!",
