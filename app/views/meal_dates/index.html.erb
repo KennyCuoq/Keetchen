@@ -1,40 +1,28 @@
 <div class="container">
+  <div class="tabs-wrapper" style="background: white">
   <div class="tabs">
-    <a class="tab active" href="#">
-      <h3>Mon</h3>
-      <p>19</p>
+    <% count = 1 %>
+    <% @meal_dates.each do |meal_date| %>
+      <% date = meal_date.date %>
+      <a class="tab <%= 'active' if date == Date.today %>" data-target="day<%= count %>">
+      <h3><%= date.strftime('%a') %></h3>
+      <p><%= date.strftime('%e') %></p>
+      <% count+=1 %>
     </a>
-    <a class="tab" href="#">
-      <h3>Tue</h3>
-      <p>20</p>
-    </a>
-    <a class="tab" href="#">
-      <h3>Wed</h3>
-      <p>21</p>
-    </a>
-    <a class="tab" href="#">
-      <h3>Thu</h3>
-      <p>22</p>
-    </a>
-    <a class="tab" href="#">
-      <h3>Fri</h3>
-      <p>23</p>
-    </a>
+    <% end %>
   </div>
-  <!-- <div class="container"> -->
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div>
-          <img src="https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_image/file/23814/recipe_card_size_6._Plate.jpg" alt="Gnocchi Plate"  style="width: 100%" class="ma-gueule">
-          <a href="#" class="btn-red">Grab lunch</a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur molestias et, eius officia suscipit dicta quia quis saepe reprehenderit. Nostrum tempora culpa rerum! Doloribus dolores doloremque autem hic inventore exercitationem quo ratione aspernatur numquam architecto pariatur non aut placeat nihil molestiae odit labore, harum odio consectetur. Facere deserunt, maiores nemo esse provident, sit consequatur nobis temporibus architecto, placeat inventore eius minus id. Fugiat dolor dignissimos labore quo perspiciatis quaerat ipsa nulla sequi maxime delectus necessitatibus id esse dolorum perferendis, sit corporis neque, reiciendis iure ab commodi ullam! Asperiores laborum ullam quae, aut minus blanditiis accusantium beatae delectus est non veniam.
-      </div>
+
+  <% count = 1 %>
+  <% @meal_dates.each do |meal_date| %>
+    <% meal = meal_date.meal %>
+    <div class="meal-card tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
+      <% count+=1 %>
+      <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
     </div>
-<!--   </div> -->
+  <% end %>
+  </div>
 </div>
+
 <!--
 <style>
   @media (max-width: 400px) {
@@ -43,3 +31,5 @@
     }
   }
 </style> -->
+
+<%= javascript_pack_tag 'meal_dates_index' %>

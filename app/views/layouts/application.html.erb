@@ -11,11 +11,27 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+
+   <%= render 'shared/flashes' %>
+
+    <% if action_name == "home" %>
+    <%= render 'shared/navbarIndex' %>
+    <% else%>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <% end %>
+
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+      <% if action_name == "home" %>
+      <%= render 'shared/footerindex' %>
+      <% else%>
+      <%= render 'shared/footer' %>
+      <% end %>
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

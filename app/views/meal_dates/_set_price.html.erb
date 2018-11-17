@@ -1,0 +1,5 @@
+<% if meal_date.date == Date.today %>
+  <h3>£<%= meal.day_price.to_i %></h3>
+<% else %>
+  <h3>£<%= meal_date.meal.pre_order_price %></h3>
+<% end %>

@@ -1,0 +1,6 @@
+<% if meal_date.date == Date.today %>
+  <%= link_to "Grab lunch", new_meal_date_order_path(meal_date), class: "btn-grab meal-card-btn" %>
+  <!-- <a href="#" class="btn-grab meal-card-btn">Grab lunch</a> -->
+<% else %>
+  <%= link_to "Pre Order", new_meal_date_order_path(meal_date), class: "btn-grab meal-card-btn" %>
+<% end %>
