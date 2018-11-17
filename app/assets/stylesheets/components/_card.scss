@@ -10,9 +10,11 @@
   margin-left: 10px;
 }
 
+@media (min-width: 700px) {
 #meal-cards{
   display:flex;
   align-items: center;
+}
 }
 
 .card-today {
