@@ -15,10 +15,10 @@
       <div id="price">
       <% if @order.pre_order %>
       <b><p>Today's price:</p></b>
-      <p><%= ((@order.order_price_cents).to_f/100)%>€</p>
+      <p><%= ((@order.order_price_cents).to_f/100)%>£</p>
       <% else %>
       <b><p>Pre-order price:</p></b>
-      <p><%=((@order.order_price_cents).to_f/100)%>€</p>
+      <p><%=((@order.order_price_cents).to_f/100)%>£</p>
       <% end %>
       </div>
 
