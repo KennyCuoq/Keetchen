@@ -1,6 +1,3 @@
-<%= content_for(:qr) do %>
-  <%= javascript_pack_tag "qr" %>
-<% end %>
 <div class='container-qr'>
   <table class="qr-code">
   <% @qr.modules.each_index do |x| %>
@@ -17,16 +14,7 @@
   </table>
   <br />
 </div>
-<!--  -->
-<%= @text  %>
 
 
-<button id="scan-qr"> Click to scan! </button>
-<div class="qr-content" hidden>
-  <div id="loadingMessage" hidden="">⌛ Loading video...</div>
-  <canvas id="canvas" height="720" width="1280"></canvas>
-  <div id="output">
-    <div id="outputMessage">No QR code detected.</div>
-    <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
-  </div>
-</div>
+
+

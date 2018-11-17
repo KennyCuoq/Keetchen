@@ -51,7 +51,6 @@ function activeJSQR() {
         if (code.data) {
           launchRequest(code.data)
         }
-        console.log(code.data)
       } else {
         outputMessage.hidden = false;
         outputData.parentElement.hidden = true;
@@ -61,8 +60,25 @@ function activeJSQR() {
   }
 }
 
-function launchRequest(url) {
+function launchRequest(data) {
   // make ajax call to confirm booking,
+  fetch("/confirm_booking", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': Rails.csrfToken()
+    },
+    body: JSON.stringify({
+      qr: data
+    })
+  })
+  .then(response => {
+    console.log(response);
+    return response.json()
+  })
+  .then((data) => {
+    console.log(data);
+  });
   // if booking is confirmed, update the view
 }
 

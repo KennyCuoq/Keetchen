@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       get 'my_orders', to: "customers#my_orders"
     end
   end
-  resources :employees, except: [ :new, :edit, :show ]
+
+  post "confirm_booking", to: "orders#confirm"
+  resources :employees, except: [:destroy, :new, :edit]
   resources :reviews, only: [ :create ]
   resources :meals, except: [ :show, :delete ]
   resources :meal_dates, except: [ :show, :delete ] do

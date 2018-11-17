@@ -6,6 +6,14 @@ class OrdersController < ApplicationController
 
    end
 
+   def confirm
+    if true
+      render json: {msg: "confirmed"}
+    else
+      render json: {msg: "already used or not found"}
+    end
+   end
+
    def show
     @order = Order.find(params[:id])
     @text = @order.qr_code
