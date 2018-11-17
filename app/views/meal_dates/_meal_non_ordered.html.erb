@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="meal-card-photo-div-wrapper">
+      <div class="meal-card-photo-div">
+        <img src="<%= meal.photo %>" class="meal-card-photo">
+        <%= render 'order_button', meal_date: meal_date %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="meal-card-description">
+      <div class="meal-name-price-group">
+        <h3><%= meal.name %></h3>
+        <%= render 'set_price', meal_date: meal_date, meal: meal %>
+      </div>
+      <p><%= meal.description %></p>
+    </div>
+  </div>
+</div>
