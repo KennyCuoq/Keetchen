@@ -1,4 +1,5 @@
 import jsQR from "jsqr";
+import swal from 'sweetalert';
 
 function activeJSQR() {
   var video = document.createElement("video");
@@ -62,7 +63,7 @@ function activeJSQR() {
 
 function launchRequest(data) {
   // make ajax call to confirm booking,
-  fetch("/confirm_booking", {
+  fetch("/confirm_order", {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
@@ -73,13 +74,25 @@ function launchRequest(data) {
     })
   })
   .then(response => {
-    console.log(response);
+    // console.log('response');
+    // console.log(response);
     return response.json()
   })
   .then((data) => {
-    console.log(data);
+    if (data.msg == "No record found") {
+      console.log(data.qr_code)
+      document.querySelector(".qr-content").innerHTML = "This QR code is not valid"
+    } else {
+      console.log(data.qr_code)
+      document.querySelector(".qr-content").hidden = true;
+      swal({
+        title: "Valid!",
+        text: "This person has a valid QR code!",
+        icon: "success",
+        button: "Aww yiss!",
+      });
+    };
   });
-  // if booking is confirmed, update the view
 }
 
 

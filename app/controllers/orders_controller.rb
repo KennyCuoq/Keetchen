@@ -6,12 +6,21 @@ class OrdersController < ApplicationController
 
    end
 
+
+
    def confirm
-    if true
-      render json: {msg: "confirmed"}
+    # if current_user.admin
+    @qr_text = params[:qr]
+    @order = Order.find_by(qr_code: @qr_text)
+    if @order.nil?
+      render json: {msg: "No record found", qr_code: @qr_text}
     else
-      render json: {msg: "already used or not found"}
+      render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json}
     end
+    @order.status = "Purchased"
+    # else
+    #   render json: {msg: "Your not allowed to perform this action"}
+    # end
    end
 
    def show

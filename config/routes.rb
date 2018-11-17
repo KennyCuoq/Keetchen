@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  post "confirm_booking", to: "orders#confirm"
+  post "confirm_order", to: "orders#confirm"
   resources :employees, except: [:destroy, :new, :edit]
   resources :reviews, only: [ :create ]
   resources :meals, except: [ :show, :delete ]
