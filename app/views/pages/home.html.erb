@@ -23,7 +23,6 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
           </div>
-          <a class="card-link" href="#" ></a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -40,7 +39,7 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
           </div>
-          <a class="card-link" href="#" ></a>
+          <%= link_to("",meal_dates_path, class: "card-link") %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -57,7 +56,7 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked "></span>
           </div>
-          <a class="card-link" href="#" ></a>
+          <%= link_to("",meal_dates_path, {:class => "card-link", 'data-target' => "day2"})%>
         </div>
       </div>
     </div>
