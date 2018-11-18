@@ -1,6 +1,7 @@
 <div class='container-qr'>
   <table class="qr-code">
   <% Order.uncached do %>
+  <% MealDate.uncached do %>
     <% meal_date.qr_code(current_user).modules.each_index do |x| %>
       <tr>
       <% meal_date.qr_code(current_user).modules.each_index do |y| %>
@@ -12,6 +13,7 @@
       <% end %>
       </tr>
     <% end %>
+  <% end %>
   <% end %>
   </table>
   <br />
