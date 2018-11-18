@@ -1,4 +1,22 @@
-<%= meal_date.qr_code(current_user) %>
+<div class='container-qr'>
+  <table class="qr-code">
+  <% Order.uncached do %>
+    <% meal_date.qr_code(current_user).modules.each_index do |x| %>
+      <tr>
+      <% meal_date.qr_code(current_user).modules.each_index do |y| %>
+        <% if meal_date.qr_code(current_user).dark?(x,y) %>
+          <td class="black"/>
+        <% else %>
+          <td class="white"/>
+        <% end %>
+      <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <br />
+</div>
+
 <!-- <div class='container-qr'>
   <table class="qr-code">
   <% meal_date.qr_code(current_user).modules.each_index #do |x| %>
@@ -16,3 +34,13 @@
   <br />
 </div>
  -->
+<!--
+ meal_date.qr_code(current_user).modules.each_index do |x|
+  meal_date.qr_code(current_user).modules.each_index do |y|
+    if meal_date.qr_code(current_user).dark?(x,y)
+      puts 'black'
+    else
+      puts 'white'
+    end
+  end
+end -->
