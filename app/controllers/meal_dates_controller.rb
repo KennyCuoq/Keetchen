@@ -2,11 +2,17 @@ class MealDatesController < ApplicationController
   def index
     @meal_dates = MealDate.where("date >= ?", (Date.today + 1))
     @meal_dates = MealDate.where("date < ?", (Date.today + 5))
+
     # @boats = @boats.where("daily_price < ?", params[:filter_price].to_i)
     # set_price
   end
 
   private
+
+  # def qr_code
+  #   @orders = Order.all
+
+  # end
 
   # def set_price
   #   @meal_dates.each do |meal_date|
