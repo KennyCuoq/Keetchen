@@ -4,10 +4,14 @@ Rails.application.routes.draw do
 
 
   resources :customers, except: [ :new, :index ]do
-    collection do
+    member do
+
     # Route to show customer's order history (where they can review)
       get 'my_orders', to: "customers#my_orders"
     end
+    # member do
+    #   get 'my_meal_dates', to: "meal_dates#my_meal_dates"
+    # end
   end
 
   post "confirm_order", to: "orders#confirm"
