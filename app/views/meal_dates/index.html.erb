@@ -13,6 +13,7 @@
   </div>
 
   <% count = 1 %>
+
   <% @meal_dates.each do |meal_date| %>
     <% meal = meal_date.meal %>
     <div class="meal-card date-tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>

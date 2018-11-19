@@ -8,6 +8,11 @@ class MealDatesController < ApplicationController
 
   private
 
+  # def qr_code
+  #   @orders = Order.all
+
+  # end
+
   # def set_price
   #   @meal_dates.each do |meal_date|
   #     if meal_date.date == Date.today

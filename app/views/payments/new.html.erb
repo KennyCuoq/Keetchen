@@ -1,0 +1,17 @@
+<h1>Purchase of Order <%= @meal.name %></h1>
+<%= form_tag meal_date_order_payments_path([@meal_date, @order]) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.order_price) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="Meal <%= @meal.name %>"
+    data-email="<%= current_user.email %>"
+    data-description="Meal <%= @meal.description %>"
+    data-amount="<%= @order.order_price_cents %>"
+    data-currency="<%= @order.order_price.currency %>">
+  </script>
+<% end %>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :reviews, only: [ :create ]
   resources :meals, except: [ :show, :delete ]
   resources :meal_dates, except: [ :show, :delete ] do
-    resources :orders, only: [ :index, :show, :create, :update, :new]
+    resources :orders, only: [ :index, :show, :create, :update, :new] do
+      resources :payments, only: [:new, :create]
+    end
   end
 
   root to: 'pages#home'
