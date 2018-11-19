@@ -12,7 +12,7 @@
 }
 .message-name {
   padding-left: 10px;
-  width: 100px;
+  width: 80px;
 }
 .message-name h3 {
   font-size: 13px;
@@ -38,9 +38,17 @@
 .message-body p {
   margin: 6px 0;
 }
+
+.message-signup {
+  color: red;
+}
+
 .message-status {
+  min-width: 40px;
   font-size: 14px;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 .status.accepted {
   color: #04A366;

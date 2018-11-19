@@ -1,26 +1,52 @@
 <div class="container">
-<h2>Overview of Customers</h2>
+<h3>Customer database</h3>
   <% @customers.each do |customer| %>
     <div class="message">
-      <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+        <% if customer.photo.blank? %>
+          <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png',class: "avatar-large"  %>
+        <% else %>
+        <%= cl_image_tag customer.photo, crop: :fill, class: "customer-avatar" %>
+        <% end %>
       <div class="message-name">
-        <h3><%= customer.user.first_name %> </b><%= customer.user.last_name %></h3>
+
+        <h3><%= link_to customer.user.first_name + ' ' + customer.user.last_name, customer_path(customer)%></h3>
+        <% if customer.user.employee.nil? %>
+          <p><strong>Customer</strong></p>
+        <% else %>
+          <p><strong>Employee</strong></p>
+        <% end %>
       </div>
       <div class="message-body">
-        <p><strong>signed up on:</strong></p>
-        <p><%= customer.created_at %></p>
+        <p class="message-signup"><strong>signed up on:</strong></p>
+        <p><%= customer.created_at.to_date %></p>
       </div>
       <div class="message-status">
-        <% if customer.user.employee.nil? %>
-          <p class="status pending">Employee</p>
-        <% else %>
-          <p class="status pending">Customer</p>
-        <% end %>
+        <!-- <p class="status pending">Customer</p> -->
         <!-- <p class="price">€345</p> -->
+        <div>
+          <% if customer.user.employee.nil? %>
+            <%= link_to customer_employees_path(customer), method: :post do %>
+              <%= image_tag "employee-black.png", height: 20 %>
+            <% end %>
+          <% else %>
+            <%= link_to employee_path(customer.user.employee), method: :delete do %>
+              <%= image_tag "employee-red.png", height: 20 %>
+            <% end %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to customer_path(customer), method: :delete do %>
+            <%= image_tag "bin-black.png", height: 20 %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<script>
+
+</script>
 
 
 
