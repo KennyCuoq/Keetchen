@@ -68,6 +68,13 @@
           <i class="fas fa-utensils"></i> <%= t(".profile", default: "History") %>
           <% end %>
         </li>
+        <% unless current_user.employee.nil? %>
+          <li>
+            <%= link_to employee_path(current_user.employee) do %>
+            <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+            <% end %>
+          </li>
+          <% end %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>

@@ -1,3 +1,10 @@
 #meal-card-history{
   margin-bottom: 30px;
 }
+
+@media (max-width: 400px){
+#meal-card-history{
+  margin-bottom: 30px;
+  margin-left: 35px;
+}
+}
