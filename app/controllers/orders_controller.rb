@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @text = @order.qr_code
     @qr = RQRCode::QRCode.new(@text, size: 4)
-
    end
 
    def new

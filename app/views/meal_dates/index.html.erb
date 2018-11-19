@@ -13,10 +13,8 @@
   </div>
 
   <% count = 1 %>
-  <% Order.uncached do %>
+
   <% @meal_dates.each do |meal_date| %>
-    <% MealDate.uncached do %>
-    <% Order.uncached do %>
     <% meal = meal_date.meal %>
     <div class="meal-card date-tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
       <% count+=1 %>
@@ -26,9 +24,6 @@
         <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
       <% end %>
     </div>
-    <% end %>
-    <% end %>
-  <% end %>
   <% end %>
   </div>
 </div>

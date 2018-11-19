@@ -3,6 +3,8 @@ class MealDatesController < ApplicationController
     @meal_dates = MealDate.where("date >= ?", (Date.today + 1))
     @meal_dates = MealDate.where("date < ?", (Date.today + 5))
 
+    @orders = current_user.orders
+
     # @boats = @boats.where("daily_price < ?", params[:filter_price].to_i)
     # set_price
   end
