@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
@@ -7,6 +7,10 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
+
+
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -21,6 +25,8 @@ gem 'stripe'
 gem 'rqrcode-with-patches', '~> 0.5.4'
 gem 'chunky_png'
 gem 'qrio'
+
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
