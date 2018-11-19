@@ -1,6 +1,9 @@
 <div id="coordinates">
-  <p>hello</p>
+
 </div>
+<!-- employee.latitude = rsult of JS functon
+emplppoyee.longitude = result of JS function
+set the employee lognitdue to what is returned from the function> -->
 
 <%= content_for(:qr) do %>
   <%= javascript_pack_tag "qr" %>
@@ -18,4 +21,9 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "locate_delivery_person" %>
+<% if current_user.employee? %>
+  <%= javascript_pack_tag 'locate_delivery_person' %>
+  <script>
+    geoFindMe('<%= current_user.employee.id %>');
+  </script>
+<% end %>

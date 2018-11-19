@@ -1,4 +1,4 @@
-function geoFindMe() {
+function geoFindMe(employeeID) {
   const output = document.getElementById("coordinates");
 
   if (!navigator.geolocation){
@@ -10,7 +10,29 @@ function geoFindMe() {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
 
-    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    // output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+
+    const GPSCoordinates = {
+      lat: latitude,
+      lng: longitude,
+    }
+
+
+
+    fetch(`/employees/${employeeID}/update_position`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        'X-CSRF-Token': Rails.csrfToken(),
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+
+      },
+      body: JSON.stringify(GPSCoordinates)
+    })
+    .then(response => response.json())
+    .then(data => output.innerHTML = "<h1>" + 'Location last updated: ' + data.last_updated + "</h1>");
 
     // const img = new Image();
     // img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
@@ -28,4 +50,4 @@ function geoFindMe() {
   // navigator.geolocation.getCurrentPosition(success, error);
 }
 
-geoFindMe();
+global.geoFindMe = geoFindMe;

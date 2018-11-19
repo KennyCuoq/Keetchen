@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
 
   post "confirm_order", to: "orders#confirm"
-  resources :employees, except: [:destroy, :new, :edit]
+  resources :employees, except: [:destroy, :new, :edit] do
+    member do
+      patch 'update_position'
+    end
+  end
   resources :reviews, only: [ :create ]
   resources :meals, except: [ :show, :delete ]
   resources :meal_dates, except: [ :show, :delete ] do
