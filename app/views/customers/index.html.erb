@@ -1,0 +1,26 @@
+<div class="container">
+<h2>Overview of Customers</h2>
+  <% @customers.each do |customer| %>
+    <div class="message">
+      <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+      <div class="message-name">
+        <h3><%= customer.user.first_name %> </b><%= customer.user.last_name %></h3>
+      </div>
+      <div class="message-body">
+        <p><strong>signed up on:</strong></p>
+        <p><%= customer.created_at %></p>
+      </div>
+      <div class="message-status">
+        <% if customer.user.employee.nil? %>
+          <p class="status pending">Employee</p>
+        <% else %>
+          <p class="status pending">Customer</p>
+        <% end %>
+        <!-- <p class="price">€345</p> -->
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
