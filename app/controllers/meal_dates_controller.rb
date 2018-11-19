@@ -6,7 +6,8 @@ class MealDatesController < ApplicationController
     @markers = @employees.map do |employee|
       {
         lng: employee.longitude,
-        lat: employee.latitude
+        lat: employee.latitude,
+        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
       }
     end
 
