@@ -8,6 +8,10 @@ gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
 
+
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
@@ -21,8 +25,7 @@ gem 'stripe'
 gem 'rqrcode-with-patches', '~> 0.5.4'
 gem 'chunky_png'
 gem 'qrio'
-gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
+
 
 
 group :development do
