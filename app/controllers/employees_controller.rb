@@ -7,6 +7,10 @@ class EmployeesController < ApplicationController
     @employee.save
   end
 
+  def show
+    @employee = Employee.find(params[:id])
+  end
+
   def destroy
     @employee = Employee.find(params[:id])
     @employee.destroy!
