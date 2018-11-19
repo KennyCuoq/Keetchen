@@ -1,5 +1,6 @@
 <div class="container">
-  <div
+
+<div
   id="map-runners"
   style="width: 100%;
   height: 600px;"
@@ -27,7 +28,7 @@
     <div class="meal-card date-tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
       <% count+=1 %>
       <% if !current_user.orders.where("meal_date_id = ?", meal_date).to_a.empty? %>
-        <%= render 'meal_ordered', meal_date: meal_date, meal: meal %>
+        <%= render 'meal_ordered', meal_date: meal_date, meal: meal, markers: @markers %>
       <% else %>
         <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
       <% end %>
