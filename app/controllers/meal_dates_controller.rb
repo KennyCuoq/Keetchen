@@ -6,8 +6,7 @@ class MealDatesController < ApplicationController
     # set_price
   end
 
-  def my_orders
-  end
+
 
 
   private
