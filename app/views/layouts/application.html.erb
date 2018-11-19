@@ -7,6 +7,7 @@
     <title>Keetchen</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <%= stylesheet_pack_tag "map" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
@@ -34,6 +35,8 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <!-- Is this a hundred percent necessary to have that here below? -->
+    <%= javascript_pack_tag "map" %>
     <%= yield(:after_js) %>
     <%= yield(:qr) %>
   </body>
