@@ -35,19 +35,31 @@ meals << taboule
 
 #creation of users
 puts "Creating users..."
-steven = User.create!(email: 'steven.vaneecke@gmail.com', password: "Steven", first_name: "Steven", last_name: "Van Eecke")
+steven = User.create!(email: 'steven.vaneecke@gmail.com', password: "123456", first_name: "Steven", last_name: "Van Eecke")
 
 kenny = User.create!(email: 'kenny.cuoq@gmail.com', password: "123456", first_name: "Kenny", last_name: "Cuoq")
 
-frederik = User.create!(email: 'frederik.hossak@gmail.com', password: "Frederik", first_name: "Frederik", last_name: "Hossak")
+frederik = User.create!(email: 'frederik.hossak@gmail.com', password: "123456", first_name: "Frederik", last_name: "Hossak")
 
-dree = User.create!(email: 'andreasava@hotmail.com', password: "DreeDree", first_name: "Andreas", last_name: "Van Assche")
+dree = User.create!(email: 'andreasava@hotmail.com', password: "123456", first_name: "Andreas", last_name: "Van Assche")
+
+inou = User.create!(email: 'inou.ridder@gmail.com', password: "123456", first_name: "Inou", last_name: "Ridder")
+
+ellyn = User.create!(email: 'ellyn.bouscasse@gmail.com', password: "123456", first_name: "Ellyn", last_name: "Bouscasse")
 
 users = []
 users << steven
 users << kenny
 users << frederik
 users << dree
+users << inou
+users << ellyn
+
+admins = []
+admins << steven
+admins << kenny
+admins << frederik
+admins << dree
 
 #creation of meal_dates
 counter = 0
@@ -87,8 +99,8 @@ end
 #creation of employee profiles
 Employee.destroy_all
 
-users.each do |user|
-  Employee.create!(user_id: user.id, admin: true)
+admins.each do |admin|
+  Employee.create!(user_id: admin.id, admin: true)
 end
 
 
