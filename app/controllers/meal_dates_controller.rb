@@ -6,6 +6,9 @@ class MealDatesController < ApplicationController
     # set_price
   end
 
+
+
+
   private
 
   # def qr_code
