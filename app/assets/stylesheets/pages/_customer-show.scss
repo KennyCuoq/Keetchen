@@ -1,0 +1,26 @@
+.container-personal-info{
+  position: relative;
+}
+
+.container-personal-password{
+  position: relative;
+}
+
+
+.edit-button-1 {
+  position: absolute;
+  right:20px;
+  top:30px;
+  & a{
+    text-decoration: none;
+  }
+}
+
+.edit-button-2 {
+  position: absolute;
+  right:20px;
+  top:30px;
+  & a{
+    text-decoration: none;
+  }
+}
