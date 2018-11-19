@@ -1,26 +1,47 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-offset-1 col-xs-10 col-lg-offset-2 col-lg-8">
-      <h1 id="customer-show-title">Account Info</h1>
-
+      <div class="container-avatar">
+      <h1 id="customer-show-title"><%= @customer.user.first_name.capitalize%> <%= @customer.user.last_name.capitalize%></h1>
+        <% if @customer.photo.blank? %>
+          <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png',class: "customer-avatar"  %>
+        <% else %>
+        <%= cl_image_tag @customer.photo, crop: :fill, class: "customer-avatar" %>
+        <% end %>
+      </div>
       <div class="container-personal-info">
         <h3>Personal Info</h3>
         <p><b><%= @customer.user.first_name.capitalize %> <%= @customer.user.last_name.capitalize %></b></p>
         <p>Email: <%= @customer.user.email %></p>
         <br>
         <p id="customer-id">Customer ID: <%= @customer.id %></p>
-
-
-
+        <div class="edit-button-1">
+          <%= link_to "EDIT", edit_user_registration_path(@customer.user) %>
+        </div>
       </div>
       <div class="container-personal-password">
         <h3>Password</h3>
         <p>Current password</p>
         <p>•••••••••••••</p>
+        <div class="edit-button-2">
+          <%= link_to "EDIT", edit_user_registration_path(@customer.user) %>
+        </div>
       </div>
-
+      <div class="container-personal-photo">
+        <h3>Photo</h3>
+        <%= simple_form_for(@customer) do |f| %>
+        <%= f.input :photo, label: false %>
+        <%= f.input :photo_cache, as: :hidden, label: false %>
+        <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+</div>
 
 
+
+<script>
+
+</script>
