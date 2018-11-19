@@ -19,6 +19,7 @@ class CustomersController < ApplicationController
     @orders = @user.orders
     # @meal_dates = @orders.meal_dates
     # @meals = @meal_dates.meal
+  end
 
   def destroy
     @customer = Customer.find(params[:id])
