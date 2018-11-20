@@ -30,10 +30,45 @@
   }
 }
 
+.container-personal-photo{
+   background-color:white;
+  margin:20px;
+  margin-left: 0px;
+  border-radius: 5px;
+  padding:10px;
+  font-size: 18px;
+  & p {
+    font-size: 14px;
+  }
+  & h3{
+    font-size: 25px;
+  }
+}
+
+
+.container-avatar{
+  height: 130px;
+  position: relative;
+  margin:20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  border-radius: 5px;
+  padding:10px;
+  font-size: 18px;
+
+  & h3{
+    font-size: 25px;
+  }
+
+  & p {
+    font-size: 14px;
+  }
+}
+
 #customer-id{
   color:$gray;
 }
 
 #customer-show-title{
-  color:$red;
+  color:$dark-gray;
 }

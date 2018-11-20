@@ -35,19 +35,31 @@ meals << taboule
 
 #creation of users
 puts "Creating users..."
-steven = User.create!(email: 'steven.vaneecke@gmail.com', password: "Steven", first_name: "Steven", last_name: "Van Eecke")
+steven = User.create!(email: 'steven.vaneecke@gmail.com', password: "123456", first_name: "Steven", last_name: "Van Eecke")
 
 kenny = User.create!(email: 'kenny.cuoq@gmail.com', password: "123456", first_name: "Kenny", last_name: "Cuoq")
 
-frederik = User.create!(email: 'frederik.hossak@gmail.com', password: "Frederik", first_name: "Frederik", last_name: "Hossak")
+frederik = User.create!(email: 'frederik.hossak@gmail.com', password: "123456", first_name: "Frederik", last_name: "Hossak")
 
-dree = User.create!(email: 'andreasava@hotmail.com', password: "DreeDree", first_name: "Andreas", last_name: "Van Assche")
+dree = User.create!(email: 'andreasava@hotmail.com', password: "123456", first_name: "Andreas", last_name: "Van Assche")
+
+inou = User.create!(email: 'inou.ridder@gmail.com', password: "123456", first_name: "Inou", last_name: "Ridder")
+
+ellyn = User.create!(email: 'ellyn.bouscasse@gmail.com', password: "123456", first_name: "Ellyn", last_name: "Bouscasse")
 
 users = []
 users << steven
 users << kenny
 users << frederik
 users << dree
+users << inou
+users << ellyn
+
+admins = []
+admins << steven
+admins << kenny
+admins << frederik
+admins << dree
 
 #creation of meal_dates
 counter = 0
@@ -61,19 +73,22 @@ end
 
 p users
 p meal_dates
-# creation of orders
-# users.each do |user|
-#   meal_dates.each do |meal_date|
-#     if meal_date.date == Date.today
-#       order_price = 500
-#       pre = false
-#     else
-#       order_price = 450
-#       pre = true
-#     end
-#     Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre)
-#   end
-# end
+# #creation of orders
+users.each do |user|
+  meal_dates.each do |meal_date|
+    if meal_date.date == Date.today
+      order_price = 500
+      pre = false
+    else
+      order_price = 450
+      pre = true
+    end
+    qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
+    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr)
+  end
+end
+
+
 
 #creation of customer profiles
 Customer.destroy_all
@@ -85,9 +100,10 @@ end
 #creation of employee profiles
 Employee.destroy_all
 
-users.each do |user|
-  Employee.create!(user_id: user.id, admin: true)
+admins.each do |admin|
+  Employee.create!(user_id: admin.id, admin: true)
 end
+
 
 #creation of reviews
 Review.destroy_all
@@ -97,6 +113,9 @@ meal_dates.each do |meal_date|
   Review.create!(meal_date_id: meal_date.id, user_id: user.id, rating: rand(3..5))
   end
 end
+
+
+
 
 
 

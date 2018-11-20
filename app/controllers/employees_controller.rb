@@ -1,5 +1,10 @@
 class EmployeesController < ApplicationController
-  def index
+
+  def create
+    @customer = Customer.find(params[:customer_id])
+    @user = @customer.user
+    @employee = Employee.new(user_id: @user.id)
+    @employee.save
   end
 
   def show
@@ -7,7 +12,6 @@ class EmployeesController < ApplicationController
   end
 
   def update_position
-    p 'HELLO'
     @employee = Employee.find(params[:id])
     @employee.latitude = params["lat"]
     @employee.longitude = params["lng"]
@@ -26,4 +30,15 @@ class EmployeesController < ApplicationController
     # employee.update(cordrdssds)
     # binding.pry
   end
+
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy!
+  end
+
+  private
+
+  # def employee_params
+  #   params.require(:employee).permit(:photo)
+  # end
 end
