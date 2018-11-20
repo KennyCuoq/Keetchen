@@ -6,3 +6,14 @@ class="order-tab-content-<%= meal_date.id %>" data-id="<%= meal_date.id %>"
 data-markers="<%= @markers.to_json %>"
 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    document.querySelectorAll("[fill='#3FB1CE']").forEach(marker => {
+      marker.setAttribute('fill', '#ff1943');
+      // marker.setAttribute('fill', '#ff1943');
+    })
+
+  </script>
+<% end %>

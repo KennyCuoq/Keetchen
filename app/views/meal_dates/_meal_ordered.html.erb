@@ -4,7 +4,7 @@
       <% if meal_date.date == Date.today %>
         <%= render 'meal_ordered_employee_map', meal_date: meal_date %>
       <% end %>
-      <div class="order-tab-content-<%= meal_date.id  %>" id="qr-code-<%= meal_date.id %>" <%= 'hidden' if meal_date.date == Date.today %>><%= render 'meal_ordered_qr_code', meal_date: meal_date %></div>
+      <div class="order-tab-content-<%= meal_date.id  %>" style="width: 100%; height: 100%" id="qr-code-<%= meal_date.id %>" <%= 'hidden' if meal_date.date == Date.today %>><%= render 'meal_ordered_qr_code', meal_date: meal_date %></div>
       <img src="<%= meal.photo %>" data-id="<%= meal_date.id  %>" class="meal-card-photo order-tab-content-<%= meal_date.id  %>" id="meal-<%= meal_date.id  %>" hidden>
     </div>
 

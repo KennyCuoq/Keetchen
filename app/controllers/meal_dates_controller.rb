@@ -6,7 +6,12 @@ class MealDatesController < ApplicationController
       {
         lng: employee.longitude,
         lat: employee.latitude,
-        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
+        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) },
+       properties: {
+          "marker-color" => "#3bb2d0",
+          "marker-size" => "large",
+          "marker-symbol" => "rocket"
+        }
       }
     end
 
