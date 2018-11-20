@@ -2,13 +2,14 @@
 <h3>Customer database</h3>
   <% @customers.each do |customer| %>
     <div class="message">
+      <div>
         <% if customer.photo.blank? %>
-          <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png',class: "avatar-large"  %>
+          <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png', class: "avatar-bordered"%>
         <% else %>
-        <%= cl_image_tag customer.photo, crop: :fill, class: "customer-avatar" %>
+          <%= cl_image_tag customer.photo, crop: :fill, class: "avatar-bordered" %>
         <% end %>
+      </div>
       <div class="message-name">
-
         <h3><%= link_to customer.user.first_name + ' ' + customer.user.last_name, customer_path(customer)%></h3>
         <% if customer.user.employee.nil? %>
           <p><strong>Customer</strong></p>
