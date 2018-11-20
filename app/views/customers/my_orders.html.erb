@@ -12,21 +12,23 @@
           <div class="card-description">
             <h2><p><%= x.meal_date.meal.name %></p></h2>
           </div>
+
           <div class="rating">
-            <%= link_to customer_reviews_path(current_user, num_stars: 1, meal_date_id: x.meal_date.id), method: :post do %>
-              <i class="far fa-star"></i>
-            <% end %>
-            <%= link_to customer_reviews_path(current_user, num_stars: 2, meal_date_id: x.meal_date.id), method: :post do %>
-              <i class="far fa-star"></i>
-            <% end %>
-            <%= link_to customer_reviews_path(current_user, num_stars: 3, meal_date_id: x.meal_date.id), method: :post do %>
-              <i class="far fa-star"></i>
-            <% end %>
-            <%= link_to customer_reviews_path(current_user, num_stars: 4, meal_date_id: x.meal_date.id), method: :post do %>
-              <i class="far fa-star"></i>
-            <% end %>
-            <%= link_to customer_reviews_path(current_user, num_stars: 5, meal_date_id: x.meal_date.id), method: :post do %>
-              <i class="far fa-star"></i>
+            <% unless review = x.meal_date.has_reviewed?(current_user) %>
+              <% count = 1  %>
+              <% 5.times do %>
+                <%= link_to customer_reviews_path(current_user, num_stars: count, meal_date_id: x.meal_date.id), method: :post do %>
+                  <i class="far fa-star" id="star"></i>
+                <% end %>
+                <% count +=1 %>
+              <% end %>
+            <% else %>
+              <% full = review.rating.times do %>
+                <i class="fas fa-star" id="star"></i>
+              <% end %>
+              <% (5-full).times do %>
+                <i class="far fa-star" id="star"></i>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -36,3 +38,14 @@
   </div>
 </div>
 
+<script>
+  function starToggle() {
+  const stars = document.getElementById("star");
+  stars.addEventListener("click", (event) => {
+    element.classList.remove("far");
+    element.classList.add("fas");
+
+    // event.currentTarget.classList.toggle("fas fa-star");
+  });
+}
+</script>
