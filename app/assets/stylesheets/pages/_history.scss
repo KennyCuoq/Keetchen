@@ -7,6 +7,14 @@
   margin-left: 0px;
 }
 
+#no-orders-yet{
+  text-align: center;
+  margin-bottom: 410px;
+  & p{
+    color:$gray;
+  }
+}
+
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
