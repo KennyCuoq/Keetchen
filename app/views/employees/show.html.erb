@@ -19,15 +19,27 @@ set the employee lognitdue to what is returned from the function> -->
         </div>
       </div>
     </div>
-    <div class="container-card">
+    <div id="order-container"class="container-card">
+      <div class="order-picture"></div>
       <h3>Order information</h3>
       <div id="output">
         <div id="outputMessage">No QR code detected.</div>
         <div hidden=""><b>Data:</b> <span id="outputData"></span>
         </div>
       </div>
-      <div>
-        <p>Name:</p> <div class="qr-name"></div>
+      <div id="order-information">
+        <div class="order-details">
+          <p>Name:</p><div class="font-bold qr-name"></div>
+        </div>
+        <div class="order-details">
+          <p>Order Quantity:</p><div class="font-bold qr-quantity"></div>
+        </div>
+        <div class="order-details">
+          <p>Meal Date:</p><div class="font-bold qr-date"></div>
+        </div>
+        <div class="order-details">
+          <p>Meal:</p><div class="font-bold qr-meal"></div>
+        </div>
       </div>
     </div>
       <div class="container-card">

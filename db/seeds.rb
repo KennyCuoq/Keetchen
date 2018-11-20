@@ -15,6 +15,13 @@ photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_im
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
 
+photo_dree = 'https://avatars0.githubusercontent.com/u/43139321?v=4'
+photo_steven = 'https://avatars2.githubusercontent.com/u/41968309?v=4'
+photo_kenny = 'https://avatars1.githubusercontent.com/u/26207944?v=4'
+photo_frederik = 'https://avatars0.githubusercontent.com/u/43231640?v=4'
+photo_inou = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/yzmhkgececsz46relki9.jpg'
+photo_ellyn = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ul03dampdb9to6qumjcj.jpg'
+
 
 gnocchi = Meal.create!(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", photo: photo_gnocchi, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 hamburger = Meal.create!(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", photo: photo_burger, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
@@ -94,7 +101,22 @@ end
 Customer.destroy_all
 
 users.each do |user|
-  Customer.create!(user_id: user.id)
+  customer = Customer.new(user_id: user.id)
+  case user.first_name
+  when 'Steven'
+    customer.remote_photo_url = photo_steven
+  when 'Dree'
+    customer.remote_photo_url = photo_dree
+  when 'Kenny'
+    customer.remote_photo_url = photo_kenny
+  when 'Frederik'
+    customer.remote_photo_url = photo_frederik
+  when 'Inou'
+    customer.remote_photo_url = photo_inou
+  else
+    customer.remote_photo_url = photo_ellyn
+  end
+  customer.save
 end
 
 #creation of employee profiles

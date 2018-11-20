@@ -94,9 +94,16 @@ function launchRequest(data) {
       document.querySelector(".qr-content").hidden = true;
       console.log(data.client_name)
       document.querySelector(".qr-name").innerHTML = `${data.name}`
+      document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`
+      document.querySelector(".qr-date").innerHTML = `${data.date}`
+      document.querySelector(".qr-meal").innerHTML = `${data.meal}`
+      // document.querySelector(".order-picture").innerHTML = `<%= cl_image_tag ${data.photo}, crop: :fill %>`
+      // document.querySelector(".order-picture").css({'backgroundImage':`${data.photo}`});
+
+      document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
       swal({
         title: "Valid!",
-        text: `${data.first_name} has a valid QR code!`,
+        text: `${data.name} has a valid QR code!`,
         icon: "success",
         button: "Aww yiss!",
       });
