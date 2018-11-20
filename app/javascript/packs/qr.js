@@ -2,6 +2,7 @@ import jsQR from "jsqr";
 import swal from 'sweetalert';
 
 function activeJSQR() {
+  var currentActive = false;
   var video = document.createElement("video");
   var canvasElement = document.getElementById("canvas");
   var canvas = canvasElement.getContext("2d");
@@ -50,7 +51,11 @@ function activeJSQR() {
         outputData.parentElement.hidden = false;
         outputData.innerText = code.data;
         if (code.data) {
-          launchRequest(code.data)
+          if (!currentActive) {
+            currentActive = true
+            launchRequest(code.data);
+          }
+          // showRequestOrderDetails();
         }
       } else {
         outputMessage.hidden = false;
@@ -62,6 +67,7 @@ function activeJSQR() {
 }
 
 function launchRequest(data) {
+  console.log("called")
   // make ajax call to confirm booking,
   fetch("/confirm_order", {
     method: "POST",
@@ -74,20 +80,30 @@ function launchRequest(data) {
     })
   })
   .then(response => {
-    // console.log('response');
+    console.log('response');
     // console.log(response);
+    activeJSQR.currentActive = false;
     return response.json()
   })
   .then((data) => {
     if (data.msg == "No record found") {
-      // console.log(data.qr_code)
+      console.log(data.qr_code)
       document.querySelector(".qr-content").innerHTML = "This QR code is not valid"
     } else {
       // console.log(data.qr_code)
       document.querySelector(".qr-content").hidden = true;
+      console.log(data.client_name)
+      document.querySelector(".qr-name").innerHTML = `${data.name}`
+      document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`
+      document.querySelector(".qr-date").innerHTML = `${data.date}`
+      document.querySelector(".qr-meal").innerHTML = `${data.meal}`
+      // document.querySelector(".order-picture").innerHTML = `<%= cl_image_tag ${data.photo}, crop: :fill %>`
+      // document.querySelector(".order-picture").css({'backgroundImage':`${data.photo}`});
+
+      document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
       swal({
         title: "Valid!",
-        text: "This person has a valid QR code!",
+        text: `${data.name} has a valid QR code!`,
         icon: "success",
         button: "Aww yiss!",
       });
