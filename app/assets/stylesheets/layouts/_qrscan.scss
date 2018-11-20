@@ -68,6 +68,35 @@
   font-size: 14px;
 }
 
+#order-information {
+  font-size: 14px;
+  color: black;
+}
+
+#order-container {
+  position: relative;
+}
+
+.order-picture {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
+
+.order-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
 .inventory-holder{
   display: flex;
   justify-content: space-between;
