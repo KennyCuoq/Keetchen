@@ -105,7 +105,7 @@ users.each do |user|
   case user.first_name
   when 'Steven'
     customer.remote_photo_url = photo_steven
-  when 'Dree'
+  when 'Andreas'
     customer.remote_photo_url = photo_dree
   when 'Kenny'
     customer.remote_photo_url = photo_kenny
