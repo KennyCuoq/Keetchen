@@ -1,20 +1,20 @@
 <% @qr = meal_date.qr_code(current_user)  %>
 
 <div class='container-qr'>
-  <div>
-    <table class="qr-code">
-    <% @qr.modules.each_index do |x| %>
-      <tr>
-      <% @qr.modules.each_index do |y| %>
-       <% if @qr.dark?(x,y) %>
-        <td class="red"/>
-       <% else %>
-        <td class="white"/>
-       <% end %>
-      <% end %>
-      </tr>
+  <table class="qr-code">
+  <% @qr.modules.each_index do |x| %>
+    <tr>
+    <% @qr.modules.each_index do |y| %>
+     <% if @qr.dark?(x,y) %>
+      <td class="red"/>
+     <% else %>
+      <td class="white"/>
+     <% end %>
     <% end %>
-    </table>
-    <br />
-  </div>
+    </tr>
+  <% end %>
+  </table>
+  <br />
 </div>
+
+

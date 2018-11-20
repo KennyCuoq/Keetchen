@@ -44,6 +44,7 @@
   line-height: 13pt;
   padding: 3px 20px;
   margin-bottom: -15px;
+  padding-top: 15px;
 
 }
 
@@ -60,21 +61,11 @@
 }
 
 @media (max-width: 720px) {
-
   .container {
     margin: 0;
     padding: 0;
   }
-
   .alert {
     display: none;
   }
-
-  // .col-xs-12 {
-  //   padding: 0;
-  // }
-
-  // .tabs {
-
-  // }
 }

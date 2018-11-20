@@ -2,10 +2,17 @@
  *= require_tree .
  *= require_self
  */
-
+// .hello {
+//   display: flex;
+//   align-items: center;
+//   height:100%;
+// }
 .container-qr {
+
   display: flex;
   justify-content: center;
+  height: 100%;
+  align-items: center
 }
 
 table.qr-code {
