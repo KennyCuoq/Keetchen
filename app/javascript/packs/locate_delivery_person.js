@@ -32,7 +32,7 @@ function geoFindMe(employeeID) {
       body: JSON.stringify(GPSCoordinates)
     })
     .then(response => response.json())
-    .then(data => output.innerHTML = "<p>" + 'Location last updated: ' + data.last_updated + "</h1>");
+    .then(data => output.innerHTML = "<p>" + 'Location last updated: ' + data.last_updated + "</p>");
 
     // const img = new Image();
     // img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
