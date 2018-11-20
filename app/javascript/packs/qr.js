@@ -87,19 +87,23 @@ function launchRequest(data) {
   })
   .then((data) => {
     if (data.msg == "No record found") {
-      console.log(data.qr_code)
-      document.querySelector(".qr-content").innerHTML = "This QR code is not valid"
+      document.querySelector(".qr-content").innerHTML = "This QR code is not valid";
+      document.querySelector(".qr-name").innerHTML = "No data available";
+      document.querySelector(".qr-quantity").innerHTML = "No data available";
+      document.querySelector(".qr-date").innerHTML = "No data available";
+      document.querySelector(".qr-meal").innerHTML = "No data available";
+      swal({
+        title: "Invalid QR",
+        text: "This QR code is not related to any order",
+        icon: "warning",
+        buttons: "return",
+      })
     } else {
-      // console.log(data.qr_code)
       document.querySelector(".qr-content").hidden = true;
-      console.log(data.client_name)
-      document.querySelector(".qr-name").innerHTML = `${data.name}`
-      document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`
-      document.querySelector(".qr-date").innerHTML = `${data.date}`
-      document.querySelector(".qr-meal").innerHTML = `${data.meal}`
-      // document.querySelector(".order-picture").innerHTML = `<%= cl_image_tag ${data.photo}, crop: :fill %>`
-      // document.querySelector(".order-picture").css({'backgroundImage':`${data.photo}`});
-
+      document.querySelector(".qr-name").innerHTML = `${data.name}`;
+      document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`;
+      document.querySelector(".qr-date").innerHTML = `${data.date}`;
+      document.querySelector(".qr-meal").innerHTML = `${data.meal}`;
       document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
       swal({
         title: "Valid!",
