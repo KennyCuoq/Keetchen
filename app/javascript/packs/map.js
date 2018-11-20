@@ -5,6 +5,7 @@ const mapElement = document.getElementById('map-runners');
 
 if (mapElement) { // only build a map if there's a div#map to inject into
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+
   const map = new mapboxgl.Map({
     container: 'map-runners',
     style: 'mapbox://styles/mapbox/streets-v10'
@@ -14,6 +15,8 @@ if (mapElement) { // only build a map if there's a div#map to inject into
   markers.forEach((marker) => {
     new mapboxgl.Marker()
       .setLngLat([marker.lng, marker.lat])
+      // .setStyle({"paint": {"fill-color": "#00ffff"}
+      // })
       .addTo(map);
   })
 
@@ -38,3 +41,6 @@ if (mapElement) { // only build a map if there's a div#map to inject into
       .addTo(map);
   })
 }
+
+
+

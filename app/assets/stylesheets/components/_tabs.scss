@@ -9,17 +9,22 @@
   background: white;
   text-align: center;
   padding: 10px 0;
-  // h3, p {
-  //   color: $red;
-  // }
 }
 
 .tabs-wrapper {
   background: white;
 }
 
+.order-tab {
+  &.active {
+    box-shadow: 0px 2px 0px red;
+    background: white;
+  }
+}
+
 .active {
   background: rgb(235, 235, 235);
+
 }
 
 .tabs a {

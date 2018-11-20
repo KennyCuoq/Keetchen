@@ -27,4 +27,7 @@
   padding: 4px 7px;
   border-radius: 4px;
   font-weight: lighter;
+  &:hover {
+    text-decoration: none;
+  }
 }
