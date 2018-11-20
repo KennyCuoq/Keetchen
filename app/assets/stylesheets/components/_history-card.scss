@@ -8,3 +8,14 @@
   margin-left: 35px;
 }
 }
+
+.fa-star{
+  color: $light-gray;
+  &:hover{
+    color: $light-red;
+  }
+}
+
+.rating a{
+  text-decoration: none;
+}
