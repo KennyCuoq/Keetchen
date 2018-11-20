@@ -23,12 +23,10 @@ class EmployeesController < ApplicationController
     # @employee.save
   end
 
-  def update
+  def refill_inventory
     @employee = Employee.find(params[:id])
-
-    # find the employee
-    # employee.update(cordrdssds)
-    # binding.pry
+    @employee.inventory = 50
+    @employee.save!
   end
 
   def destroy

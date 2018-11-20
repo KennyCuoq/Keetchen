@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     member do
       patch 'update_position'
     end
+    member do
+      patch 'refill_inventory'
+    end
   end
 
   resources :reviews, only: [ :create ]

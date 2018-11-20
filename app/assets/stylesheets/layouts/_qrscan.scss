@@ -1,0 +1,82 @@
+.container-card{
+  background-color:white;
+  margin:10px;
+  border-radius: 5px;
+  padding:5px;
+  font-size: 18px;
+  & p {
+    font-size: 14px;
+  }
+  & h3{
+    font-size: 25px;
+  }
+}
+
+.container-scanning-tool {
+  display: flex;
+  justify-content: center;
+}
+
+#canvas {
+  height: 90%;
+  width:80%;
+}
+
+.qr-container {
+  margin: 5px;
+}
+
+
+@media (max-width: 720px) {
+
+  .container-scanning-tool {
+    display: block;
+  };
+
+  .container-header h2 {
+    font-size: 24px;
+    text-align: center;
+  };
+
+  .container-header h3 {
+    font-size: 20px;
+    // text-align: center;
+  };
+}
+
+  .btn-sm {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+@media (min-width: 1000px) {
+  .container-header {
+    width: 1000px;
+  }
+  .container-view {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+#scan-qr{
+  margin: 5px;
+}
+
+#outputMessage {
+  font-size: 14px;
+}
+
+.inventory-holder{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.inventory-layout {
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 5px 5px;
+  border-radius: 50px;
+  opacity: 0.6;
+}
