@@ -89,3 +89,13 @@ right: 10px;
     color:#FFCE44;
   }
 }
+
+.rating{
+position: absolute;
+bottom: 10px;
+right: 10px;
+  & .checked{
+    color:#FFCE44;
+  }
+}
+
