@@ -2,17 +2,25 @@
   <%= javascript_pack_tag "qr" %>
 <% end %>
 
-<div class="container">
-<h3>Employee dashboard</h3>
-  <div class="container">
-    <button id="scan-qr" class='btn btn-primary'> Click to scan! </button>
-    <div class="qr-content" hidden>
-      <div id="loadingMessage" hidden="">⌛ Loading video...</div>
-      <canvas id="canvas" height="180" width="360"></canvas>
-      <div id="output">
-        <div id="outputMessage">No QR code detected.</div>
-        <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
+<div class="qr-container">
+<h2>Employee dashboard</h2>
+  <div class="container-card">
+    <h3>QR scanning tool</h3>
+    <div class="container-scanning-tool">
+      <div>
+        <button id="scan-qr" class='btn btn-primary btn-sm'> Click to scan! </button>
+        <div class="qr-content" hidden>
+          <div id="loadingMessage" hidden="">⌛ Loading video...</div>
+          <canvas id="canvas"></canvas>
+          <div id="output">
+            <div id="outputMessage">No QR code detected.</div>
+            <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="container-card">
+    <h3>Inventory management</h3>
   </div>
 </div>

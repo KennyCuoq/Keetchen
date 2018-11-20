@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
 
-  resources :customers, except: [ :new, :index ]do
+  resources :customers, except: [ :new ]do
     member do
     # Route to show customer's order history (where they can review)
       get 'my_orders', to: "customers#my_orders"
