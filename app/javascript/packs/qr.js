@@ -80,13 +80,11 @@ function launchRequest(data) {
     })
   })
   .then(response => {
-    console.log('response');
-    // console.log(response);
     activeJSQR.currentActive = false;
     return response.json()
   })
   .then((data) => {
-    if (data.msg == "No record found") {
+    if (data.msg === "No record") {
       document.querySelector(".qr-content").innerHTML = "This QR code is not valid";
       document.querySelector(".qr-name").innerHTML = "No data available";
       document.querySelector(".qr-quantity").innerHTML = "No data available";

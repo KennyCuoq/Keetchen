@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       @order = Order.find_by(qr_code: @qr_text)
       if @order.nil?
         # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-        render json: {msg: "No record found", qr_code: @qr_text}
+        render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
       else
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
       end
