@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'my_orders', to: "customers#my_orders"
     end
     resources :employees, only: [ :create ]
+    resources :reviews, only: [:create]
   end
 
   post "confirm_order", to: "orders#confirm"
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reviews, only: [ :create ]
+  resources :reviews, only: [ :create, :new ]
   resources :meals, except: [ :show, :destroy ]
   resources :meal_dates, except: [ :show, :destroy ] do
     resources :orders, only: [ :index, :show, :create, :update, :new] do

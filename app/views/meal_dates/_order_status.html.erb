@@ -1,0 +1,2 @@
+<% order = current_user.orders.where("meal_date_id = ?", meal_date).to_a[0] %>
+<a class="btn-order-status"><%= order.status %></a>

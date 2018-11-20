@@ -19,4 +19,9 @@ class MealDate < ApplicationRecord
     # hello[0].id
     # raise
   end
+
+
+  def has_reviewed?(user)
+    self.reviews.find_by(user_id: user.id)
+  end
 end
