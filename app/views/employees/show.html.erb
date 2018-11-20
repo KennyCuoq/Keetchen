@@ -1,8 +1,17 @@
+
+<div id="coordinates">
+
+</div>
+<!-- employee.latitude = rsult of JS functon
+emplppoyee.longitude = result of JS function
+set the employee lognitdue to what is returned from the function> -->
+
 <%= content_for(:qr) do %>
   <%= javascript_pack_tag "qr" %>
 <% end %>
 
 <div class="container">
+
 <h3>Employee dashboard</h3>
   <div class="container">
     <button id="scan-qr" class='btn btn-primary'> Click to scan! </button>
@@ -16,3 +25,11 @@
     </div>
   </div>
 </div>
+
+
+<% if current_user.employee? %>
+  <%= javascript_pack_tag 'locate_delivery_person' %>
+  <script>
+    geoFindMe('<%= current_user.employee.id %>');
+  </script>
+<% end %>

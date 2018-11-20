@@ -25,6 +25,7 @@ gem 'stripe'
 gem 'rqrcode-with-patches', '~> 0.5.4'
 gem 'chunky_png'
 gem 'qrio'
+gem "geocoder"
 
 
 
