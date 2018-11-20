@@ -1,26 +1,60 @@
+
+<!-- employee.latitude = rsult of JS functon
+emplppoyee.longitude = result of JS function
+set the employee lognitdue to what is returned from the function> -->
+
 <%= content_for(:qr) do %>
   <%= javascript_pack_tag "qr" %>
 <% end %>
-
-<div class="qr-container">
-<h2>Employee dashboard</h2>
-  <div class="container-card">
-    <h3>QR scanning tool</h3>
-    <div class="container-scanning-tool">
-      <div>
+<div class="container-view">
+  <div class="container-header">
+    <h2>Employee dashboard</h2>
+    <div class="container-card">
+      <h3>Scanning tool</h3>
+      <div style="text-align:center">
         <button id="scan-qr" class='btn btn-primary btn-sm'> Click to scan! </button>
         <div class="qr-content" hidden>
           <div id="loadingMessage" hidden="">⌛ Loading video...</div>
           <canvas id="canvas"></canvas>
-          <div id="output">
-            <div id="outputMessage">No QR code detected.</div>
-            <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-card">
-    <h3>Inventory management</h3>
+    <div class="container-card">
+      <h3>Order information</h3>
+      <div id="output">
+        <div id="outputMessage">No QR code detected.</div>
+        <div hidden=""><b>Data:</b> <span id="outputData"></span>
+        </div>
+      </div>
+    </div>
+      <div class="container-card">
+      <h3>Inventory management</h3>
+      <div>
+        <div class="inventory-holder">
+          <p>Total inventory:</p>
+          <div>
+            <% if @employee.inventory.nil? %>
+              <p class="inventory-layout">0</p>
+            <% else %>
+              <p class="inventory-layout"><%= @employee.inventory %></p>
+            <% end %>
+          </div>
+        </div>
+        <div style="text-align:center">
+          <%= link_to 'refill', refill_inventory_employee_path(@employee), method: :patch ,class: 'btn btn-primary btn-sm'%>
+        </div>
+      </div>
+    </div>
+    <div class="container-card" style="text-align:center">
+      <div id="coordinates"></div>
+    </div>
   </div>
 </div>
+
+
+<% if current_user.employee? %>
+  <%= javascript_pack_tag 'locate_delivery_person' %>
+  <script>
+    geoFindMe('<%= current_user.employee.id %>');
+  </script>
+<% end %>

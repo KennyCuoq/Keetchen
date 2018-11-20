@@ -20,4 +20,7 @@ class User < ApplicationRecord
     @customer.save
   end
 
+  def employee?
+    !self.employee.nil?
+  end
 end

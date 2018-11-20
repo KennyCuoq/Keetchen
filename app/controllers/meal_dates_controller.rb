@@ -1,7 +1,16 @@
 class MealDatesController < ApplicationController
   def index
-    @meal_dates = MealDate.where("date >= ?", (Date.today + 1))
+    @meal_dates = MealDate.where("date >= ?", Date.today)
     @meal_dates = MealDate.where("date < ?", (Date.today + 5))
+    @employees = Employee.where.not(latitude: nil, longitude: nil)
+    @markers = @employees.map do |employee|
+      {
+        lng: employee.longitude,
+        lat: employee.latitude,
+        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
+      }
+    end
+
     # @boats = @boats.where("daily_price < ?", params[:filter_price].to_i)
     # set_price
   end
