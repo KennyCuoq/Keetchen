@@ -1,7 +1,6 @@
 class MealDatesController < ApplicationController
   def index
-    @meal_dates = MealDate.where("date >= ?", Date.today)
-    @meal_dates = MealDate.where("date < ?", (Date.today + 5))
+    @meal_dates = MealDate.where("date >= ?", Date.today).where("date < ?", (Date.today + 5))
     @employees = Employee.where.not(latitude: nil, longitude: nil)
     @markers = @employees.map do |employee|
       {

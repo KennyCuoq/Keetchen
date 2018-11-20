@@ -1,14 +1,3 @@
-
-<div class="container">
-
-<div
-  id="map-runners"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
 <div class="container" id="meal-date-container">
   <div class="tabs-wrapper">
   <div class="tabs">
@@ -30,7 +19,7 @@
     <div class="meal-card date-tab-content" id="day<%= count %>" <%= 'hidden' if count > 1 %>>
       <% count+=1 %>
       <% if !current_user.orders.where("meal_date_id = ?", meal_date).to_a.empty? %>
-        <%= render 'meal_ordered', meal_date: meal_date, meal: meal, markers: @markers %>
+        <%= render 'meal_ordered', meal_date: meal_date, meal: meal, markers: @markers%>
       <% else %>
         <%= render 'meal_non_ordered', meal_date: meal_date, meal: meal %>
       <% end %>
