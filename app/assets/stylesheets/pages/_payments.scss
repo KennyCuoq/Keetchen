@@ -67,6 +67,14 @@
   display: flex;
   justify-content:space-around;
   padding-top: 30px;
+  .stripe-button-el {
+    background: transparent;
+    box-shadow: none;
+  }
+  span {
+    background: $red !important;
+    text-shadow: none !important;
+  }
 }
 
 

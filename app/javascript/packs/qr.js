@@ -21,6 +21,7 @@ function activeJSQR() {
   }
 
   // Use facingMode: environment to attemt to get the front camera on phones
+
   navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
     video.srcObject = stream;
     video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -73,11 +74,12 @@ function launchRequest(data) {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRF-Token': Rails.csrfToken()
+      'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
     },
     body: JSON.stringify({
       qr: data
-    })
+    }),
+    credentials: 'same-origin'
   })
   .then(response => {
     activeJSQR.currentActive = false;
