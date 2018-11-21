@@ -106,7 +106,7 @@ users.each do |user|
       pre = true
     end
     qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
-    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr)
+    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
   end
 end
 
