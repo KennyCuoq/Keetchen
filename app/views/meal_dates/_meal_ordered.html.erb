@@ -1,25 +1,38 @@
+<% is_today = meal_date.date == Date.today %>
 <div class="row">
   <div class="col-xs-12">
     <div class="meal-card-photo-div">
-      <% if meal_date.date == Date.today %>
+      <% if is_today %>
         <%= render 'meal_ordered_employee_map', meal_date: meal_date %>
       <% end %>
-      <div class="order-tab-content-<%= meal_date.id  %>" style="width: 100%; height: 100%" id="qr-code-<%= meal_date.id %>" <%= 'hidden' if meal_date.date == Date.today %>><%= render 'meal_ordered_qr_code', meal_date: meal_date %></div>
+      <div class="order-tab-content-<%= meal_date.id  %>" style="width: 100%; height: 100%" id="qr-code-<%= meal_date.id %>" <%= 'hidden' if is_today %>><%= render 'meal_ordered_qr_code', meal_date: meal_date %></div>
       <img src="<%= meal.photo %>" data-id="<%= meal_date.id  %>" class="meal-card-photo order-tab-content-<%= meal_date.id  %>" id="meal-<%= meal_date.id  %>" hidden>
     </div>
-
+    
     <div class="tabs">
-      <% if meal_date.date == Date.today %>
+      <% if is_today %>
         <a class="tab order-tab active" data-id="<%= meal_date.id  %>" data-target="map-runners">Map</a>
       <% end %>
-      <a class="tab order-tab <%= 'active' unless meal_date.date == Date.today %>" data-id="<%= meal_date.id  %>" data-target="qr-code-<%= meal_date.id  %>">QR code</a>
+      <a class="tab order-tab <%= 'active' unless is_today %>" data-id="<%= meal_date.id  %>" data-target="qr-code-<%= meal_date.id  %>">QR code</a>
       <a class="tab order-tab" data-id="<%= meal_date.id  %>" data-target="meal-<%= meal_date.id  %>">Your meal</a>
     </div>
   </div>
 
   <div class="col-xs-12">
     <div class="pick-up-instructions">
-      <p><strong>Find your closest Keetchen runner on the map and scan your QR code to collect your meal. Bon appétit!</strong></p>
+      <p><strong>
+        <% if is_today %>
+          Find your closest Keetchen runner on the map and scan your QR code to collect your meal. Bon appétit!
+        <% else %>
+          Come back
+          <% if meal_date.date == Date.today + 1 %>
+            tomorrow
+          <% else %>
+            on <%= meal_date.date.strftime('%A') %>
+          <% end %>
+          to grab your lunch between 11am and 2pm. You can view our typical delivery points <a href="#">here</a>.
+        <% end %>
+      </strong></p>
     </div>
     <div class="meal-card-description">
       <div class="meal-name-price-group">

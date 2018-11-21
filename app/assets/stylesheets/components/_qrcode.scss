@@ -2,10 +2,17 @@
  *= require_tree .
  *= require_self
  */
-
+// .hello {
+//   display: flex;
+//   align-items: center;
+//   height:100%;
+// }
 .container-qr {
+
   display: flex;
   justify-content: center;
+  height: 100%;
+  align-items: center
 }
 
 table.qr-code {
@@ -21,8 +28,8 @@ table.qr-code td {
   border-collapse: collapse;
   padding: 0;
   margin: 0;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
 }
 table.qr-code td.black { background-color: #000; }
 table.qr-code td.white { background-color: #fff; }
