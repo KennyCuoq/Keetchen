@@ -96,6 +96,7 @@ end
 p users
 p meal_dates
 # #creation of orders
+
 users.each do |user|
   meal_dates.each do |meal_date|
     if meal_date.date == Date.today
@@ -106,7 +107,7 @@ users.each do |user|
       pre = true
     end
     qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
-    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr)
+    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
   end
 end
 
@@ -145,11 +146,11 @@ end
 #creation of reviews
 Review.destroy_all
 
-meal_dates.each do |meal_date|
-  users.each do |user|
-  Review.create!(meal_date_id: meal_date.id, user_id: user.id, rating: rand(3..5))
-  end
-end
+# meal_dates.each do |meal_date|
+#   users.each do |user|
+#   Review.create!(meal_date_id: meal_date.id, user_id: user.id, rating: rand(3..5))
+#   end
+# end
 
 
 
