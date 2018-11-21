@@ -1,1 +1,9 @@
-// document.querySelector("[data-employee-id ='<%= customer.user.employee.id %>']").remove();
+var customerId = '<%= @employee.user.customer.id %>'
+var employee = '<%= @employee.id %>'
+document.querySelector(`#link-${customerId}`).href = `customers/${customerId}/employees`
+document.querySelector(`#link-${customerId}`).dataset.method = "post"
+
+document.querySelector(`#icon-${customerId}`).style.color = "black"
+document.querySelector(`#label-${customerId}`).innerHTML = "<p><strong>Customer</strong></p>"
+
+console.log(customerId)

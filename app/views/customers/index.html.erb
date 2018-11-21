@@ -12,11 +12,13 @@
         </div>
         <div class="message-name">
           <h3><%= link_to customer.user.first_name + ' ' + customer.user.last_name, customer_path(customer)%></h3>
-          <% if customer.user.employee.nil? %>
-            <p><strong>Customer</strong></p>
-          <% else %>
-            <p><strong>Employee</strong></p>
-          <% end %>
+            <div id='label-<%= customer.id %>'>
+              <% if customer.user.employee.nil? %>
+                <p><strong>Customer</strong></p>
+              <% else %>
+                <p><strong>Employee</strong></p>
+              <% end %>
+            </div>
         </div>
         <div class="message-body">
           <p class="message-signup"><strong>signed up on:</strong></p>
@@ -26,14 +28,14 @@
           <div>
             <% if customer.user.employee.nil? %>
               <div class="">
-                <%= link_to customer_employees_path(customer), remote: true, method: :post do %>
-                  <%= image_tag "employee-black.png", height: 20 %>
+                <%= link_to customer_employees_path(customer), id: "link-#{customer.id}", remote: true, method: :post do %>
+                  <i id='icon-<%= customer.id %>' class="far fa-user" style="color: black; font-size:20px"></i>
                 <% end %>
               </div>
             <% else %>
-              <div data-employee-id ='<%= customer.user.employee.id %>'>
-                <%= link_to employee_path(customer.user.employee), remote: true, method: :delete do %>
-                  <%= image_tag "employee-red.png", height: 20 %>
+              <div>
+                <%= link_to employee_path(customer.user.employee), remote: true, id: "link-#{customer.id}", method: :delete do %>
+                  <i id='icon-<%= customer.id %>' class="far fa-user" style="color: red; font-size:20px"></i>
                 <% end %>
               </div>
             <% end %>

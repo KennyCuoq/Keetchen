@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
       if @order.nil?
         # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
+      elsif @order.status == "Picked up"
+        render json: {msg: "Already used", qr_code: @qr_text, order: @order.to_json}
       else
         @order.status = "Picked up"
         @order.save
@@ -39,7 +41,6 @@ class OrdersController < ApplicationController
     @order.meal_date = @meal_date
     @order.pre_order = set_pre_order(@meal_date)
     @order.order_price_cents = set_order_price(@meal_date, @meal)
-    @order.qr_code = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
     @order.save
     # redirect_to meal_date_order_path(@meal_date, @order)
     # redirect_to meal_dates_path
