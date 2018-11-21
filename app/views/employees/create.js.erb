@@ -1,16 +1,8 @@
-// function refreshPage(innerHTML) {
-//   const newBin = document.getElementById('new_review');
-//   newBin.innerHTML = innerHTML;
-// }
+var customerId = '<%= @employee.user.customer.id %>'
+var employee = '<%= @employee.id %>'
+document.querySelector(`#link-${customerId}`).href = `employees/${employee}`
+document.querySelector(`#link-${customerId}`).dataset.method = "delete"
 
-// function addEmployee(EmployeeHTML) {
-//   const employees = document.getElementById('reviews');
-//   employees.insertAdjacentHTML('beforeend', employeeHTML);
-// }
 
-// <% if @employee.errors.any? %>
-//   refreshPage('<%= j render "customers" %>');
-// <% else %>
-//   addEmployee('<%= j render "customers", customer: @customer %>');
-//   refreshPage('<%= j render "customers" %>');
-// <% end %>
+document.querySelector(`#icon-${customerId}`).style.color = "red"
+document.querySelector(`#label-${customerId}`).innerHTML = "<p><strong>Employee</strong></p>"
