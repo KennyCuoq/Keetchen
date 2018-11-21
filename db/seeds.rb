@@ -14,6 +14,7 @@ photo_taboule = 'https://koken.medialaancdn.be/sites/koken.vtm.be/files/styles/v
 photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_image/file/23814/recipe_card_size_6._Plate.jpg'
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
+photo_pad_thai = 'https://pinchofyum.com/wp-content/uploads/Vegetarian-Pad-Tha-2-2.jpg'
 
 photo_dree = 'https://avatars0.githubusercontent.com/u/43139321?v=4'
 photo_steven = 'https://avatars2.githubusercontent.com/u/41968309?v=4'
@@ -30,14 +31,16 @@ salad = Meal.create!(name: "Chicken Salad", description: "“Chaat” is a term 
 taboule = Meal.create!(name: "Vegetable Taboulé", description: "Tabouli is likely the topmost famed Mediterranean/Middle Eastern salad there is. Because it is now sold in most large supermarkets around the world, I feel compelled to dispel one thing: the “star of the show,” so to speak, in a tabouli recipe is not the bulgur. The idea is to have a little bulgur with the salad, not a little salad with your bulgur.", photo: photo_taboule, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 poke_bowl = Meal.create!(name: "Tuna Poke", description: "Created in the tropical Hawaiian islands, poké actually refers to the cubes of marinated raw fish that was a way to use up leftover ends from prime sashimi cuts.", photo: photo_poke, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 beef_tartare = Meal.create!(name: "Beef Tartare", description: "Beef tartare is usually served with onions, capers, pepper and Worcestershire sauce, and other seasonings, often presented to the diner separately, to be added to taste. It is often served with a raw egg yolk, and often on rye bread.", photo: photo_beef_tartare, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+pad_thai = Meal.create!(name: "Vegetarian Pad Thai", description: "In Thailand, people are fiercely loyal to their favorite pad Thai—which is painstakingly made one plate at a time. After a taste of this quicker vegetarian version, we think you'll start to feel that same sense of loyalty.", photo: photo_pad_thai, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 
 
 meals = []
 meals << gnocchi
 meals << poke_bowl
-meals << hamburger
-meals << beef_tartare
+meals << pad_thai
 meals << salad
+meals << beef_tartare
+meals << hamburger
 meals << taboule
 
 #creation of users
@@ -69,11 +72,23 @@ admins << frederik
 admins << dree
 
 #creation of meal_dates
+dates = []
+10.times do |i|
+  date = Date.today + i
+  if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
+    dates << date
+  else
+    puts 'byebye'
+  end
+end
+
+puts dates
+
 counter = 0
-today = Date.today
+# today = Date.today
 meal_dates = []
 meals.each do |meal|
-  new_meal_date = MealDate.create!(date: (today + counter), meal_id: meal.id )
+  new_meal_date = MealDate.create!(date: dates[0 + counter], meal_id: meal.id )
   counter += 1
   meal_dates << new_meal_date
 end
