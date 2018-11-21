@@ -99,6 +99,18 @@ function launchRequest(data) {
         icon: "warning",
         buttons: "return",
       })
+    } else if(data.msg === "Already used") {
+      document.querySelector(".qr-content").innerHTML = "This QR code has already been used";
+      document.querySelector(".qr-name").innerHTML = "No data available";
+      document.querySelector(".qr-quantity").innerHTML = "No data available";
+      document.querySelector(".qr-date").innerHTML = "No data available";
+      document.querySelector(".qr-meal").innerHTML = "No data available";
+      swal({
+        title: "QR already used",
+        text: "This QR code has already been used",
+        icon: "warning",
+        buttons: "return",
+      })
     } else {
       document.querySelector(".qr-content").hidden = true;
       document.querySelector(".qr-name").innerHTML = `${data.name}`;
