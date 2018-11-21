@@ -5,6 +5,18 @@ class EmployeesController < ApplicationController
       @user = @customer.user
       @employee = Employee.new(user_id: @user.id)
       @employee.save
+    # if @employee.save
+    #   respond_to do |format|
+    #     format.html {redirect_to customers_path}
+    #     format.js
+    #   end
+    # else
+    #   respond_to do |format|
+    #     format.html {redirect_to customers_path}
+    #     format.js
+    #   end
+    # end
+      redirect_to customers_path
   end
 
   def show
@@ -23,11 +35,13 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @employee.inventory = 50
     @employee.save!
+    redirect_to employee_path(@employee)
   end
 
   def destroy
     @employee = Employee.find(params[:id])
     @employee.destroy!
+    redirect_to customers_path
   end
 
   private

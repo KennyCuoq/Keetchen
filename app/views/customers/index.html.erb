@@ -25,15 +25,19 @@
         <div class="message-status">
           <div>
             <% if customer.user.employee.nil? %>
-              <%= link_to customer_employees_path(customer), remote: true, method: :post do %>
-                <%= image_tag "employee-black.png", height: 20 %>
-              <% end %>
+              <div class="">
+                <%= link_to customer_employees_path(customer), remote: true, method: :post do %>
+                  <%= image_tag "employee-black.png", height: 20 %>
+                <% end %>
+              </div>
             <% else %>
-              <%= link_to employee_path(customer.user.employee), remote: true, method: :delete do %>
-                <%= image_tag "employee-red.png", height: 20 %>
-              <% end %>
+              <div data-employee-id ='<%= customer.user.employee.id %>'>
+                <%= link_to employee_path(customer.user.employee), remote: true, method: :delete do %>
+                  <%= image_tag "employee-red.png", height: 20 %>
+                <% end %>
+              </div>
             <% end %>
-          </div>
+            </div>
           <div>
             <%= link_to customer_path(customer), method: :delete, remote: true do %>
               <%= image_tag "bin-black.png", height: 20 %>
