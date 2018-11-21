@@ -1,20 +1,30 @@
 <% @qr = meal_date.qr_code(current_user)  %>
-
+<% todays_orders = meal_date.orders %>
+<% @todays_order = todays_orders.find_by(user_id: current_user) %>
 <div class='container-qr'>
-  <table class="qr-code">
-  <% @qr.modules.each_index do |x| %>
-    <tr>
-    <% @qr.modules.each_index do |y| %>
-     <% if @qr.dark?(x,y) %>
-      <td class="red"/>
-     <% else %>
-      <td class="white"/>
-     <% end %>
-    <% end %>
-    </tr>
+  <% if @todays_order.status == "Picked up" %>
+    <div class='container-checked'>
+      <%= image_tag "checked.png", class: "logo-checked" %>
+      <p><strong>You have picked up your order</strong></p>
+      <%= link_to "Rate your meal", my_orders_customer_path(current_user), class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+      <table class="qr-code">
+      <% @qr.modules.each_index do |x| %>
+        <tr>
+        <% @qr.modules.each_index do |y| %>
+         <% if @qr.dark?(x,y) %>
+          <td class="black"/>
+         <% else %>
+          <td class="white"/>
+         <% end %>
+        <% end %>
+        </tr>
+      <% end %>
+      </table>
+      <br />
   <% end %>
-  </table>
-  <br />
 </div>
+
 
 

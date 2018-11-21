@@ -9,13 +9,9 @@ class MealDatesController < ApplicationController
         infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
       }
     end
-
     # @boats = @boats.where("daily_price < ?", params[:filter_price].to_i)
     # set_price
   end
-
-
-
 
   private
 
