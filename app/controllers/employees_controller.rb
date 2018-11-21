@@ -4,19 +4,18 @@ class EmployeesController < ApplicationController
       @customer = Customer.find(params[:customer_id])
       @user = @customer.user
       @employee = Employee.new(user_id: @user.id)
-      @employee.save
-    # if @employee.save
-    #   respond_to do |format|
-    #     format.html {redirect_to customers_path}
-    #     format.js
-    #   end
-    # else
-    #   respond_to do |format|
-    #     format.html {redirect_to customers_path}
-    #     format.js
-    #   end
-    # end
-      redirect_to customers_path
+
+    if @employee.save
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    else
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    end
   end
 
   def show
@@ -40,8 +39,18 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee = Employee.find(params[:id])
-    @employee.destroy!
-    redirect_to customers_path
+    if @employee.destroy!
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    else
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    end
+
   end
 
   private

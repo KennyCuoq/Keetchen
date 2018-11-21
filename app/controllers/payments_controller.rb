@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, status: 'Paid')
     redirect_to meal_date_order_path(@meal_date, @order)
+    @order.qr_code = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
     @order.save
 
     rescue Stripe::CardError => e
