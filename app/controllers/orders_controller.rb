@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
    end
 
    def confirm
-    unless current_user.employee.nil?
+    # unless current_user.employee.nil?
       @qr_text = params[:qr]
       @order = Order.find_by(qr_code: @qr_text)
       if @order.nil?
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     else
       render json: {msg: "Your not allowed to perform this action"}
     end
-   end
+   # end
 
    def show
     @order = Order.find(params[:id])
