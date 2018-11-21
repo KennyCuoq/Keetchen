@@ -28,7 +28,6 @@
 .customer-avatar{
   z-index: 5;
   position: absolute;
-  right: 310px;
   width: 120px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -37,18 +36,25 @@
 
 
 
-@media (max-width: 400px){
+@media (max-width: 650px){
   .customer-avatar{
-    z-index: 5;
-    position: absolute;
-    right: 119px;
-    bottom: -45px;
-    width: 70px;
-    border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    border: white 1px solid;
+      width: 80px;
   }
+
   #customer-show-title{
     font-size: 30px;
+    margin-bottom: 80px;
   }
+  .container-avatar{
+      top:-20%;
+      margin-bottom: 10px;
+  }
+  .container-personal-info{
+    padding-top: 25px;
+  }
+  .edit-button-1{
+    margin-top: 23px;
+  }
+
 }
+
