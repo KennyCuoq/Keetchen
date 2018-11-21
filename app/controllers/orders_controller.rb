@@ -1,6 +1,6 @@
-
 class OrdersController < ApplicationController
   before_action :determine_variables, only: [:new, :create]
+  skip_before_filter :verify_authenticity_token, only: [:confirm]
 
    def index
 
