@@ -84,6 +84,7 @@ function launchRequest(data) {
     return response.json()
   })
   .then((data) => {
+    console.log(data.msg);
     if (data.msg === "No record") {
       document.querySelector(".qr-content").innerHTML = "This QR code is not valid";
       document.querySelector(".qr-name").innerHTML = "No data available";

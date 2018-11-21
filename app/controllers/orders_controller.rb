@@ -14,9 +14,9 @@ class OrdersController < ApplicationController
         # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
       else
+        @order.status = "Purchased"
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
       end
-      @order.status = "Purchased"
     else
       render json: {msg: "Your not allowed to perform this action"}
     end
