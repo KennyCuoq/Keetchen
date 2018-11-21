@@ -18,6 +18,7 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, status: 'Paid')
+    @order.qr_code = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
     @order.save
     redirect_to meal_dates_path
 
