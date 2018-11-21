@@ -1,0 +1,168 @@
+.summary-box{
+  background-color: white;
+  margin: 30px;
+  padding:70px;
+  padding-top: 50px;
+  border-radius: 10px;
+  height: 70vh;
+  color:black;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+
+  & h3{
+    color:$dark-gray;
+    font-weight: lighter;
+    letter-spacing: -1px;
+    margin:0px;
+    margin-bottom: 20px;
+  }
+}
+
+#summary-title{
+  text-align: center;
+  justify-content: space-around;
+  border-bottom: solid 2px $light-red;
+}
+
+.summary-info{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 20px;
+
+}
+
+.summary-amount{
+  display: flex;
+  justify-content:space-between;
+
+}
+
+.summary-price{
+  display: flex;
+  justify-content:space-between;
+
+}
+
+
+.line{
+  margin-left:30px;
+  margin-right: 30px;
+  margin-top: 20px;
+  border-bottom: solid 1px #C7C7C7;
+}
+
+.summary-total-amount{
+  display:flex;
+  justify-content:space-between;
+  padding-top: 30px;
+}
+
+
+.total{
+  margin-top: 10px;
+  display:flex;
+  justify-content:center;
+}
+
+.pay-button{
+  display: flex;
+  justify-content:space-around;
+  padding-top: 30px;
+}
+
+
+@media (max-width: 400px){
+  .summary-box{
+    background-color: white;
+    margin: 10px 30px;
+    padding:20px;
+
+    border-radius: 10px;
+    height: 70vh;
+    color:black;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+
+
+    & h3{
+      color:$dark-gray;
+      font-weight: lighter;
+      letter-spacing: -1px;
+      font-size: 18px;
+      margin:10px;
+    }
+  }
+
+  #summary-title{
+    text-align: center;
+    justify-content: space-around;
+    border-bottom: solid 2px $light-red;
+  }
+
+  .summary-info{
+    display: flex;
+    justify-content: space-between;
+    & p{
+      font-size: 15px;
+    }
+  }
+
+  .meal-name{
+     & p{
+      font-size: 15px;
+    }
+  }
+
+  .summary-amount{
+    display: flex;
+    justify-content: space-between;
+     & p{
+      font-size: 15px;
+    }
+  }
+
+  .meal-amount{
+     & p{
+      font-size: 15px;
+    }
+  }
+
+  .summary-price{
+    display: flex;
+    justify-content: space-between;
+     & p{
+      font-size: 15px;
+    }
+  }
+
+  .price-amount{
+         & p{
+      font-size: 15px;
+    }
+
+  }
+
+  .summary-total-amount{
+    display:flex;
+    justify-content: space-between;
+    padding-top: 10px;
+
+     & p{
+      font-size: 15px;
+    }
+  }
+
+  .total-amount{
+
+     & p{
+      font-size: 15px;
+    }
+  }
+  .pay-button{
+    display: flex;
+    justify-content:space-around;
+    padding-top: 20px;
+  }
+  .line{
+  margin-left:10px;
+  margin-right: 10px;
+}
+}

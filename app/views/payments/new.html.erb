@@ -1,17 +1,61 @@
-<h1>Purchase of Order <%= @meal.name %></h1>
-<%= form_tag meal_date_order_payments_path([@meal_date, @order]) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.order_price) %></span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Meal <%= @meal.name %>"
-    data-email="<%= current_user.email %>"
-    data-description="Meal <%= @meal.description %>"
-    data-amount="<%= @order.order_price_cents %>"
-    data-currency="<%= @order.order_price.currency %>">
-  </script>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-lg-offset-3 col-lg-6" >
+      <div class="summary-box">
+        <div id="summary-title">
+          <h3>Order Summary</h3>
+        </div>
+        <div class="summary-info">
+          <div class="meal">
+            <p>Meal:</p>
+          </div>
+          <div class="meal-name">
+            <p><%= @meal.name %></p>
+          </div>
+        </div>
+        <div class="summary-amount">
+          <div class="amount">
+            <p>Amount:</p>
+          </div>
+          <div class="meal-amount">
+            <p><%= @order.quantity %></p>
+          </div>
+        </div>
+        <div class="summary-price">
+          <div class="price">
+            <p>Price:</p>
+          </div>
+          <div class="price-amount">
+            <p><%= humanized_money_with_symbol(@order.order_price) %></p>
+          </div>
+        </div>
+        <div class="line">
+        </div>
+        <div class="total">
+          <h4>Total</h4>
+        </div>
+        <div class="summary-total-amount">
+          <div class="calculation">
+          <p><%= @order.quantity %> x <%= humanized_money_with_symbol(@order.order_price) %></p>
+          </div>
+          <div class="total-amount">
+             <% total = @order.quantity*@order.order_price %>
+            <p> <b> <%= humanized_money_with_symbol(total)%> </b></p>
+          </div>
+        </div>
+        <div class="pay-button">
+        <%= form_tag meal_date_order_payments_path([@meal_date, @order]) do %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Meal <%= @meal.name %>"
+        data-email="<%= current_user.email %>"
+        data-description="Meal <%= @meal.description %>"
+        data-amount="<%= @order.order_price_cents %>"
+        data-currency="<%= @order.order_price.currency %>">
+      </script>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
