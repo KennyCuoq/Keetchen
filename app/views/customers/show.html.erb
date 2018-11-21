@@ -32,7 +32,7 @@
         <%= simple_form_for(@customer) do |f| %>
         <%= f.input :photo, label: false %>
         <%= f.input :photo_cache, as: :hidden, label: false %>
-        <%= f.submit class: 'btn btn-primary'%>
+        <%= f.submit "Update photo", class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
