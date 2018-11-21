@@ -31,3 +31,14 @@
     text-decoration: none;
   }
 }
+
+.btn-order-status-green {
+  color: rgb(0, 204, 102);
+  border: 1px solid rgb(0, 204, 102);
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-weight: lighter;
+  &:hover {
+    text-decoration: none;
+  }
+}
