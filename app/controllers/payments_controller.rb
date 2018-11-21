@@ -18,8 +18,8 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, status: 'Paid')
-    redirect_to meal_date_order_path(@meal_date, @order)
     @order.save
+    redirect_to meal_dates_path
 
     rescue Stripe::CardError => e
     flash[:alert] = e.message
