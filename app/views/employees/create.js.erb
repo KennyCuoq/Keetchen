@@ -1,0 +1,6 @@
+var customerId = '<%= @employee.user.customer.id %>'
+var employee = '<%= @employee.id %>'
+document.querySelector(`#link-${customerId}`).href = `employees/${employee}`
+document.querySelector(`#link-${customerId}`).dataset.method = "delete"
+document.querySelector(`#icon-${customerId}`).style.color = "red"
+document.querySelector(`#label-${customerId}`).innerHTML = "<p><strong>Employee</strong></p>"

@@ -1,10 +1,21 @@
 class EmployeesController < ApplicationController
 
   def create
-    @customer = Customer.find(params[:customer_id])
-    @user = @customer.user
-    @employee = Employee.new(user_id: @user.id)
-    @employee.save
+      @customer = Customer.find(params[:customer_id])
+      @user = @customer.user
+      @employee = Employee.new(user_id: @user.id)
+
+    if @employee.save
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    else
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    end
   end
 
   def show
@@ -23,11 +34,23 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @employee.inventory = 50
     @employee.save!
+    redirect_to employee_path(@employee)
   end
 
   def destroy
     @employee = Employee.find(params[:id])
-    @employee.destroy!
+    if @employee.destroy!
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    else
+      respond_to do |format|
+        format.js
+        format.html {redirect_to customers_path}
+      end
+    end
+
   end
 
   private

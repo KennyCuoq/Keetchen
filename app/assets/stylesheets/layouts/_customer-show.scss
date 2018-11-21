@@ -31,7 +31,7 @@
 }
 
 .container-personal-photo{
-   background-color:white;
+  background-color:white;
   margin:20px;
   margin-left: 0px;
   border-radius: 5px;
@@ -46,15 +46,36 @@
 }
 
 
+// .container-avatar{
+//   height: 130px;
+//   position: relative;
+//   margin:20px;
+//   margin-bottom: 0px;
+//   margin-left: 0px;
+//   border-radius: 5px;
+//   padding:10px;
+//   font-size: 18px;
+
+//   & h3{
+//     font-size: 25px;
+//   }
+
+//   & p {
+//     font-size: 14px;
+//   }
+// }
+
 .container-avatar{
-  height: 130px;
-  position: relative;
-  margin:20px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  border-radius: 5px;
-  padding:10px;
-  font-size: 18px;
+  position: absolute;
+  right: 50%;
+  margin-right: 40px;
+  top:-30%;
+  // margin:20px;
+  // margin-bottom: 0px;
+  // margin-left: 0px;
+  // border-radius: 5px;
+  // padding:10px;
+  // font-size: 18px;
 
   & h3{
     font-size: 25px;
@@ -71,5 +92,6 @@
 
 #customer-show-title{
   color:$dark-gray;
+  margin-bottom: 90px;
 }
 

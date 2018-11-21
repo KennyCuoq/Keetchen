@@ -6,8 +6,10 @@
     <div class='container-checked'>
       <%= image_tag "checked.png", class: "logo-checked" %>
       <p><strong>You have picked up your order</strong></p>
-      <%= link_to "Rate your meal", my_orders_customer_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to "Rate meal", my_orders_customer_path(current_user.customer.id), class: 'btn btn-primary btn-sm' %>
     </div>
+  <% elsif @qr == 'empty' %>
+      <p>Nothing to display</p>
   <% else %>
       <table class="qr-code">
       <% @qr.modules.each_index do |x| %>
