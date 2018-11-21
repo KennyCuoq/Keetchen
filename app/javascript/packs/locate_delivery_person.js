@@ -29,7 +29,8 @@ function geoFindMe(employeeID) {
         "Accept": 'application/json'
 
       },
-      body: JSON.stringify(GPSCoordinates)
+      body: JSON.stringify(GPSCoordinates),
+      credentials: 'same-origin'
     })
     .then(response => response.json())
     .then(data => output.innerHTML = "<p>" + 'Location last updated: ' + data.last_updated + "</p>");
