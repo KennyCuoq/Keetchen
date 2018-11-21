@@ -114,11 +114,11 @@ function launchRequest(data) {
       });
     };
   });
-}
+};
 
 
 document.getElementById("scan-qr").addEventListener("click", () => {
   document.querySelector(".qr-content").hidden = false;
-  activeJSQR()
-})
+  activeJSQR();
+});
 

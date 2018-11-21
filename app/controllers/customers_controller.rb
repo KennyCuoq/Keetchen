@@ -24,7 +24,6 @@ class CustomersController < ApplicationController
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy!
-
   end
 
   private
