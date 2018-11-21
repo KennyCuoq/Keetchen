@@ -77,6 +77,27 @@
   }
 }
 
+// #submitButton{
+//   box-shadow: 1px 1px 1px black !important;
+//   background: back !important;
+//   span {
+//     .iconTick {
+//     background: $red;
+//     }
+//   }
+// }
+
+// #submitButton{
+//   margin-top: 100px !important;
+// }
+
+// span {
+//   background: $red !important;
+// }
+
+iframe .iconTick{
+  background: $red !important;
+}
 
 @media (max-width: 400px){
   .summary-box{
