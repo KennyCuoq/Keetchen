@@ -116,3 +116,11 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.navbar-wagon-item.hidden-md.hidden-lg {
+  display: flex;
+  align-items:center;
+  & a{
+    padding-right: 20px;
+  }
+}
