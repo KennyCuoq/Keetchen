@@ -8,7 +8,7 @@
       <div class="order-tab-content-<%= meal_date.id  %>" style="width: 100%; height: 100%" id="qr-code-<%= meal_date.id %>" <%= 'hidden' if is_today %>><%= render 'meal_ordered_qr_code', meal_date: meal_date %></div>
       <img src="<%= meal.photo %>" data-id="<%= meal_date.id  %>" class="meal-card-photo order-tab-content-<%= meal_date.id  %>" id="meal-<%= meal_date.id  %>" hidden>
     </div>
-
+    
     <div class="tabs">
       <% if is_today %>
         <a class="tab order-tab active" data-id="<%= meal_date.id  %>" data-target="map-runners">Map</a>
