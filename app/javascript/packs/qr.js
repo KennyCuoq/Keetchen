@@ -74,7 +74,7 @@ function launchRequest(data) {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRF-Token': Rails.csrfToken()
+      'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
     },
     body: JSON.stringify({
       qr: data

@@ -24,7 +24,7 @@ function geoFindMe(employeeID) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        'X-CSRF-Token': Rails.csrfToken(),
+        'X-CSRF-Token': document.querySelector("[name='csrf-token']").content,
         "Content-Type": 'application/json',
         "Accept": 'application/json'
 
