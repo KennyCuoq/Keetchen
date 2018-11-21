@@ -1,10 +1,10 @@
 class EmployeesController < ApplicationController
 
   def create
-    @customer = Customer.find(params[:customer_id])
-    @user = @customer.user
-    @employee = Employee.new(user_id: @user.id)
-    @employee.save
+      @customer = Customer.find(params[:customer_id])
+      @user = @customer.user
+      @employee = Employee.new(user_id: @user.id)
+      @employee.save
   end
 
   def show
