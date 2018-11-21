@@ -22,7 +22,7 @@ photo_kenny = 'https://avatars1.githubusercontent.com/u/26207944?v=4'
 photo_frederik = 'https://avatars0.githubusercontent.com/u/43231640?v=4'
 photo_inou = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/yzmhkgececsz46relki9.jpg'
 photo_ellyn = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ul03dampdb9to6qumjcj.jpg'
-
+photo_pesto_pasta = 'https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 
 gnocchi = Meal.create!(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", photo: photo_gnocchi, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 hamburger = Meal.create!(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", photo: photo_burger, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
@@ -32,6 +32,10 @@ taboule = Meal.create!(name: "Vegetable Taboulé", description: "Tabouli is like
 poke_bowl = Meal.create!(name: "Tuna Poke", description: "Created in the tropical Hawaiian islands, poké actually refers to the cubes of marinated raw fish that was a way to use up leftover ends from prime sashimi cuts.", photo: photo_poke, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 beef_tartare = Meal.create!(name: "Beef Tartare", description: "Beef tartare is usually served with onions, capers, pepper and Worcestershire sauce, and other seasonings, often presented to the diner separately, to be added to taste. It is often served with a raw egg yolk, and often on rye bread.", photo: photo_beef_tartare, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 pad_thai = Meal.create!(name: "Vegetarian Pad Thai", description: "In Thailand, people are fiercely loyal to their favorite pad Thai—which is painstakingly made one plate at a time. After a taste of this quicker vegetarian version, we think you'll start to feel that same sense of loyalty.", photo: photo_pad_thai, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+pesto_pasta = Meal.create!(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", photo: photo_pesto_pasta, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+
+
+
 
 
 meals = []
@@ -40,6 +44,7 @@ meals << poke_bowl
 meals << pad_thai
 meals << salad
 meals << beef_tartare
+meals << pesto_pasta
 meals << hamburger
 meals << taboule
 
@@ -97,19 +102,19 @@ p users
 p meal_dates
 # #creation of orders
 
-users.each do |user|
-  meal_dates.each do |meal_date|
-    if meal_date.date == Date.today
-      order_price = 500
-      pre = false
-    else
-      order_price = 450
-      pre = true
-    end
-    qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
-    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
-  end
-end
+# users.each do |user|
+#   meal_dates.each do |meal_date|
+#     if meal_date.date == Date.today
+#       order_price = 500
+#       pre = false
+#     else
+#       order_price = 450
+#       pre = true
+#     end
+#     qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
+#     Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
+#   end
+# end
 
 
 
@@ -134,6 +139,11 @@ users.each do |user|
   end
   customer.save
 end
+
+old_meal = MealDate.create!(date: (Date.today - 6), meal_id: pesto_pasta.id)
+old_order = Order.create!(meal_date_id: old_meal.id, user_id: kenny.id, status: 'Picked up', quantity: 1, qr_code: (0...26).map { ('a'..'z').to_a[rand(26)] }.join, pre_order: false, order_price_cents: 500)
+puts old_meal
+puts old_order
 
 #creation of employee profiles
 Employee.destroy_all
