@@ -78,7 +78,8 @@ function launchRequest(data) {
     },
     body: JSON.stringify({
       qr: data
-    })
+    }),
+    credentials: 'same-origin'
   })
   .then(response => {
     activeJSQR.currentActive = false;

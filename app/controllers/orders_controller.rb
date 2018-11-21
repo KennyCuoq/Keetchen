@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   before_action :determine_variables, only: [:new, :create]
-  skip_before_action :verify_authenticity_token, only: [:confirm]
-  skip_before_action :authenticate_user!, only: [:confirm]
+  # skip_before_action :verify_authenticity_token, only: [:confirm]
+  # skip_before_action :authenticate_user!, only: [:confirm]
 
    def index
    end
 
    def confirm
-    # unless current_user.employee.nil?
+    unless current_user.employee.nil?
     @qr_text = params[:qr]
     @order = Order.find_by(qr_code: @qr_text)
       if @order.nil?
@@ -17,10 +17,10 @@ class OrdersController < ApplicationController
         @order.status = "Purchased"
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
       end
-    # else
-    #   render json: {msg: "Your not allowed to perform this action"}
+    else
+      render json: {msg: "Your not allowed to perform this action"}
     end
-   # end
+   end
 
    def show
     @order = Order.find(params[:id])
