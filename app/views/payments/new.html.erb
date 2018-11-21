@@ -1,10 +1,21 @@
-<h1>Purchase of Order <%= @meal.name %></h1>
+<div class="container">
+  <div class="row">
+<div class="col-xs-offset-2 col-xs-10 col-lg-offset-4 col-lg-4" >
+<div class="summary-box">
+
+
+
+<p>Purchase of Order <%= @meal.name %></p>
 <%= form_tag meal_date_order_payments_path([@meal_date, @order]) do %>
+
+
   <article>
     <label class="amount">
       <span>Amount: <%= humanized_money_with_symbol(@order.order_price) %></span>
     </label>
   </article>
+
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -15,3 +26,7 @@
     data-currency="<%= @order.order_price.currency %>">
   </script>
 <% end %>
+</div>
+</div>
+</div>
+</div>
