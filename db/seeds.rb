@@ -11,7 +11,7 @@ day_price = 500
 photo_burger = 'https://www.californiaavocado.com/getattachment/ac6fe491-1199-4df8-a725-3588383e997b/California-Avocado-Beef-and-Black-Bean-Burger'
 photo_salad = 'https://cms.splendidtable.org/sites/default/files/styles/w2000/public/I-Love-India_Griddle-Chopped-Chicken-Salad-LEDE02.jpg?itok=qbUDcqvN'
 photo_taboule = 'https://koken.medialaancdn.be/sites/koken.vtm.be/files/styles/vmmaplayer_big/public/recipe/image/istock_000017105352small.jpg?itok=9cmJMGfW'
-photo_gnocchi = 'https://assets.marthastewart.com/styles/video-preview-1280x720-highdpi/d16/homemade_gnocchi/homemade_gnocchi_horiz.jpg?itok=_WUaLInw'
+photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_image/file/23814/recipe_card_size_6._Plate.jpg'
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
 photo_pad_thai = 'https://pinchofyum.com/wp-content/uploads/Vegetarian-Pad-Tha-2-2.jpg'
