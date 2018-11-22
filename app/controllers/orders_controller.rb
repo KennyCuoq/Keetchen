@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     unless current_user.employee.nil?
     @qr_text = params[:qr]
     @order = Order.find_by(qr_code: @qr_text)
+
+
       if @order.nil?
         # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
@@ -17,7 +19,13 @@ class OrdersController < ApplicationController
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
+         ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
+           meal_date_id: @order.meal_date.id,
+        #   current_user_id: order.user.id
+         })
+         # For some reason the line below makes the websocket crash
         current_user.employee.inventory -= 1
+        current_user.employee.save!
       end
     else
       render json: {msg: "Your not allowed to perform this action"}
