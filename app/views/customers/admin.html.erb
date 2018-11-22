@@ -114,3 +114,22 @@
 
 <%= javascript_pack_tag 'meal_dates_index' %>
 
+<% content_for :after_js do %>
+  <script>
+    App.cable.subscriptions.create (
+      {channel:"EmployeesDetailsChannel"},
+      {received: (data) => {
+        const employeeId = data['employee_id'];
+        const employeeInv = document.getElementById(`inventory-${employeeId}`);
+        employeeInv.innerHTML = data['inv'];
+        let marker = map.markers.find(marker => marker.employee_id == employeeId)
+        if (marker) {
+          marker.setLngLat([data.lng, data.lat]);
+          const windowContent = marker._popup._content.querySelector(`#employee-${employeeId}-info`)
+          windowContent.innerHTML = data['infoWindow'];
+        }
+      }
+      })
+  </script>
+<% end %>
+

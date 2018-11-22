@@ -32,7 +32,8 @@ class EmployeesController < ApplicationController
       ),
       last_updated: @employee.updated_at.strftime('%H:%M:%S'),
       lat: @employee.latitude,
-      lng: @employee.longitude
+      lng: @employee.longitude,
+      inv: @employee.inventory
     })
   end
 
@@ -50,7 +51,8 @@ class EmployeesController < ApplicationController
       ),
       last_updated: @employee.updated_at.strftime('%H:%M:%S'),
       lat: @employee.latitude,
-      lng: @employee.longitude
+      lng: @employee.longitude,
+      inv: @employee.inventory
     })
     render json: { last_updated: @employee.updated_at.strftime('%H:%M:%S'), lat: @employee.latitude, lng: @employee.longitude}
   end
