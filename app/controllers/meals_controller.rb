@@ -5,7 +5,7 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-      if @meal.save
+    if @meal.save
       redirect_to admin_customer_path(current_user.customer)
     else
       render :new
@@ -15,6 +15,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:name, :description, :photo)
+    params.require(:meal).permit(:date, :meal_id)
   end
 end

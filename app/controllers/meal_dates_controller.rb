@@ -13,7 +13,25 @@ class MealDatesController < ApplicationController
     # set_price
   end
 
+  def new
+    @meal_date = MealDate.new()
+  end
+
+  def create
+    @meal_date = MealDate.new(meal_date_params)
+      if @meal_date.save
+        redirect_to admin_customer_path(current_user.customer)
+      else
+          render :new
+      end
+    end
+
+
   private
+
+  def meal_date_params
+    params.require(:meal_date).permit(:name, :description, :photo)
+  end
 
   # def qr_code
   #   @orders = Order.all
