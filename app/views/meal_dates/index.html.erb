@@ -41,7 +41,6 @@
   </script>
 
   <script>
-    console.log("<%= current_user.id %>")
     App.cable.subscriptions.create (
       {channel:"UpdatesChannel",  user_id: <%= current_user.id %> },
       {received: (data) => {
