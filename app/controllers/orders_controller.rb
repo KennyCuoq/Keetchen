@@ -10,10 +10,6 @@ class OrdersController < ApplicationController
     @order = Order.find_by(qr_code: @qr_text)
 
 
-    ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
-      state: 'Order confirmed',
-      current_user_id: @order.user.id
-    })
       if @order.nil?
         # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
@@ -23,6 +19,10 @@ class OrdersController < ApplicationController
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
+         ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
+           meal_date_id: @order.meal_date.id,
+        #   current_user_id: order.user.id
+         })
       end
     else
       render json: {msg: "Your not allowed to perform this action"}

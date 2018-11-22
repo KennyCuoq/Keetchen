@@ -36,7 +36,10 @@
     App.cable.subscriptions.create (
       {channel:"UpdatesChannel",  user_id: <%= current_user.id %> },
       {received: (data) => {
-        console.log(data);
+        mealDateId = data.meal_date_id
+        const mealDate = document.getElementByID(`qr-code-${mealDateID}`)
+
+        console.log(mealDate);
       }
     })
     // App.cable.subscriptions.create ("UpdatesChannel",
