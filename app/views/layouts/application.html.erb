@@ -15,19 +15,17 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <div class="content">
+       <%= render 'shared/flashes' %>
 
-   <%= render 'shared/flashes' %>
+        <% if action_name == "home" %>
+        <%= render 'shared/navbarIndex' %>
+        <% else%>
+        <%= render 'shared/navbar' %>
+        <% end %>
 
-    <% if action_name == "home" %>
-    <%= render 'shared/navbarIndex' %>
-    <% else%>
-    <%= render 'shared/navbar' %>
-    <% end %>
-
-
-
-
-    <%= yield %>
+        <%= yield %>
+    </div>
 
       <% if action_name == "home" %>
       <%= render 'shared/footerindex' %>
