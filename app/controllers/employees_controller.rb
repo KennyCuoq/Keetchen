@@ -22,6 +22,7 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    @employee = Employee.find(params[:id])
     refill_inventory
   end
 
@@ -40,8 +41,18 @@ class EmployeesController < ApplicationController
     end
     unless params[:employee][:refill_amount].nil?
       @employee.inventory += params[:employee][:refill_amount].to_i
-      @employee.save!
-      redirect_to admin_customer_path(@employee.user.customer)
+      if @employee.save!
+        respond_to do |format|
+          format.js
+          format.html {redirect_to admin_customer_path(@employee.user.customer)}
+        end
+      else
+        respond_to do |format|
+          format.js
+          format.html {redirect_to admin_customer_path(@employee.user.customer)}
+        end
+      end
+        # redirect_to admin_customer_path(@employee.user.customer)
     end
   end
 

@@ -22,25 +22,27 @@
                 <% end %>
               </div>
 
-              <% if runner.inventory.nil? || runner.inventory < 5 %>
-                <div class="container-led">
-                  <div class="led-box">
-                    <div class="led-red"></div>
+              <div id="runner-<%= runner.id %>" >
+                <% if runner.inventory.nil? || runner.inventory < 5 %>
+                  <div class="container-led">
+                    <div class="led-box">
+                      <div class="led-red"></div>
+                    </div>
                   </div>
-                </div>
-              <% elsif runner.inventory < 10 %>
-                <div class="container-led">
-                  <div class="led-box">
-                    <div class="led-yellow"></div>
+                <% elsif runner.inventory < 10 %>
+                  <div class="container-led">
+                    <div class="led-box">
+                      <div class="led-yellow"></div>
+                    </div>
                   </div>
-                </div>
-              <% else %>
-                <div class="container-led">
-                  <div class="led-box">
-                    <div class="led-green"></div>
+                <% else %>
+                  <div class="container-led">
+                    <div class="led-box">
+                      <div class="led-green"></div>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
 
             </div>
 
@@ -64,10 +66,10 @@
 
             <div class="admin-flex">
               <p class="message-signup" style="color: black; margin: 0px 0px 0px 0px">Refill:</p>
-              <%= simple_form_for runner do |f| %>
+              <%= simple_form_for (runner), remote: true do |f| %>
                 <div class="admin-flex-form">
                   <input type="number" name="employee[refill_amount]" class="form-control" id="inventory-form">
-                  <%= f.button :submit, label="refill", class: "btn btn-primary btn-xsm"%>
+                  <%= f.button :submit, label="refill", class: "btn btn-primary btn-xsm" %>
                 </div>
               <% end %>
             </div>
