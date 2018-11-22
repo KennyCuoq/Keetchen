@@ -78,15 +78,24 @@
       <div class="container-runner">
         <h3>Management</h3>
         <div class="message management">
-          <div><p><em><strong>Customer management</strong></em></p></div>
+          <div>
+            <p><em><strong>Customer management</strong></em></p>
+            <p>Amount of customers: <%= Customer.count %></p>
+          </div>
           <%= link_to 'Overview', customers_path, class: "btn btn-info btn-sm margin-button"%>
         </div>
         <div class="message management">
-          <div><p><em><strong>Reviews</strong></em></p></div>
+          <div>
+            <p><em><strong>Review management</strong></em></p>
+            <p>Amount of reviews: <%= Review.count %></p>
+          </div>
           <div class="btn btn-info btn-sm">See reviews</div>
         </div>
         <div class="message management">
-          <div><p><em><strong>Meal planning</strong></em></p></div>
+          <div>
+            <p><em><strong>Meal planning</strong></em></p>
+            <p>Amount of meals: <%= Meal.count %></p>
+          </div>
           <div>
             <%= link_to 'Create meal', new_meal_path, class: "btn btn-primary btn-sm margin-button"%>
             <br>

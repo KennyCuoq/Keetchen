@@ -25,8 +25,6 @@ class EmployeesController < ApplicationController
     refill_inventory
   end
 
-
-
   def update_position
     @employee = Employee.find(params[:id])
     @employee.latitude = params["lat"]
@@ -40,9 +38,11 @@ class EmployeesController < ApplicationController
     if @employee.inventory.nil?
       @employee.inventory = 0
     end
-    @employee.inventory += params[:employee][:refill_amount].to_i
-    @employee.save!
-    redirect_to admin_customer_path(@employee.user.customer)
+    unless params[:employee][:refill_amount].nil?
+      @employee.inventory += params[:employee][:refill_amount].to_i
+      @employee.save!
+      redirect_to admin_customer_path(@employee.user.customer)
+    end
   end
 
   def destroy
