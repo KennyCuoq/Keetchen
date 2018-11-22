@@ -96,6 +96,8 @@ meals.each do |meal|
   new_meal_date = MealDate.create!(date: dates[0 + counter], meal_id: meal.id )
   counter += 1
   meal_dates << new_meal_date
+  puts 'New meal date created!'
+  break if meal_dates.length == 5
 end
 
 p users
