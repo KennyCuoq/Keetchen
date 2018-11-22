@@ -44,12 +44,6 @@
   };
 }
 
-  .btn-sm {
-    width: 100px;
-    height: 30px;
-    font-size: 14px;
-  }
-
 @media (min-width: 1000px) {
   .container-header {
     width: 1000px;
@@ -95,17 +89,4 @@
 
 .font-bold {
   font-weight: bold;
-}
-
-.inventory-holder{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.inventory-layout {
-  color: #999999;
-  border: 1px solid #999999;
-  padding: 5px 5px;
-  border-radius: 50px;
-  opacity: 0.6;
 }

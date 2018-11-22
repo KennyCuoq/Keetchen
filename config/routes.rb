@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
     resources :employees, only: [ :create ]
     resources :reviews, only: [:create]
+    member do
+      get 'admin', to: "customers#admin"
+    end
   end
 
   post "confirm_order", to: "orders#confirm"
