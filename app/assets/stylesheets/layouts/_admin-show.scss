@@ -36,7 +36,7 @@
 .inventory-layout {
   text-align: center;
   width: 50px;
-  color: #999999;
+  color: black;
   border: 2px solid #999999;
   border-radius: 50px;
   opacity: 0.6;
@@ -71,4 +71,26 @@
   }
 };
 
+.admin-flex-form {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+};
+
+.management {
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-button {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#inventory-form {
+    height: 20px;
+    width: 50px;
+    font-size: 14px;
+}
 

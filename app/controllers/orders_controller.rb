@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
+        current_user.employee.inventory -= 1
       end
     else
       render json: {msg: "Your not allowed to perform this action"}
