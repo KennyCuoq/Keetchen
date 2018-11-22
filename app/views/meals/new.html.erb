@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-lg-offset-2 col-lg-8">
+      <div class="add-meal-title">
+        <h1>add new meal to database</h1>
+      </div>
+      <div class="container-newmeal">
+        <div>
+          <%= simple_form_for(@meal) do |f| %>
+          <%= f.input :name, label: false, placeholder: "Meal Name" %>
+          <%= f.input :description, label: false, placeholder: "Description" %>
+          <%= f.input :photo, label: false, placeholder: "Photo"%>
+          <%= f.input :photo_cache, as: :hidden, label: false, placeholder: "Photo"%>
+          <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

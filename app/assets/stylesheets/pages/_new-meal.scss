@@ -1,0 +1,26 @@
+.container-newmeal{
+  background-color:white;
+  border-radius: 5px;
+  padding:20px;
+  font-size: 18px;
+}
+
+
+.add-meal-title {
+  display:flex;
+  justify-content:space-around;
+  margin-bottom: 20px;
+  & h1 {
+    color:$dark-gray;
+  }
+}
+
+@media (max-width: 600px){
+  .add-meal-title {
+  margin-bottom: 20px;
+  & h1 {
+    color:$dark-gray;
+    font-size: 25px;
+  }
+}
+}
