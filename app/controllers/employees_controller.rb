@@ -22,6 +22,7 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    @employee = Employee.find(params[:id])
     refill_inventory
   end
 
