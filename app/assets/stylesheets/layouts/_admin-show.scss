@@ -71,4 +71,26 @@
   }
 };
 
+.admin-flex-form {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+};
+
+.management {
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-button {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#inventory-form {
+    height: 20px;
+    width: 50px;
+    font-size: 14px;
+}
 

@@ -3,8 +3,7 @@ class EmployeesController < ApplicationController
   def create
       @customer = Customer.find(params[:customer_id])
       @user = @customer.user
-      @employee = Employee.new(user_id: @user.id)
-
+      @employee = Employee.new(user_id: @user.id, inventory: 0)
     if @employee.save
       respond_to do |format|
         format.js
@@ -22,6 +21,12 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
+  def update
+    refill_inventory
+  end
+
+
+
   def update_position
     @employee = Employee.find(params[:id])
     @employee.latitude = params["lat"]
@@ -32,9 +37,12 @@ class EmployeesController < ApplicationController
 
   def refill_inventory
     @employee = Employee.find(params[:id])
-    @employee.inventory = 50
+    if @employee.inventory.nil?
+      @employee.inventory = 0
+    end
+    @employee.inventory += params[:employee][:refill_amount].to_i
     @employee.save!
-    redirect_to employee_path(@employee)
+    redirect_to admin_customer_path(@employee.user.customer)
   end
 
   def destroy

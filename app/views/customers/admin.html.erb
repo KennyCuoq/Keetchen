@@ -9,16 +9,40 @@
         </div>
       </div>
       <div class="container-runner">
-        <h3>Runner's inventory</h3>
+        <h3>Inventory</h3>
         <% @runners.each do |runner| %>
           <div class="message" style="padding: 20px 10px">
 
+            <div class="admin-flex">
+              <div>
+                <% if runner.user.customer.photo.blank? %>
+                  <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png', class: "avatar-bordered"%>
+                <% else %>
+                  <%= cl_image_tag runner.user.customer.photo, crop: :fill, class: "avatar-bordered" %>
+                <% end %>
+              </div>
 
-              <% if runner.user.customer.photo.blank? %>
-                <%= image_tag 'http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png', class: "avatar-bordered"%>
+              <% if runner.inventory.nil? || runner.inventory < 5 %>
+                <div class="container-led">
+                  <div class="led-box">
+                    <div class="led-red"></div>
+                  </div>
+                </div>
+              <% elsif runner.inventory < 10 %>
+                <div class="container-led">
+                  <div class="led-box">
+                    <div class="led-yellow"></div>
+                  </div>
+                </div>
               <% else %>
-                <%= cl_image_tag runner.user.customer.photo, crop: :fill, class: "avatar-bordered" %>
+                <div class="container-led">
+                  <div class="led-box">
+                    <div class="led-green"></div>
+                  </div>
+                </div>
               <% end %>
+
+            </div>
 
             <div class="message-name admin-flex">
               <h3><%= link_to runner.user.first_name + ' ' + runner.user.last_name, customer_path(runner.user.customer)%></h3>
@@ -38,19 +62,41 @@
               <% end %>
             </div>
 
-            <div style="text-align:center">
-              <div class="btn btn-primary btn-xsm">Refill</div>
-            </div>
-
-            <div style="text-align:center">
-              <div class="btn btn-primary btn-xsm">Refill</div>
+            <div class="admin-flex">
+              <p class="message-signup" style="color: black; margin: 0px 0px 0px 0px">Refill:</p>
+              <%= simple_form_for runner do |f| %>
+                <div class="admin-flex-form">
+                  <input type="number" name="employee[refill_amount]" class="form-control" id="inventory-form">
+                  <%= f.button :submit, label="refill", class: "btn btn-primary btn-xsm"%>
+                </div>
+              <% end %>
             </div>
 
           </div>
         <% end %>
+      </div>
+      <div class="container-runner">
+        <h3>Management</h3>
+        <div class="message management">
+          <div><p><em><strong>Customer management</strong></em></p></div>
+          <%= link_to 'Overview', customers_path, class: "btn btn-info btn-sm margin-button"%>
+        </div>
+        <div class="message management">
+          <div><p><em><strong>Reviews</strong></em></p></div>
+          <div class="btn btn-info btn-sm">See reviews</div>
+        </div>
+        <div class="message management">
+          <div><p><em><strong>Meal planning</strong></em></p></div>
+          <div>
+            <%= link_to 'Create meal', new_meal_path, class: "btn btn-primary btn-sm margin-button"%>
+            <br>
+            <%= link_to 'Plan new date', new_meal_date_path, class: "btn btn-primary btn-sm margin-button"%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <%= javascript_pack_tag 'meal_dates_index' %>
+
