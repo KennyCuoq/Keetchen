@@ -58,11 +58,13 @@
 
             <div class="message-body admin-flex">
               <p class="message-signup" style="color: black; margin: 0px 0px 0px 0px">Inventory:</p>
-              <% if runner.inventory.nil? %>
-                <p class="inventory-layout" style="margin: 0px 0px 0px 0px">0</p>
-              <% else %>
-                <p class="inventory-layout" style="margin: 0px 0px 0px 0px"><%= runner.inventory %></p>
-              <% end %>
+              <div>
+                <% if runner.inventory.nil? %>
+                  <p id="inventory-<%= runner.id %>" class="inventory-layout" style="margin: 0px 0px 0px 0px">0</p>
+                <% else %>
+                  <p id="inventory-<%= runner.id %>" class="inventory-layout" style="margin: 0px 0px 0px 0px"><%= runner.inventory %></p>
+                <% end %>
+              </div>
             </div>
 
             <div class="admin-flex">

@@ -3,7 +3,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
     create_table :employees do |t|
       t.references :user, foreign_key: true
       t.boolean :admin, default: false
-      t.integer :inventory
+      t.integer :inventory, default: 0
       t.string :location
 
       t.timestamps
