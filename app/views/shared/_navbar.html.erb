@@ -21,6 +21,7 @@
         <%= cl_image_tag current_user.customer.photo, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
           <li>
             <%= link_to customer_path(current_user.customer) do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -31,6 +32,13 @@
             <i class="fas fa-utensils"></i> <%= t(".profile", default: "History") %>
             <% end %>
           </li>
+          <% if current_user.employee.admin == true %>
+           <li>
+              <%= link_to  admin_customer_path(current_user.customer) do %>
+              <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+              <% end %>
+            </li>
+        <% end %>
           <% unless current_user.employee.nil? %>
           <li>
             <%= link_to employee_path(current_user.employee) do %>
@@ -71,6 +79,13 @@
           <i class="fas fa-utensils"></i> <%= t(".profile", default: "History") %>
           <% end %>
         </li>
+         <% if current_user.employee.admin == true %>
+          <li>
+            <%= link_to  admin_customer_path(current_user.customer) do %>
+            <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+            <% end %>
+          </li>
+          <% end %>
         <% unless current_user.employee.nil? %>
           <li>
             <%= link_to employee_path(current_user.employee) do %>

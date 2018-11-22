@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-lg-offset-2 col-lg-8">
+      <div class="add-meal-title">
+        <h1>Create new Meal</h1>
+      </div>
+      <div class="container-newmeal">
+        <div>
+          <%= simple_form_for(@meal_date) do |f| %>
+          <%= f.input :date, label: false, placeholder: "Select Date" %>
+          <%= f.input :meal_id, label: false, placeholder: "Choose meal" %>
+          <%= f.submit "Create Meal", class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
