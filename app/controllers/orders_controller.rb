@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
            meal_date_id: @order.meal_date.id,
         #   current_user_id: order.user.id
          })
+        current_user.employee.inventory -= 1
       end
     else
       render json: {msg: "Your not allowed to perform this action"}

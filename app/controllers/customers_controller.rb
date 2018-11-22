@@ -21,6 +21,11 @@ class CustomersController < ApplicationController
     # @meals = @meal_dates.meal
   end
 
+  def admin
+    @meal_date = MealDate.find_by(date: Date.today)
+    @runners = Employee.all
+  end
+
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy!

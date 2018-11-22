@@ -1,4 +1,6 @@
 class Meal < ApplicationRecord
+    mount_uploader :photo, PhotoUploader
+
   has_many :meal_dates
   has_many :reviews, through: :meal_dates
   has_many :orders, through: :meal_dates

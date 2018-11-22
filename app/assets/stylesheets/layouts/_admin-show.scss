@@ -1,0 +1,96 @@
+.container-runner {
+  background-color: white;
+  margin:10px 0px;
+  border-radius: 3px;
+  padding:5px;
+  font-size: 18px;
+
+  & h3{
+    font-size: 25px;
+  }
+
+  & p {
+    font-size: 14px;
+  }
+}
+
+#inventory-information {
+  font-size: 14px;
+  color: black;
+}
+
+.inventory-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.inventory-holder{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.inventory-layout {
+  text-align: center;
+  width: 50px;
+  color: black;
+  border: 2px solid #999999;
+  border-radius: 50px;
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+@media (max-width: 720px) {
+  .container-admin {
+    margin: 1px;
+    padding: 1px;
+  }
+  & .col-xs-10{
+    width: 94%;
+  }
+
+  & .col-xs-offset-1{
+    margin-left: 3%;
+  }
+}
+
+.admin-flex {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  & p {
+    margin: 0px 0px 0px 0px;
+  }
+};
+
+.admin-flex-form {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+};
+
+.management {
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-button {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#inventory-form {
+    height: 20px;
+    width: 50px;
+    font-size: 14px;
+}
+
