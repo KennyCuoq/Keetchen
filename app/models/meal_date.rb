@@ -9,10 +9,17 @@ class MealDate < ApplicationRecord
     # Order.where("user_id = ?", current_user)
     # Order.uncached do
       order = user.orders.where("meal_date_id = ?", self)
-      if !order.empty?
-        qr_string = order[0].qr_code
-        RQRCode::QRCode.new(qr_string, size: 4)
+      if order.nil?
+        qr_generated = 'empty'
+      else
+        if !order.empty?
+          qr_string = order[0].qr_code
+          qr_generated = RQRCode::QRCode.new(qr_string, size: 4)
+        else
+          qr_generated = 'empty'
+        end
       end
+      return qr_generated
     # end
     # order[0].qr_code if !order.empty?
     # order ? order[0].id : 'DOGEEE'
