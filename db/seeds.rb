@@ -1,4 +1,4 @@
-Order.destroy_all
+  Order.destroy_all
 #clean database
 MealDate.destroy_all
 Meal.destroy_all
@@ -11,7 +11,7 @@ day_price = 500
 photo_burger = 'https://www.californiaavocado.com/getattachment/ac6fe491-1199-4df8-a725-3588383e997b/California-Avocado-Beef-and-Black-Bean-Burger'
 photo_salad = 'https://cms.splendidtable.org/sites/default/files/styles/w2000/public/I-Love-India_Griddle-Chopped-Chicken-Salad-LEDE02.jpg?itok=qbUDcqvN'
 photo_taboule = 'https://koken.medialaancdn.be/sites/koken.vtm.be/files/styles/vmmaplayer_big/public/recipe/image/istock_000017105352small.jpg?itok=9cmJMGfW'
-photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_image/file/23814/recipe_card_size_6._Plate.jpg'
+photo_gnocchi = 'https://assets.marthastewart.com/styles/video-preview-1280x720-highdpi/d16/homemade_gnocchi/homemade_gnocchi_horiz.jpg?itok=_WUaLInw'
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
 photo_pad_thai = 'https://pinchofyum.com/wp-content/uploads/Vegetarian-Pad-Tha-2-2.jpg'
@@ -24,16 +24,30 @@ photo_inou = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,
 photo_ellyn = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ul03dampdb9to6qumjcj.jpg'
 photo_pesto_pasta = 'https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 
-gnocchi = Meal.create!(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", photo: photo_gnocchi, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-hamburger = Meal.create!(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", photo: photo_burger, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-salad = Meal.create!(name: "Chicken Salad", description: "“Chaat” is a term used for a whole genre of streetfood which is hard to describe in one sentence, but one part of it encompasses a lot of simple vegetables and fruits tossed in some tangy and spiced lemon-based dressings with a blend of spices that are known as chaat masala. “Chaat” literally means to lick, as in finger-licking good… and they generally are. This chicken chaat is based on the one we ate growing up but we normally had it as a chopped salad, so everything mixes well with the tangy dressing.", photo: photo_salad, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-
-taboule = Meal.create!(name: "Vegetable Taboulé", description: "Tabouli is likely the topmost famed Mediterranean/Middle Eastern salad there is. Because it is now sold in most large supermarkets around the world, I feel compelled to dispel one thing: the “star of the show,” so to speak, in a tabouli recipe is not the bulgur. The idea is to have a little bulgur with the salad, not a little salad with your bulgur.", photo: photo_taboule, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-poke_bowl = Meal.create!(name: "Tuna Poke", description: "Created in the tropical Hawaiian islands, poké actually refers to the cubes of marinated raw fish that was a way to use up leftover ends from prime sashimi cuts.", photo: photo_poke, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-beef_tartare = Meal.create!(name: "Beef Tartare", description: "Beef tartare is usually served with onions, capers, pepper and Worcestershire sauce, and other seasonings, often presented to the diner separately, to be added to taste. It is often served with a raw egg yolk, and often on rye bread.", photo: photo_beef_tartare, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-pad_thai = Meal.create!(name: "Vegetarian Pad Thai", description: "In Thailand, people are fiercely loyal to their favorite pad Thai—which is painstakingly made one plate at a time. After a taste of this quicker vegetarian version, we think you'll start to feel that same sense of loyalty.", photo: photo_pad_thai, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-pesto_pasta = Meal.create!(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", photo: photo_pesto_pasta, pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-
+gnocchi = Meal.new(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+gnocchi.remote_photo_url =  photo_gnocchi
+gnocchi.save
+hamburger = Meal.new(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+hamburger.remote_photo_url =  photo_burger
+hamburger.save
+salad = Meal.new(name: "Chicken Salad", description: "“Chaat” is a term used for a whole genre of streetfood which is hard to describe in one sentence, but one part of it encompasses a lot of simple vegetables and fruits tossed in some tangy and spiced lemon-based dressings with a blend of spices that are known as chaat masala. “Chaat” literally means to lick, as in finger-licking good… and they generally are. This chicken chaat is based on the one we ate growing up but we normally had it as a chopped salad, so everything mixes well with the tangy dressing.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+salad.remote_photo_url =  photo_salad
+salad.save
+taboule = Meal.new(name: "Vegetable Taboulé", description: "Tabouli is likely the topmost famed Mediterranean/Middle Eastern salad there is. Because it is now sold in most large supermarkets around the world, I feel compelled to dispel one thing: the “star of the show,” so to speak, in a tabouli recipe is not the bulgur. The idea is to have a little bulgur with the salad, not a little salad with your bulgur.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+taboule.remote_photo_url =  photo_taboule
+taboule.save
+poke_bowl = Meal.new(name: "Tuna Poke", description: "Created in the tropical Hawaiian islands, poké actually refers to the cubes of marinated raw fish that was a way to use up leftover ends from prime sashimi cuts.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+poke_bowl.remote_photo_url =  photo_poke
+poke_bowl.save
+beef_tartare = Meal.new(name: "Beef Tartare", description: "Beef tartare is usually served with onions, capers, pepper and Worcestershire sauce, and other seasonings, often presented to the diner separately, to be added to taste. It is often served with a raw egg yolk, and often on rye bread.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+beef_tartare.remote_photo_url =  photo_beef_tartare
+beef_tartare.save
+pad_thai = Meal.new(name: "Vegetarian Pad Thai", description: "In Thailand, people are fiercely loyal to their favorite pad Thai—which is painstakingly made one plate at a time. After a taste of this quicker vegetarian version, we think you'll start to feel that same sense of loyalty.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+pad_thai.remote_photo_url =  photo_pad_thai
+pad_thai.save
+pesto_pasta = Meal.new(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+pesto_pasta.remote_photo_url =  photo_pesto_pasta
+pesto_pasta.save
 
 
 
