@@ -1,4 +1,4 @@
-function renderHtml (color) {
+function renderHtmlLed (color) {
   return `<div class='container-led'>
     <div class='led-box'>
       <div class='led-${color}'></div>
@@ -6,17 +6,51 @@ function renderHtml (color) {
   </div>`
 };
 
-var runnerId = '<%= @employee.id %>'
-var runnerInventory = '<%= @employee.inventory %>'
-var ledBox = document.querySelector(`#runner-${runnerId}`)
+var runnerId = '<%= @employee.id %>';
+var runnerInventory = '<%= @employee.inventory %>';
+var ledBox = document.querySelector(`#runner-${runnerId}`);
+
 if (runnerInventory < 5) {
   var red = 'red'
-  ledBox.innerHTML = renderHtml(red);
+  ledBox.innerHTML = renderHtmlLed(red);
 } else if (runnerInventory < 10) {
   var yellow = 'yellow'
-  ledBox.innerHTML = renderHtml(yellow);
+  ledBox.innerHTML = renderHtmlLed(yellow);
 } else {
   var green = 'green'
-  ledBox.innerHTML = renderHtml(green);
+  ledBox.innerHTML = renderHtmlLed(green);
 };
+
+
+
+function checkIfNill(data) {
+  if (isNaN(data)){
+    return 0;
+  } else {
+    return data;
+  };
+};
+
+var inventoryLabel = document.querySelector(`#inventory-${runnerId}`);
+var employeeInventory = parseInt(inventoryLabel.innerHTML);
+var newRefill = parseInt('<%= @amount %>');
+employeeInventory += checkIfNill(newRefill);
+inventoryLabel.innerHTML = employeeInventory;
+// inventoryLabel.style.width = '75px'
+// inventoryLabel.style.height = '35px'
+// inventoryLabel.style.fontSize = '21px'
+inventoryLabel.style.color = 'limegreen'
+inventoryLabel.style.borderColor = 'limegreen'
+inventoryLabel.addEventListener("transitionend", function() {
+  // inventoryLabel.style.width = '50px'
+  // inventoryLabel.style.height = '25px'
+  // inventoryLabel.style.fontSize = '14px'
+  inventoryLabel.style.color = 'black'
+  inventoryLabel.style.borderColor = '#999999'
+}, false);
+
+
+
+
+
 
