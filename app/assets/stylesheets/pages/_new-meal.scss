@@ -3,6 +3,8 @@
   border-radius: 5px;
   padding:20px;
   font-size: 18px;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+
 }
 
 
@@ -15,12 +17,17 @@
   }
 }
 
+
+input[type='file'] {
+  color:transparent;
+}
+
 @media (max-width: 600px){
   .add-meal-title {
-  margin-bottom: 20px;
-  & h1 {
-    color:$dark-gray;
-    font-size: 25px;
+    margin-bottom: 20px;
+    & h1 {
+      color:$dark-gray;
+      font-size: 25px;
+    }
   }
-}
 }
