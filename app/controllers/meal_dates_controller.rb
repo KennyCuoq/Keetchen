@@ -30,7 +30,7 @@ class MealDatesController < ApplicationController
   private
 
   def meal_date_params
-    params.require(:meal_date).permit(:name, :description, :photo)
+    params.require(:meal_date).permit(:date, :meal_id)
   end
 
   # def qr_code
