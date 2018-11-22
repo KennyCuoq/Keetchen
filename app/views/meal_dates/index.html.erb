@@ -28,13 +28,20 @@
   </div>
 </div>
 
-<!--
-<style>
-  @media (max-width: 400px) {
-    .ma-gueule {
-      width: %;
-    }
-  }
-</style> -->
-
 <%= javascript_pack_tag 'meal_dates_index' %>
+
+<% content_for :after_js do %>
+  <script>
+    console.log("<%= current_user.id %>")
+    App.cable.subscriptions.create (
+      {channel:"UpdatesChannel",  user_id: <%= current_user.id %> },
+      {received: (data) => {
+        console.log(data);
+      }
+    })
+    // App.cable.subscriptions.create ("UpdatesChannel",
+    //   received: (data) ->
+    //     console.log('hoe')
+    //   )
+  </script>
+<% end %>
