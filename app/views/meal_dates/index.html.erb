@@ -31,15 +31,23 @@
 <%= javascript_pack_tag 'meal_dates_index' %>
 
 <% content_for :after_js do %>
+
+  <script id="order-picked-up" type="text/html">
+    <div class='container-checked'>
+      <%= image_tag "checked.png", class: "logo-checked" %>
+      <p><strong>You have picked up your order</strong></p>
+      <%= link_to "Rate meal", my_orders_customer_path(current_user.customer.id), class: 'btn btn-primary btn-sm' %>
+    </div>
+  </script>
+
   <script>
     console.log("<%= current_user.id %>")
     App.cable.subscriptions.create (
       {channel:"UpdatesChannel",  user_id: <%= current_user.id %> },
       {received: (data) => {
-        mealDateId = data.meal_date_id
-        const mealDate = document.getElementByID(`qr-code-${mealDateID}`)
-
-        console.log(mealDate);
+        const mealDateId = data['meal_date_id']
+        const mealDateQR = document.getElementById(`qr-code-${mealDateId}`)
+        mealDateQR.innerHTML = document.getElementById('order-picked-up').innerHTML
       }
     })
     // App.cable.subscriptions.create ("UpdatesChannel",

@@ -23,7 +23,9 @@ class OrdersController < ApplicationController
            meal_date_id: @order.meal_date.id,
         #   current_user_id: order.user.id
          })
+         # For some reason the line below makes the websocket crash
         current_user.employee.inventory -= 1
+        current_user.employee.save!
       end
     else
       render json: {msg: "Your not allowed to perform this action"}
