@@ -1,6 +1,6 @@
 class EmployeesDetailsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "update_channel_#{params[:user_id]}"
+    stream_from "employees_details_channel"
     # stream_from "some_channel"
   end
 

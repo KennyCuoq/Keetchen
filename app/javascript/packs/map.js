@@ -12,13 +12,11 @@ if (mapElement) { // only build a map if there's a div#map to inject into
   });
   const markers = JSON.parse(mapElement.dataset.markers);
 
-  markers.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([marker.lng, marker.lat])
-      // .setStyle({"paint": {"fill-color": "#00ffff"}
-      // })
-      .addTo(map);
-  })
+  // markers.forEach((marker) => {
+  //   let createdMarker = new mapboxgl.Marker()
+  //     .setLngLat([marker.lng, marker.lat])
+  //     .addTo(map);
+  // })
 
   if (markers.length === 0) {
     map.setZoom(1);
@@ -33,13 +31,20 @@ if (mapElement) { // only build a map if there's a div#map to inject into
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
 
+
+  const savedMarkers = []
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    let createdMarker = new mapboxgl.Marker()
       .setLngLat([marker.lng, marker.lat])
       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
       .setHTML(marker.infoWindow.content))
       .addTo(map);
+      createdMarker.employee_id = marker.employee_id;
+    savedMarkers.push(createdMarker);
   })
+  global.map = map;
+  global.map.markers = savedMarkers;
+  global.mapboxgl = mapboxgl;
 }
 
 
