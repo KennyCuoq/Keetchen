@@ -19,7 +19,10 @@
 
 
 input[type='file'] {
-  color:transparent;
+  font-size:15px;
+  display: flex;
+  font-weight: 200;
+  color:$red;
 }
 
 @media (max-width: 600px){

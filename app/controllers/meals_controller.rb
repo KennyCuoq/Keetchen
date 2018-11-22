@@ -6,7 +6,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
       if @meal.save
-      redirect_to meals_path
+      redirect_to admin_customer_path(current_user.customer)
     else
       render :new
     end
