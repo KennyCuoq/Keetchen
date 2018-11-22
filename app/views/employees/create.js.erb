@@ -3,7 +3,7 @@ var employee = '<%= @employee.id %>'
 document.querySelector(`#link-${customerId}`).href = `employees/${employee}`
 document.querySelector(`#link-${customerId}`).dataset.method = "delete"
 document.querySelector(`#icon-${customerId}`).style.color = "red"
-document.querySelector(`#label-${customerId}`).innerHTML = "<p><strong>Employee</strong></p>"
+document.querySelector(`#label-${customerId}`).innerHTML = "<p id='customer-indicator'><strong>Employee</strong></p>"
 
 
 
