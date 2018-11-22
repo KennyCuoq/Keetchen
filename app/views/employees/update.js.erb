@@ -1,0 +1,22 @@
+function renderHtml (color) {
+  return `<div class='container-led'>
+    <div class='led-box'>
+      <div class='led-${color}'></div>
+    </div>
+  </div>`
+};
+
+var runnerId = '<%= @employee.id %>'
+var runnerInventory = '<%= @employee.inventory %>'
+var ledBox = document.querySelector(`#runner-${runnerId}`)
+if (runnerInventory < 5) {
+  var red = 'red'
+  ledBox.innerHTML = renderHtml(red);
+} else if (runnerInventory < 10) {
+  var yellow = 'yellow'
+  ledBox.innerHTML = renderHtml(yellow);
+} else {
+  var green = 'green'
+  ledBox.innerHTML = renderHtml(green);
+};
+
