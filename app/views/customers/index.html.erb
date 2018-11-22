@@ -14,9 +14,9 @@
           <h3><%= link_to customer.user.first_name + ' ' + customer.user.last_name, customer_path(customer)%></h3>
             <div id='label-<%= customer.id %>'>
               <% if customer.user.employee.nil? %>
-                <p><strong>Customer</strong></p>
+                <p id='customer-indicator'><strong>Customer</strong></p>
               <% else %>
-                <p><strong>Employee</strong></p>
+                <p id='customer-indicator'><strong>Employee</strong></p>
               <% end %>
             </div>
         </div>

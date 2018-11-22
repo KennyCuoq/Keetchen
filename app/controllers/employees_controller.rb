@@ -61,6 +61,7 @@ class EmployeesController < ApplicationController
       @employee.inventory = 0
     end
     unless params[:employee][:refill_amount].nil?
+      @amount = params[:employee][:refill_amount]
       @employee.inventory += params[:employee][:refill_amount].to_i
       if @employee.save!
         respond_to do |format|
@@ -73,7 +74,6 @@ class EmployeesController < ApplicationController
           format.html {redirect_to admin_customer_path(@employee.user.customer)}
         end
       end
-        # redirect_to admin_customer_path(@employee.user.customer)
     end
   end
 

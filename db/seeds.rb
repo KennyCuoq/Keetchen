@@ -165,7 +165,7 @@ puts old_order
 Employee.destroy_all
 
 admins.each do |admin|
-  Employee.create!(user_id: admin.id, admin: true, inventory: 20)
+  Employee.create!(user_id: admin.id, admin: true, inventory: 3)
 end
 
 

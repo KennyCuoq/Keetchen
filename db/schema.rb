@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_093123) do
   create_table "employees", force: :cascade do |t|
     t.bigint "user_id"
     t.boolean "admin", default: false
-    t.integer "inventory"
+    t.integer "inventory", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
