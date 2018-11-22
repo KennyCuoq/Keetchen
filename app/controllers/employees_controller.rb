@@ -32,6 +32,11 @@ class EmployeesController < ApplicationController
     @employee.longitude = params["lng"]
     @employee.save!
     render json: { last_updated: @employee.updated_at.strftime('%H:%M:%S'), lat: @employee.latitude, lng: @employee.longitude}
+    # ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
+    #   last_updated: @employee.updated_at.strftime('%H:%M:%S'),
+    #   lat: @employee.latitude,
+    #   lng: @employee.longitude
+    # })
   end
 
   def refill_inventory
