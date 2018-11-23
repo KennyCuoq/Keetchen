@@ -9,7 +9,7 @@ gem 'rails', '5.2.1'
 gem 'redis'
 
 
-gem 'cloudinary'
+gem 'cloudinary', '1.9.1'
 gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
@@ -28,6 +28,7 @@ gem 'qrio'
 gem "geocoder"
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
+# gem 'rest-client', '< 2.0'
 
 
 
