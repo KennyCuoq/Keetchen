@@ -50,9 +50,9 @@ set the employee lognitdue to what is returned from the function> -->
           <p>Total inventory:</p>
           <div>
             <% if @employee.inventory.nil? %>
-              <p class="inventory-layout">0</p>
+              <p class="inventory-layout inventory-indicator">0</p>
             <% else %>
-              <p class="inventory-layout"><%= @employee.inventory %></p>
+              <p class="inventory-layout inventory-indicator"><%= @employee.inventory %></p>
             <% end %>
           </div>
         </div>

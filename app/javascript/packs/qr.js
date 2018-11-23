@@ -117,6 +117,9 @@ function launchRequest(data) {
       document.querySelector(".qr-date").innerHTML = `${data.date}`;
       document.querySelector(".qr-meal").innerHTML = `${data.meal}`;
       document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
+      let currentVal = document.querySelector(".inventory-indicator");
+      currentVal.innerHTML = parseInt(currentVal.innerHTML) - 1;
+      EmployeeIndicator.innerHTML = EmployeeInventory
       swal({
         title: "Valid!",
         text: `${data.name} has a valid QR code!`,
