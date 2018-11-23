@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-offset-1 col-xs-10 col-lg-offset-2 col-lg-8">
-        <h1 id="customer-show-title"><%= @customer.user.first_name.capitalize%> <%= @customer.user.last_name.capitalize%></h1>
+        <h1 id="customer-show-title"><%= @customer.user.first_name.capitalize%> <%= @customer.user.last_name%></h1>
       <div class="container-personal-info">
         <div class="container-avatar">
           <% if @customer.photo.blank? %>
@@ -27,6 +27,16 @@
           <%= link_to "EDIT", edit_user_registration_path(@customer.user) %>
         </div>
       </div>
+
+      <% unless @customer.user.employee.nil? %>
+        <div class="container-employee">
+         <h3>Employee pages</h3>
+          <%= link_to "QR scan", employee_path(current_user.employee), class: 'btn btn-info' %>
+          <% if @customer.user.employee.admin == true %>
+            <%= link_to "Admin page", admin_customer_path(current_user.customer), class: 'btn btn-info' %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="container-personal-photo">
         <h3>Photo</h3>
         <%= simple_form_for(@customer) do |f| %>

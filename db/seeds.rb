@@ -15,6 +15,7 @@ photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_im
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
 photo_pad_thai = 'https://pinchofyum.com/wp-content/uploads/Vegetarian-Pad-Tha-2-2.jpg'
+photo_pesto_pasta = 'https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 
 photo_dree = 'https://avatars0.githubusercontent.com/u/43139321?v=4'
 photo_steven = 'https://avatars2.githubusercontent.com/u/41968309?v=4'
@@ -22,7 +23,22 @@ photo_kenny = 'https://avatars1.githubusercontent.com/u/26207944?v=4'
 photo_frederik = 'https://avatars0.githubusercontent.com/u/43231640?v=4'
 photo_inou = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/yzmhkgececsz46relki9.jpg'
 photo_ellyn = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ul03dampdb9to6qumjcj.jpg'
-photo_pesto_pasta = 'https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+photo_dharam = 'https://avatars3.githubusercontent.com/u/28381425?v=4'
+photo_elijah = 'https://avatars2.githubusercontent.com/u/1316776?v=4'
+photo_hilmar = 'https://avatars0.githubusercontent.com/u/43231640?v=4'
+photo_jethro = 'https://avatars3.githubusercontent.com/u/35604636?v=4'
+photo_john = 'https://avatars2.githubusercontent.com/u/93381?v=4'
+photo_jonas = 'https://avatars2.githubusercontent.com/u/43283863?v=4'
+photo_jules = 'https://avatars2.githubusercontent.com/u/38872895?v=4'
+photo_merlin = 'https://avatars3.githubusercontent.com/u/40541966?v=4'
+photo_owain = 'https://avatars0.githubusercontent.com/u/23619296?v=4'
+photo_paul = 'https://avatars1.githubusercontent.com/u/43411286?v=4'
+photo_roger = 'https://avatars0.githubusercontent.com/u/23165579?v=4'
+photo_shawkat = 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/rkifvnfts1c76wqsbrqh.jpg'
+photo_stephen = 'https://avatars2.githubusercontent.com/u/41954899?v=4'
+photo_victor = 'https://avatars1.githubusercontent.com/u/42962239?v=4'
+photo_william = 'https://avatars3.githubusercontent.com/u/27657581?v=4'
+
 
 gnocchi = Meal.new(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 gnocchi.remote_photo_url =  photo_gnocchi
@@ -65,16 +81,27 @@ meals << taboule
 #creation of users
 puts "Creating users..."
 steven = User.create!(email: 'steven.vaneecke@gmail.com', password: "123456", first_name: "Steven", last_name: "Van Eecke")
-
 kenny = User.create!(email: 'kenny.cuoq@gmail.com', password: "123456", first_name: "Kenny", last_name: "Cuoq")
-
 frederik = User.create!(email: 'frederik.hossak@gmail.com', password: "123456", first_name: "Frederik", last_name: "Hossak")
-
 dree = User.create!(email: 'andreasava@hotmail.com', password: "123456", first_name: "Andreas", last_name: "Van Assche")
-
 inou = User.create!(email: 'inou.ridder@gmail.com', password: "123456", first_name: "Inou", last_name: "Ridder")
+dharam = User.create!(email: 'a@a.com', password: "123456", first_name: "Dharam", last_name: "Whabi")
+elijah = User.create!(email: 'b@b.com', password: "123456", first_name: "Elijah", last_name: "Chancey")
+ellyn = User.create!(email: 'c@c.com', password: "123456", first_name: "Ellyn", last_name: "Bouscasse")
+hilmar = User.create!(email: 'd@d.com', password: "123456", first_name: "Hilmar", last_name: "Orth")
+jethro = User.create!(email: 'e@a.com', password: "123456", first_name: "Jethro", last_name: "Williams")
+john = User.create!(email: 'p@a.com', password: "123456", first_name: "John", last_name: "Ferreira")
+jonas = User.create!(email: 'o@a.com', password: "123456", first_name: "Jonas", last_name: "Dieterle")
+jules = User.create!(email: 'an@a.com', password: "123456", first_name: "Jules", last_name: "Jamet")
+merlin = User.create!(email: 'am@a.com', password: "123456", first_name: "Merlin", last_name: "Hannemann")
+owain = User.create!(email: 'al@a.com', password: "123456", first_name: "Owain", last_name: "Skyrme")
+paul = User.create!(email: 'ak@a.com', password: "123456", first_name: "Paul", last_name: "Guadagnin")
+roger = User.create!(email: 'aj@a.com', password: "123456", first_name: "Roger", last_name: "G")
+shawkat = User.create!(email: 'ag@a.com', password: "123456", first_name: "Shawkat", last_name: "Shami")
+stephen = User.create!(email: 'h@a.com', password: "123456", first_name: "Stephen", last_name: "Schuez")
+victor = User.create!(email: 'f@a.com', password: "123456", first_name: "Victor", last_name: "King")
+william = User.create!(email: 'g@a.com', password: "123456", first_name: "William", last_name: "Oleson")
 
-ellyn = User.create!(email: 'ellyn.bouscasse@gmail.com', password: "123456", first_name: "Ellyn", last_name: "Bouscasse")
 
 users = []
 users << steven
@@ -83,12 +110,78 @@ users << frederik
 users << dree
 users << inou
 users << ellyn
+users << dharam
+users << elijah
+users << hilmar
+users << jethro
+users << john
+users << jonas
+users << jules
+users << merlin
+users << owain
+users << paul
+users << roger
+users << shawkat
+users << stephen
+users << victor
+users << william
 
 admins = []
 admins << steven
 admins << kenny
-admins << frederik
 admins << dree
+
+#creation of customer profiles
+Customer.destroy_all
+
+users.each do |user|
+  customer = Customer.new(user_id: user.id)
+  case user.first_name
+  when 'Steven'
+    customer.remote_photo_url = photo_steven
+  when 'Andreas'
+    customer.remote_photo_url = photo_dree
+  when 'Kenny'
+    customer.remote_photo_url = photo_kenny
+  when 'Frederik'
+    customer.remote_photo_url = photo_frederik
+  when 'Inou'
+    customer.remote_photo_url = photo_inou
+  when 'Dharam'
+   customer.remote_photo_url = photo_dharam
+  when 'Elijah'
+   customer.remote_photo_url = photo_elijah
+  when 'Hilmar'
+   customer.remote_photo_url = photo_hilmar
+  when 'Jethro'
+   customer.remote_photo_url = photo_jethro
+  when 'John'
+   customer.remote_photo_url = photo_john
+  when 'Jonas'
+   customer.remote_photo_url = photo_jonas
+  when 'Jules'
+   customer.remote_photo_url = photo_jules
+  when 'Merlin'
+   customer.remote_photo_url = photo_merlin
+  when 'Owain'
+   customer.remote_photo_url = photo_owain
+  when 'Paul'
+   customer.remote_photo_url = photo_paul
+  when 'Roger'
+   customer.remote_photo_url = photo_roger
+  when 'Shawkat'
+   customer.remote_photo_url = photo_shawkat
+  when 'Stephen'
+   customer.remote_photo_url = photo_stephen
+  when 'Victor'
+   customer.remote_photo_url = photo_victor
+  when 'William'
+   customer.remote_photo_url = photo_william
+  else
+   customer.remote_photo_url = photo_ellyn
+  end
+  customer.save
+end
 
 #creation of meal_dates
 dates = []
@@ -134,27 +227,6 @@ end
 
 
 
-#creation of customer profiles
-Customer.destroy_all
-
-users.each do |user|
-  customer = Customer.new(user_id: user.id)
-  case user.first_name
-  when 'Steven'
-    customer.remote_photo_url = photo_steven
-  when 'Andreas'
-    customer.remote_photo_url = photo_dree
-  when 'Kenny'
-    customer.remote_photo_url = photo_kenny
-  when 'Frederik'
-    customer.remote_photo_url = photo_frederik
-  when 'Inou'
-    customer.remote_photo_url = photo_inou
-  else
-    customer.remote_photo_url = photo_ellyn
-  end
-  customer.save
-end
 
 old_meal = MealDate.create!(date: (Date.today - 6), meal_id: pesto_pasta.id)
 old_order = Order.create!(meal_date_id: old_meal.id, user_id: kenny.id, status: 'Picked up', quantity: 1, qr_code: (0...26).map { ('a'..'z').to_a[rand(26)] }.join, pre_order: false, order_price_cents: 500)

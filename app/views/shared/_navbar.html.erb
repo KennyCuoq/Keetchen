@@ -42,11 +42,20 @@
             <% end %>
           <% end %>
           <% unless current_user.employee.nil? %>
-          <li>
-            <%= link_to employee_path(current_user.employee) do %>
-            <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+            <li>
+              <%= link_to employee_path(current_user.employee) do %>
+              <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+              <% end %>
+            </li>
+          <% end %>
+          <% unless current_user.employee.nil? %>
+            <% if current_user.employee.admin == true %>
+            <li>
+              <%= link_to  customers_path do %>
+              <i class="fas fa-users"></i> <%= t(".profile", default: "Users") %>
+              <% end %>
+            </li>
             <% end %>
-          </li>
           <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
