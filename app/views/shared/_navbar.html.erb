@@ -34,11 +34,11 @@
           </li>
           <% unless current_user.employee.nil? %>
             <% if current_user.employee.admin == true %>
-            <li>
-              <%= link_to  admin_customer_path(current_user.customer) do %>
-              <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
-              <% end %>
-            </li>
+             <li>
+                <%= link_to  admin_customer_path(current_user.customer) do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Admin Panel") %>
+                <% end %>
+              </li>
             <% end %>
           <% end %>
           <% unless current_user.employee.nil? %>
@@ -94,7 +94,7 @@
            <% if current_user.employee.admin == true %>
               <li>
                 <%= link_to  admin_customer_path(current_user.customer) do %>
-                <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Admin Panel") %>
                 <% end %>
               </li>
             <% end %>
