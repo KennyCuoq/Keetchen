@@ -1,6 +1,6 @@
 class MealsController < ApplicationController
   def new
-    @meal = Meal.new()
+    @meal = Meal.new
   end
 
   def create
@@ -15,6 +15,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:date, :meal_id)
+    params.require(:meal).permit(:name, :description, :photo)
   end
 end
