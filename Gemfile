@@ -26,6 +26,8 @@ gem 'rqrcode-with-patches', '~> 0.5.4'
 gem 'chunky_png'
 gem 'qrio'
 gem "geocoder"
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 
 
