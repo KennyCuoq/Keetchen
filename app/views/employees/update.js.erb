@@ -34,7 +34,7 @@ function checkIfNill(data) {
 var inventoryLabel = document.querySelector(`#inventory-${runnerId}`);
 var employeeInventory = '<%= @employee.inventory %>';
 var newRefill = parseInt('<%= @amount %>');
-var employeeInventory = employeeInventory - newRefill
+var employeeInventory = employeeInventory - (checkIfNill(newRefill));
 var input = parseInt(employeeInventory) + (checkIfNill(newRefill));
 inventoryLabel.innerHTML = input;
 

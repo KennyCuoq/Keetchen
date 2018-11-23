@@ -31,19 +31,30 @@
             <i class="fas fa-utensils"></i> <%= t(".history", default: "History") %>
             <% end %>
           </li>
-          <% if current_user.employee.admin == true %>
-          <li>
-            <%= link_to  admin_customer_path(current_user.customer) do %>
-            <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+          <% unless current_user.employee.nil? %>
+            <% if current_user.employee.admin == true %>
+            <li>
+              <%= link_to  admin_customer_path(current_user.customer) do %>
+              <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+              <% end %>
+            </li>
             <% end %>
-          </li>
           <% end %>
           <% unless current_user.employee.nil? %>
-          <li>
-            <%= link_to employee_path(current_user.employee) do %>
-            <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+            <li>
+              <%= link_to employee_path(current_user.employee) do %>
+              <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+              <% end %>
+            </li>
+          <% end %>
+          <% unless current_user.employee.nil? %>
+            <% if current_user.employee.admin == true %>
+            <li>
+              <%= link_to  customers_path do %>
+              <i class="fas fa-users"></i> <%= t(".profile", default: "Users") %>
+              <% end %>
+            </li>
             <% end %>
-          </li>
           <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
@@ -76,20 +87,31 @@
           <i class="fas fa-utensils"></i> <%= t(".profile", default: "History") %>
           <% end %>
         </li>
-        <% if current_user.employee.admin == true %>
-          <li>
-            <%= link_to  admin_customer_path(current_user.customer) do %>
-            <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+          <% unless current_user.employee.nil? %>
+            <% if current_user.employee.admin == true %>
+            <li>
+              <%= link_to  admin_customer_path(current_user.customer) do %>
+              <i class="fas fa-chart-bar"></i> <%= t(".profile", default: "Admin Panel") %>
+              <% end %>
+            </li>
             <% end %>
-          </li>
           <% end %>
-        <% unless current_user.employee.nil? %>
-        <li>
-          <%= link_to employee_path(current_user.employee) do %>
-          <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+          <% unless current_user.employee.nil? %>
+            <li>
+              <%= link_to employee_path(current_user.employee) do %>
+              <i class="fas fa-qrcode"></i> <%= t(".profile", default: "QR-scanner") %>
+              <% end %>
+            </li>
           <% end %>
-        </li>
-        <% end %>
+          <% unless current_user.employee.nil? %>
+            <% if current_user.employee.admin == true %>
+            <li>
+              <%= link_to  customers_path do %>
+              <i class="fas fa-users"></i> <%= t(".profile", default: "Users") %>
+              <% end %>
+            </li>
+            <% end %>
+          <% end %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
