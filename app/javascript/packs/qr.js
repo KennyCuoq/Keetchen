@@ -86,9 +86,8 @@ function launchRequest(data) {
     return response.json()
   })
   .then((data) => {
-    console.log(data.msg);
     if (data.msg === "No record") {
-      document.querySelector(".qr-content").innerHTML = "This QR code is not valid";
+      document.querySelector(".qr-content").hidden = true;
       document.querySelector(".qr-name").innerHTML = "No data available";
       document.querySelector(".qr-quantity").innerHTML = "No data available";
       document.querySelector(".qr-date").innerHTML = "No data available";
@@ -100,7 +99,7 @@ function launchRequest(data) {
         buttons: "return",
       })
     } else if(data.msg === "Already used") {
-      document.querySelector(".qr-content").innerHTML = "This QR code has already been used";
+      document.querySelector(".qr-content").hidden = true;
       document.querySelector(".qr-name").innerHTML = "No data available";
       document.querySelector(".qr-quantity").innerHTML = "No data available";
       document.querySelector(".qr-date").innerHTML = "No data available";

@@ -32,19 +32,16 @@ function checkIfNill(data) {
 };
 
 var inventoryLabel = document.querySelector(`#inventory-${runnerId}`);
-var employeeInventory = parseInt(inventoryLabel.innerHTML);
+var employeeInventory = '<%= @employee.inventory %>';
 var newRefill = parseInt('<%= @amount %>');
-employeeInventory += checkIfNill(newRefill);
-inventoryLabel.innerHTML = employeeInventory;
-// inventoryLabel.style.width = '75px'
-// inventoryLabel.style.height = '35px'
-// inventoryLabel.style.fontSize = '21px'
+var employeeInventory = employeeInventory - newRefill
+var input = parseInt(employeeInventory) + (checkIfNill(newRefill));
+inventoryLabel.innerHTML = input;
+
 inventoryLabel.style.color = 'limegreen'
 inventoryLabel.style.borderColor = 'limegreen'
 inventoryLabel.addEventListener("transitionend", function() {
-  // inventoryLabel.style.width = '50px'
-  // inventoryLabel.style.height = '25px'
-  // inventoryLabel.style.fontSize = '14px'
+
   inventoryLabel.style.color = 'black'
   inventoryLabel.style.borderColor = '#999999'
 }, false);
