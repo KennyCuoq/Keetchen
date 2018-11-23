@@ -41,7 +41,6 @@
   </script>
 
   <script>
-    console.log("<%= current_user.id %>")
     App.cable.subscriptions.create (
       {channel:"UpdatesChannel",  user_id: <%= current_user.id %> },
       {received: (data) => {
@@ -50,9 +49,40 @@
         mealDateQR.innerHTML = document.getElementById('order-picked-up').innerHTML
       }
     })
-    // App.cable.subscriptions.create ("UpdatesChannel",
-    //   received: (data) ->
-    //     console.log('hoe')
-    //   )
+  </script>
+
+  <script>
+    App.cable.subscriptions.create (
+      {channel:"EmployeesDetailsChannel"},
+      {received: (data) => {
+
+        const employeeId = data['employee_id'];
+        let marker = map.markers.find(marker => marker.employee_id == employeeId)
+        if (marker) {
+          marker.setLngLat([data.lng, data.lat]);
+          const windowContent = marker._popup._content.querySelector(`#employee-${employeeId}-info`)
+          windowContent.innerHTML = data['infoWindow'];
+        }
+
+
+        // var marker = new mapboxgl.Marker().addTo(map);
+        // marker.remove();
+        // map.
+        // console.log(windowContent);
+        // if (marker) {
+        //   marker.setLngLat([data.lng, data.lat])
+        //   .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+        //   .setHTML(data['infoWindow']))
+        //   .addTo(map);
+        // }
+
+
+        // console.log(employeeId);
+        // console.log(typeof employeeId);
+        // const employeePin = document.getElementById('employee-155-inventory');
+        // console.log(employeePin);
+
+      }
+      })
   </script>
 <% end %>

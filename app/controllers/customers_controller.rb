@@ -1,14 +1,14 @@
 class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
-    @employees = Employee.where.not(latitude: nil, longitude: nil)
-    @markers = @employees.map do |employee|
-      {
-        lng: employee.longitude,
-        lat: employee.latitude,
-        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
-      }
-    end
+    # @employees = Employee.where.not(latitude: nil, longitude: nil)
+    # @markers = @employees.map do |employee|
+    #   {
+    #     lng: employee.longitude,
+    #     lat: employee.latitude,
+    #     infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
+    #   }
+    # end
   end
 
   def index
@@ -32,6 +32,15 @@ class CustomersController < ApplicationController
   def admin
     @meal_date = MealDate.find_by(date: Date.today)
     @runners = Employee.all
+    @employees = Employee.where.not(latitude: nil, longitude: nil)
+    @markers = @employees.map do |employee|
+      {
+        lng: employee.longitude,
+        lat: employee.latitude,
+        employee_id: employee.id,
+        infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
+      }
+    end
   end
 
   def destroy

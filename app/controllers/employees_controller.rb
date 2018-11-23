@@ -24,6 +24,17 @@ class EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     refill_inventory
+    ActionCable.server.broadcast("employees_details_channel", {
+      employee_id: @employee.id,
+      infoWindow: ApplicationController.renderer.render(
+        partial: "employees/map_window",
+        locals: { employee: @employee }
+      ),
+      last_updated: @employee.updated_at.strftime('%H:%M:%S'),
+      lat: @employee.latitude,
+      lng: @employee.longitude,
+      inv: @employee.inventory
+    })
   end
 
   def update_position
@@ -31,6 +42,18 @@ class EmployeesController < ApplicationController
     @employee.latitude = params["lat"]
     @employee.longitude = params["lng"]
     @employee.save!
+    ActionCable.server.broadcast("employees_details_channel", {
+      employee_id: @employee.id,
+      updateType: 'geo',
+      infoWindow: ApplicationController.renderer.render(
+        partial: "employees/map_window",
+        locals: { employee: @employee }
+      ),
+      last_updated: @employee.updated_at.strftime('%H:%M:%S'),
+      lat: @employee.latitude,
+      lng: @employee.longitude,
+      inv: @employee.inventory
+    })
     render json: { last_updated: @employee.updated_at.strftime('%H:%M:%S'), lat: @employee.latitude, lng: @employee.longitude}
   end
 

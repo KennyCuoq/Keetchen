@@ -6,6 +6,7 @@ class MealDatesController < ApplicationController
       {
         lng: employee.longitude,
         lat: employee.latitude,
+        employee_id: employee.id,
         infoWindow: { content: render_to_string(partial: "/employees/map_window", locals: { employee: employee }) }
       }
     end

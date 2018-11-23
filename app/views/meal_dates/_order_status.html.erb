@@ -2,5 +2,5 @@
 <% if order.status == "Picked up" %>
   <a class="btn-order-status-green"><%= order.status %></a>
 <% else %>
-  <a class="btn-order-status"><%= order.status %></a>
+  <a class="btn-order-status" id="order-status-<%= meal_date.id %>"><%= order.status %></a>
 <% end %>
