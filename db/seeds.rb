@@ -187,7 +187,8 @@ end
 dates = []
 10.times do |i|
   date = Date.today + i
-  if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
+  # if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
+  if (date.strftime('%A') != 'Sunday')
     dates << date
   else
     puts 'byebye'
@@ -204,7 +205,9 @@ meals.each do |meal|
   counter += 1
   meal_dates << new_meal_date
   puts 'New meal date created!'
-  break if meal_dates.length == 5
+  # break if meal_dates.length == 5
+  # Making 6 meal dates for demo day purposes
+  break if meal_dates.length == 6
 end
 
 p users
