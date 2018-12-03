@@ -8,9 +8,9 @@ User.destroy_all
 pre_order_price = 450
 day_price = 500
 
-photo_burger = 'https://www.californiaavocado.com/getattachment/ac6fe491-1199-4df8-a725-3588383e997b/California-Avocado-Beef-and-Black-Bean-Burger'
+# photo_burger = 'https://www.californiaavocado.com/getattachment/ac6fe491-1199-4df8-a725-3588383e997b/California-Avocado-Beef-and-Black-Bean-Burger'
 photo_salad = 'https://cms.splendidtable.org/sites/default/files/styles/w2000/public/I-Love-India_Griddle-Chopped-Chicken-Salad-LEDE02.jpg?itok=qbUDcqvN'
-photo_taboule = 'https://koken.medialaancdn.be/sites/koken.vtm.be/files/styles/vmmaplayer_big/public/recipe/image/istock_000017105352small.jpg?itok=9cmJMGfW'
+# photo_taboule = 'https://koken.medialaancdn.be/sites/koken.vtm.be/files/styles/vmmaplayer_big/public/recipe/image/istock_000017105352small.jpg?itok=9cmJMGfW'
 photo_gnocchi = 'https://dusyefwqqyfwe.cloudfront.net/uploads/culinary/recipe_image/file/23814/recipe_card_size_6._Plate.jpg'
 photo_poke = 'http://images.media-allrecipes.com/userphotos/960x960/4473416.jpg'
 photo_beef_tartare = 'https://www.ribnreef.com/wp-content/uploads/2017/10/morceaux-de-boeuf-pour-tartare-2000x1200.jpg'
@@ -43,15 +43,15 @@ photo_william = 'https://avatars3.githubusercontent.com/u/27657581?v=4'
 gnocchi = Meal.new(name: "Four Cheeses Gnocchi", description: "Smothered in a smooth and rich cheese sauce then grilled until golden and bubbling this delicious supper takes less than 30mins to cook. Potato gnocchi are small Italian dumplings that take just minutes to cook in boiling water. They have a fairly bland flavour but will absorb all the lovely flavours from the sauce.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 gnocchi.remote_photo_url =  photo_gnocchi
 gnocchi.save
-hamburger = Meal.new(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-hamburger.remote_photo_url =  photo_burger
-hamburger.save
+# hamburger = Meal.new(name: "Avocado Burger", description: "There’s nothing quite like fresh sliced avocado. It adds a light, creamy taste to whatever delicious food you decide add it to. And today we’re going to add it to a burger. The Avocado Burger is delicious and really easy to make. Just cutting up some avocado is a simple way to fancy up a burger anytime.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+# hamburger.remote_photo_url =  photo_burger
+# hamburger.save
 salad = Meal.new(name: "Chicken Salad", description: "“Chaat” is a term used for a whole genre of streetfood which is hard to describe in one sentence, but one part of it encompasses a lot of simple vegetables and fruits tossed in some tangy and spiced lemon-based dressings with a blend of spices that are known as chaat masala. “Chaat” literally means to lick, as in finger-licking good… and they generally are. This chicken chaat is based on the one we ate growing up but we normally had it as a chopped salad, so everything mixes well with the tangy dressing.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 salad.remote_photo_url =  photo_salad
 salad.save
-taboule = Meal.new(name: "Vegetable Taboulé", description: "Tabouli is likely the topmost famed Mediterranean/Middle Eastern salad there is. Because it is now sold in most large supermarkets around the world, I feel compelled to dispel one thing: the “star of the show,” so to speak, in a tabouli recipe is not the bulgur. The idea is to have a little bulgur with the salad, not a little salad with your bulgur.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-taboule.remote_photo_url =  photo_taboule
-taboule.save
+# taboule = Meal.new(name: "Vegetable Taboulé", description: "Tabouli is likely the topmost famed Mediterranean/Middle Eastern salad there is. Because it is now sold in most large supermarkets around the world, I feel compelled to dispel one thing: the “star of the show,” so to speak, in a tabouli recipe is not the bulgur. The idea is to have a little bulgur with the salad, not a little salad with your bulgur.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+# taboule.remote_photo_url =  photo_taboule
+# taboule.save
 poke_bowl = Meal.new(name: "Tuna Poke", description: "Created in the tropical Hawaiian islands, poké actually refers to the cubes of marinated raw fish that was a way to use up leftover ends from prime sashimi cuts.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 poke_bowl.remote_photo_url =  photo_poke
 poke_bowl.save
@@ -74,9 +74,9 @@ meals << poke_bowl
 meals << pad_thai
 meals << salad
 meals << beef_tartare
-meals << pesto_pasta
-meals << hamburger
-meals << taboule
+# meals << pesto_pasta
+# meals << hamburger
+# meals << taboule
 
 #creation of users
 puts "Creating users..."
@@ -185,10 +185,10 @@ end
 
 #creation of meal_dates
 dates = []
-10.times do |i|
+100.times do |i|
   date = Date.today + i
-  # if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
-  if (date.strftime('%A') != 'Sunday')
+  if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
+  # if (date.strftime('%A') != 'Sunday')
     dates << date
   else
     puts 'byebye'
@@ -197,36 +197,52 @@ end
 
 puts dates
 
+# counter = 0
+# # today = Date.today
+# meal_dates = []
+# meals.each do |meal|
+#   new_meal_date = MealDate.create!(date: dates[0 + counter], meal_id: meal.id )
+#   counter += 1
+#   meal_dates << new_meal_date
+#   puts 'New meal date created!'
+#   # break if meal_dates.length == 5
+#   # Making 6 meal dates for demo day purposes
+#   break if meal_dates.length == 6
+# end
+
 counter = 0
 # today = Date.today
 meal_dates = []
-meals.each do |meal|
-  new_meal_date = MealDate.create!(date: dates[0 + counter], meal_id: meal.id )
+dates.each do |date|
+  new_meal_date = MealDate.create!(date: date, meal_id: meals[0 + counter].id )
   counter += 1
   meal_dates << new_meal_date
   puts 'New meal date created!'
+  if counter >= (meals.length)
+    counter = 0
+  end
   # break if meal_dates.length == 5
   # Making 6 meal dates for demo day purposes
-  break if meal_dates.length == 6
+  # break if meal_dates.length == 6
 end
 
 p users
 p meal_dates
 # #creation of orders
 
-users.each do |user|
-  meal_dates.each do |meal_date|
-    if meal_date.date == Date.today
-      order_price = 500
-      pre = false
-    else
-      order_price = 450
-      pre = true
-    end
-    qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
-    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
-  end
-end
+# users.each do |user|
+#   meal_dates.each do |meal_date|
+#     if meal_date.date == Date.today
+#       order_price = 500
+#       pre = false
+#     else
+#       order_price = 450
+#       pre = true
+#     end
+#     qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
+#     Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
+#   end
+# end
 
 
 
