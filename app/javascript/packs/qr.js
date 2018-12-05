@@ -110,19 +110,19 @@ function launchRequest(data) {
         icon: "warning",
         buttons: "return",
       })
-    } else if(data.msg === "not today") {
-      document.querySelector(".qr-content").hidden = true;
-      document.querySelector(".qr-name").innerHTML = `${data.name}`;
-      document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`;
-      document.querySelector(".qr-date").innerHTML = `${data.date}`;
-      document.querySelector(".qr-meal").innerHTML = `${data.meal}`;
-      document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
-      swal({
-        title: "QR code for different date",
-        text: "This QR code is for a different date",
-        icon: "warning",
-        buttons: "return",
-      })
+    // } else if(data.msg === "not today") {
+    //   document.querySelector(".qr-content").hidden = true;
+    //   document.querySelector(".qr-name").innerHTML = `${data.name}`;
+    //   document.querySelector(".qr-quantity").innerHTML = `${data.quantity}`;
+    //   document.querySelector(".qr-date").innerHTML = `${data.date}`;
+    //   document.querySelector(".qr-meal").innerHTML = `${data.meal}`;
+    //   document.querySelector(".order-picture").style.backgroundImage = `url("${data.photo}")`;
+    //   swal({
+    //     title: "QR code for different date",
+    //     text: "This QR code is for a different date",
+    //     icon: "warning",
+    //     buttons: "return",
+    //   })
     } else {
       document.querySelector(".qr-content").hidden = true;
       document.querySelector(".qr-name").innerHTML = `${data.name}`;

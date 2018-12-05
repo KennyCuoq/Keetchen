@@ -10,12 +10,11 @@ class OrdersController < ApplicationController
     @qr_text = params[:qr]
     @order = Order.find_by(qr_code: @qr_text)
       if @order.nil?
-        # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
       elsif @order.status == "Picked up"
         render json: {msg: "Already used", qr_code: @qr_text, order: @order.to_json}
       else
-        if @order.meal_date.date == Date.today
+        # if @order.meal_date.date == Date.today
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
@@ -24,9 +23,9 @@ class OrdersController < ApplicationController
          })
         current_user.employee.inventory -= 1
         current_user.employee.save!
-        else
-          render json: {msg: "not today", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-        end
+        # else
+        #   render json: {msg: "not today", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
+        # end
       end
     else
       render json: {msg: "Your not allowed to perform this action"}
