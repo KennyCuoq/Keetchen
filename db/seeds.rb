@@ -226,19 +226,19 @@ p users
 p meal_dates
 # #creation of orders
 
-# users.each do |user|
-#   meal_dates.each do |meal_date|
-#     if meal_date.date == Date.today
-#       order_price = 500
-#       pre = false
-#     else
-#       order_price = 450
-#       pre = true
-#     end
-#     qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
-#     Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
-#   end
-# end
+users.each do |user|
+  meal_dates.each do |meal_date|
+    if meal_date.date == Date.today
+      order_price = 500
+      pre = false
+    else
+      order_price = 450
+      pre = true
+    end
+    qr = (0...26).map { ('a'..'z').to_a[rand(26)] }.join
+    Order.create!(meal_date_id: meal_date.id, user_id: user.id, order_price_cents: order_price, pre_order: pre, qr_code: qr, status: 'Paid')
+  end
+end
 
 
 pesto_pasta = Meal.new(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
