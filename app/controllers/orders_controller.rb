@@ -15,14 +15,14 @@ class OrdersController < ApplicationController
         render json: {msg: "Already used", qr_code: @qr_text, order: @order.to_json}
       else
         # if @order.meal_date.date == Date.today
+        # status_partial = ApplicationController.renderer.render 'meal_dates/order_status'
+        # raise
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-         ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
-          meal_date_id: @order.meal_date.id
-         })
         current_user.employee.inventory -= 1
         current_user.employee.save!
+        broadcast_order_updates
         # else
         #   render json: {msg: "not today", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
         # end
@@ -77,5 +77,16 @@ class OrdersController < ApplicationController
     @meal_date = MealDate.find(params[:meal_date_id])
     @meal = @meal_date.meal
   end
+
+  def broadcast_order_updates
+    ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
+        # status_partial: ApplicationController.renderer.render (
+        #   partial: "meal_dates/order_status",
+        #   locals: { meal_date: @order.meal_date}
+        # ),
+        meal_date_id: @order.meal_date.id
+      })
+  end
+
 
 end

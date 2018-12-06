@@ -47,6 +47,10 @@
         const mealDateId = data['meal_date_id']
         const mealDateQR = document.getElementById(`qr-code-${mealDateId}`)
         mealDateQR.innerHTML = document.getElementById('order-picked-up').innerHTML
+        const orderStatus = document.getElementById(`order-status-${mealDateId}`);
+        orderStatus.classList.remove("btn-order-status");
+        orderStatus.classList.add("btn-order-status-green");
+        orderStatus.innerHTML = "Picked up";
       }
     })
   </script>
