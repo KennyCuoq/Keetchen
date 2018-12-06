@@ -9,25 +9,22 @@ class OrdersController < ApplicationController
     unless current_user.employee.nil?
     @qr_text = params[:qr]
     @order = Order.find_by(qr_code: @qr_text)
-      if @order.nil?
-        # render json: {msg: "No record found", qr_code: @qr_text, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-        render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
-      elsif @order.status == "Picked up"
-        render json: {msg: "Already used", qr_code: @qr_text, order: @order.to_json}
-      else
-        if @order.meal_date.date == Date.today
+    if @order.nil?
+      render json: {msg: "No record", qr_code: @qr_text, order: @order.to_json}
+    elsif @order.status == "Picked up"
+      render json: {msg: "Already used", qr_code: @qr_text, order: @order.to_json}
+    else
+      if @order.meal_date.date == Date.today
         @order.status = "Picked up"
         @order.save
         render json: {msg: "confirmed", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-         ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
-          meal_date_id: @order.meal_date.id
-         })
         current_user.employee.inventory -= 1
         current_user.employee.save!
-        else
-          render json: {msg: "not today", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
-        end
+        broadcast_order_updates
+      else
+        render json: {msg: "not today", qr_code: @qr_text, order: @order.to_json, name: @order.user.full_name, quantity: @order.quantity, date: @order.meal_date.date, meal: @order.meal_date.meal.name, photo: @order.user.customer.photo.url}
       end
+    end
     else
       render json: {msg: "Your not allowed to perform this action"}
     end
@@ -78,5 +75,16 @@ class OrdersController < ApplicationController
     @meal_date = MealDate.find(params[:meal_date_id])
     @meal = @meal_date.meal
   end
+
+  def broadcast_order_updates
+    ActionCable.server.broadcast("update_channel_#{@order.user.id}", {
+        # status_partial: ApplicationController.renderer.render (
+        #   partial: "meal_dates/order_status",
+        #   locals: { meal_date: @order.meal_date}
+        # ),
+        meal_date_id: @order.meal_date.id
+      })
+  end
+
 
 end

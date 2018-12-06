@@ -61,9 +61,6 @@ beef_tartare.save
 pad_thai = Meal.new(name: "Vegetarian Pad Thai", description: "In Thailand, people are fiercely loyal to their favorite pad Thai—which is painstakingly made one plate at a time. After a taste of this quicker vegetarian version, we think you'll start to feel that same sense of loyalty.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
 pad_thai.remote_photo_url =  photo_pad_thai
 pad_thai.save
-pesto_pasta = Meal.new(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
-pesto_pasta.remote_photo_url =  photo_pesto_pasta
-pesto_pasta.save
 
 
 
@@ -74,7 +71,6 @@ meals << poke_bowl
 meals << pad_thai
 meals << salad
 meals << beef_tartare
-# meals << pesto_pasta
 # meals << hamburger
 # meals << taboule
 
@@ -245,6 +241,9 @@ p meal_dates
 # end
 
 
+pesto_pasta = Meal.new(name: "Tagliatelle al pesto", description: "Brilliant green with an intense sweet perfume, Pesto alla Genovese is the pride of Genoa, the bright, earthy and pungent sauce originating in the Liguria region of northern Italy. The name comes from the Genovese word 'pestare', which means to 'pound' or 'crush', however the ingredients in traditional pesto aren't in fact pounded, but ground with the circular motion of a pestle in mortar.", pre_order_price_cents: pre_order_price, day_price_cents: day_price )
+pesto_pasta.remote_photo_url =  photo_pesto_pasta
+pesto_pasta.save
 
 
 old_meal = MealDate.create!(date: (Date.today - 6), meal_id: pesto_pasta.id)
