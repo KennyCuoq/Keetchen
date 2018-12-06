@@ -31,8 +31,9 @@ function switchOrderTabsOnClick() {
   allTabs.forEach((tab) => {
    tab.addEventListener('click', (event)=> {
     let id = event.currentTarget.dataset.id
+    const relevantTabs = document.querySelectorAll(`[data-id~="${id}"].order-tab`);
+    deactivateTabs(relevantTabs);
     const allOrderContents = document.querySelectorAll(`.order-tab-content-${id}`);
-    deactivateTabs(allTabs)
     hideTabContents(allOrderContents)
     event.currentTarget.classList.add("active")
     const contentId = event.currentTarget.dataset.target.toString();

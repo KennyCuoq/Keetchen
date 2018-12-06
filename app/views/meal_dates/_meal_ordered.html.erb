@@ -13,7 +13,7 @@
       <% if is_today %>
         <a class="tab order-tab active" data-id="<%= meal_date.id  %>" data-target="map-runners">Map</a>
       <% end %>
-      <a class="tab order-tab <%= 'active' unless is_today %>" data-id="<%= meal_date.id  %>" data-target="qr-code-<%= meal_date.id  %>">QR code</a>
+      <a class="tab order-tab <%= 'active' unless is_today %>" data-id="<%= meal_date.id  %>" data-target="qr-code-<%= meal_date.id %>">QR code</a>
       <a class="tab order-tab" data-id="<%= meal_date.id  %>" data-target="meal-<%= meal_date.id  %>">Your meal</a>
     </div>
   </div>
