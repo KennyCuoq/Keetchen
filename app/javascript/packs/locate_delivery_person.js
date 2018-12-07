@@ -52,3 +52,7 @@ function geoFindMe(employeeID) {
 }
 
 global.geoFindMe = geoFindMe;
+
+// create a button tha triggers geofindme
+// create nother button that triggers stopwatch (or whatver is the function that stops trackiong)
+// set lng and lat to nil for that employee upon clicking
