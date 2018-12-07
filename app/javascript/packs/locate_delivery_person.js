@@ -47,10 +47,31 @@ function geoFindMe(employeeID) {
 
   output.innerHTML = "<p>Locating…</p>";
 
-  navigator.geolocation.watchPosition(success, error);
+  return navigator.geolocation.watchPosition(success, error);
+  // const watchId = navigator.geolocation.watchPosition(success, error);
+  // console.log(watchId);
   // navigator.geolocation.getCurrentPosition(success, error);
 }
 
+function stopGeoLocation(employeeID) {
+  const GPSCoordinates = {
+    lat: 'no lat',
+    lng: 'no lng',
+  }
+
+  fetch(`/employees/${employeeID}/update_position`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      'X-CSRF-Token': document.querySelector("[name='csrf-token']").content,
+      "Content-Type": 'application/json',
+      "Accept": 'application/json'
+    },
+    body: JSON.stringify(GPSCoordinates),
+    credentials: 'same-origin'
+  })
+}
+global.stopGeoLocation = stopGeoLocation;
 global.geoFindMe = geoFindMe;
 
 // create a button tha triggers geofindme
