@@ -183,12 +183,12 @@ end
 dates = []
 100.times do |i|
   date = Date.today + i
-  if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
-  # if (date.strftime('%A') != 'Sunday')
-    dates << date
-  else
-    puts 'byebye'
-  end
+  dates << date
+  # if (date.strftime('%A') != 'Saturday') && (date.strftime('%A') != 'Sunday')
+  #   dates << date
+  # else
+  #   puts 'byebye'
+  # end
 end
 
 puts dates
