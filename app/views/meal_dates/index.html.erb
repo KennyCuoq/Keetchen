@@ -59,16 +59,33 @@
     App.cable.subscriptions.create (
       {channel:"EmployeesDetailsChannel"},
       {received: (data) => {
-
         const employeeId = data['employee_id'];
         let marker = map.markers.find(marker => marker.employee_id == employeeId)
         if (marker) {
-          marker.setLngLat([data.lng, data.lat]);
-          const windowContent = marker._popup._content.querySelector(`#employee-${employeeId}-info`)
-          windowContent.innerHTML = data['infoWindow'];
+          if (data.lng !== null || data.lat !== null) {
+            marker._element.style.display = '';
+            marker.setLngLat([data.lng, data.lat]);
+            const windowContent = marker._popup._content.querySelector(`#employee-${employeeId}-info`)
+            windowContent.innerHTML = data['infoWindow'];
+          } else {
+            marker._element.style.display = 'none';
+            marker._popup._closeButton.click();
+            // marker.parentNode.removeChild(marker);
+          }
+        } else {
+          let createdMarker = new mapboxgl.Marker()
+            .setLngLat([data.lng, data.lat])
+            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(data.infoWindow))
+            .addTo(map);
+            createdMarker.employee_id = data.employee_id;
+            map.markers.push(createdMarker);
+            document.querySelectorAll("[fill='#3FB1CE']").forEach(marker => {
+            marker.setAttribute('fill', '#ff1943');
+          })
+          // need to create an element for it, make sure that after creation it goes into the firs fork of the if statement
         }
 
-        console.log(map);
 
 
         // var marker = new mapboxgl.Marker().addTo(map);

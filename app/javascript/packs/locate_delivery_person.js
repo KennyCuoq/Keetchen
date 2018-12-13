@@ -48,6 +48,8 @@ function geoFindMe(employeeID) {
   output.innerHTML = "<p>Locating…</p>";
 
   return navigator.geolocation.watchPosition(success, error);
+  // window.watchId = navigator.geolocation.watchPosition(success, error);
+  // return window.watchId;
   // const watchId = navigator.geolocation.watchPosition(success, error);
   // console.log(watchId);
   // navigator.geolocation.getCurrentPosition(success, error);
