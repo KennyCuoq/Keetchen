@@ -59,15 +59,22 @@ set the employee lognitdue to what is returned from the function> -->
       </div>
     </div>
     <div class="container-card" style="text-align:center">
-      <div id="coordinates"></div>
+      <a onclick="window.watchId = geoFindMe('<%= current_user.employee.id %>')">Start shift</a>
+      <!-- <a onclick="navigator.geolocation.clearWatch(window.watchId); stopGeoLocation('<%= current_user.employee.id %>')">End shift</a> -->
+      <a id="end-shift">End shift</a>
+      <div id="coordinates">Start shift to track location</div>
     </div>
   </div>
 </div>
 
-
 <% if current_user.employee? %>
   <%= javascript_pack_tag 'locate_delivery_person' %>
   <script>
-    geoFindMe('<%= current_user.employee.id %>');
+    function endShift() {
+      navigator.geolocation.clearWatch(window.watchId);
+      stopGeoLocation('<%= current_user.employee.id %>');
+      document.getElementById("coordinates").innerHTML = 'Stopped tracking location at ' + new Date().toLocaleTimeString();
+    }
+    document.getElementById("end-shift").addEventListener("click", endShift);
   </script>
 <% end %>

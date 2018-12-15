@@ -2,6 +2,7 @@ class MealDatesController < ApplicationController
   def index
     @meal_dates = MealDate.where("date >= ?", Date.today).first(5)
     @employees = Employee.where.not(latitude: nil, longitude: nil)
+    # @employees = @employees.select { |employee| (employee.longitude != 'no lng') && (employee.latitude != 'no lat') }
     @markers = @employees.map do |employee|
       {
         lng: employee.longitude,

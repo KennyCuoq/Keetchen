@@ -39,8 +39,13 @@ class EmployeesController < ApplicationController
 
   def update_position
     @employee = Employee.find(params[:id])
-    @employee.latitude = params["lat"]
-    @employee.longitude = params["lng"]
+    if (params["lat"] != "no lat") && (params["lng"] != "no lng")
+      @employee.latitude = params["lat"]
+      @employee.longitude = params["lng"]
+    else
+      @employee.latitude = nil
+      @employee.longitude = nil
+    end
     @employee.save!
     ActionCable.server.broadcast("employees_details_channel", {
       employee_id: @employee.id,
